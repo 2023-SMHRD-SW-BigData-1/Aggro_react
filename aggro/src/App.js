@@ -1,62 +1,36 @@
-import logo from './logo.svg';
-import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react';
-import './App.css';
+import React from "react";
+
+import "./App.css";
+
+import { Route, Switch } from "react-router-dom";
+
+import Home from "./pages/home/Home";
+import Ranking from "./pages/ranking/Ranking";
+import Join from "./pages/join/Join";
+import Login from "./pages/login/Login";
+
+import Community from "./pages/community/Community";
+
+import CommunityDetail from "./pages/community/CommunityDetail";
+import CommunityWrite from "./pages/community/CommunityWrite";
+import Summoner from "./pages/summoner/Summoner";
+import CommunityEdit from "./pages/community/CommunityEdit";
 
 function App() {
-
-  const axiosTest = () => {
-    axios.get('bigdata/test')
-      .then((res) => {
-        console.log(res)
-      })
-      .catch(() => { })
-  }
-
-  const idRef = useRef();
-  const pwRef = useRef();
-  const nickRef = useRef();
-
-  const [userData, setUserData] = useState({})
-
-  const handleAxios = (e) => {
-    e.preventDefault();
-
-    setUserData({
-      user_id: idRef.current.value,
-      user_pw: pwRef.current.value,
-      user_nick: nickRef.current.value,
-      user_class: "0",
-    })
-  }
-
-  useEffect(() => {
-    userData.user_id !== undefined && 
-      axios.post("bigdata/form", userData)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch(() => {
-
-        })
-  }, [userData])
-
   return (
-    <div className="">
-      <button onClick={axiosTest}>
-        통신 테스트 버튼
-      </button>
-
-      <form onSubmit={handleAxios}>
-        <input type='text' placeholder='Id' ref={idRef} />
-        <br />
-        <input type='password' placeholder='Pw' ref={pwRef} />
-        <br />
-        <input type='text' placeholder='Nick' ref={nickRef} />
-        <br />
-        <input type='submit' value="form 타입 테스트" />
-      </form>
-    </div>
+    <Switch>
+      <Route path="/home" component={Home} exact={true} />
+      <Route path="/" component={Home} exact={true} />
+      <Route path="/ranking" component={Ranking} />
+      <Route path="/community/:id" component={CommunityDetail} />
+      <Route path="/community" component={Community} />
+      <Route path="/login" component={Login} />
+      <Route path="/join" component={Join} />
+      <Route path="/write" component={CommunityWrite} />
+      <Route path="/summoner/:username" component={Summoner} />
+      <Route path="/summoner" component={Summoner} />
+      <Route path="/edit" component={CommunityEdit} exact={true} />
+    </Switch>
   );
 }
 

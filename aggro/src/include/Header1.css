@@ -1,0 +1,58 @@
+/* head ul이랑 list css 설정임*/
+/* flex 레이아웃 */
+
+.l-menu1 {
+  display: flex;
+  height: 48px;
+  background: #5383e8;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* .l-menu {
+  display: flex;
+  height: 48px;
+  background: #5383e8;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* header 부분 li, ul 양식 */
+/* 나중에 이쪽부분 전체로 먹을 수 있어서 체크해야함 */
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* header 부분  css 양식 */
+.menu1 {
+  display: contents;
+  align-items: center;
+  list-style: none;
+}
+/* header 부분  폰트 사이즈 */
+.menu__item1 {
+  font-size: 15px;
+  /* 부모 요소 범위를 넘어가는 자식 요소의 부분은 보이지 않도록 처리 */
+
+  /* 잘린 텍스트를 생략 부호(...)표시 함 */
+  text-overflow: ellipsis();
+}
+
+/* header a태그 꾸미기 */
+
+/* .link {
+  text-decoration: none;
+  outline: none;
+  color: #b3cdff;
+} */
+
+/* header 탭 간격 띄우기 */
+li {
+  margin-left: 25px;
+  margin-right: 25px;
+}
