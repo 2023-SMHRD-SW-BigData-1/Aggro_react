@@ -10,7 +10,7 @@
   background-color: #5383e8;
   position: relative;
   min-height: 100vh;
-  width: 1500px;
+  width: 100%;
 }
 
 /* head ul이랑 list css 설정임*/
@@ -51,7 +51,7 @@ li {
 /* 제일 큰 div 컨테이너 박스 */
 /* 제일 큰 div 컨테이너 박스 */
 .l-container {
-  width: 1080px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -99,7 +99,7 @@ li {
 /* form으로 서치바 크기 css 조절함 */
 .summoner-search-form {
   position: relative;
-  width: 624px;
+  width: 50%;
   margin: 0 auto;
   border-radius: 2px;
   background-color: #fff;
