@@ -9,9 +9,10 @@ const Join = ({ history }) => {
   //화면 전체
   // 만약에 더 바꾸고 싶으면 styled-compoenet로 hover구현해보자 색깔바뀌는거
   const [form, setForm] = useState({
-    email: "",
-    nickname: "",
-    password: "",
+    userId: "",
+    userNick: "",
+    userPw: "",
+    userClass: "0"
   });
 
   const cancelHome = () => {
@@ -26,11 +27,11 @@ const Join = ({ history }) => {
   };
 
   const handleSubmit = (e) => {
+    // 가입하기 누른 뒤 로직
     e.preventDefault();
-    console.log(form);
     axios
       .post(
-        "http://59.20.79.42:58002/join",
+        "http://localhost:8283/bigdata/join",
 
         form,
         {
@@ -44,11 +45,15 @@ const Join = ({ history }) => {
         //     alert('아이디가 중복되었습니다.');
         // } else if (result == 0) { // === 3개는 타입까지 비교 == 값만비교
         // 	alert('사용하실 수 있는 아이디입니다.');
-        alert(response.data.message);
-        // join할 때는 jwt 토큰 받을 필요 없다.
 
-        alert("회원가입이 완료되었습니다.");
-        history.push("/home");
+        // join할 때는 jwt 토큰 받을 필요 없다.
+        if (!response.data.status) {
+          alert(response.data.message);
+        } else {
+          alert("회원가입이 완료되었습니다.");
+          history.push("/home");
+        }
+
       })
       .catch((error) => {
         console.log(error.response);
@@ -77,7 +82,7 @@ const Join = ({ history }) => {
                   className="member-input__box"
                   type="text"
                   autoComplete="off"
-                  name="email"
+                  name="userId"
                   placeholder="이메일 주소"
                 />
               </div>
@@ -88,7 +93,7 @@ const Join = ({ history }) => {
                   className="member-input__box"
                   type="text"
                   autoComplete="off"
-                  name="nickname"
+                  name="userNick"
                   placeholder="닉네임"
                 />
               </div>
@@ -101,9 +106,8 @@ const Join = ({ history }) => {
                   onChange={hanleOnChange}
                   className="member-input__box"
                   type="password"
-                  t
                   autoComplete="off"
-                  name="password"
+                  name="userPw"
                   placeholder="비밀번호"
                 />
               </div>

@@ -15,7 +15,7 @@ const Login = () => {
       },
     };
 
-    let res = await axios.get("http://59.20.79.42:58002/user", config);
+    let res = await axios.get("bigdata/user", config);
     setUser(res.data.data);
   };
 

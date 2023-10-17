@@ -17,6 +17,7 @@ const GooleLoginBox = styled.div`
   }
 `;
 
+// 간편 로그인 누름
 const LoginContent = ({ history }) => {
   const config = {
     headers: {
@@ -30,15 +31,19 @@ const LoginContent = ({ history }) => {
 
     const googleData = {
       googleId: response.profileObj.googleId,
-      email: response.profileObj.email,
-      name: response.profileObj.name,
+      userId: response.profileObj.email,
+      userNick: response.profileObj.name
     };
 
     let jwtToken = await axios.post(
-      "http://59.20.79.42:58002/jwt/oauth",
+      "http://localhost:8283/bigdata/oauth", // 어디서 받아오는거지??
       JSON.stringify(googleData),
       config
     );
+
+    console.log(jwtToken);
+
+    // 성공적으로 받아왔을 경우
     if (jwtToken.status === 200) {
       localStorage.setItem("userId", jwtToken.data.data.userId);
       localStorage.setItem("nickname", jwtToken.data.data.nickname);
@@ -48,11 +53,12 @@ const LoginContent = ({ history }) => {
     } else {
       alert("로그인에 실패하셨습니다");
     }
+    
   };
 
   const [form, setForm] = useState({
-    email: "",
-    password: "",
+    userId: "",
+    userPw: "",
   });
 
   const onChangeForm = (e) => {
@@ -62,27 +68,22 @@ const LoginContent = ({ history }) => {
     });
   };
 
+  // 로그인 버튼 누름
   const onSubmit = (e) => {
     e.preventDefault();
     // console.log(form);
 
     axios
       .post(
-        "http://59.20.79.42:58002/jwt/common",
+        "http://localhost:8283/bigdata/login",
 
         form,
-        {
-          headers: {
-            // Accept: 'application/json',
-            "Content-Type": "application/json",
-          },
-        }
       )
       .then((response) => {
         console.log(response);
         alert(response.data.message);
 
-        localStorage.setItem("jwtToken", response.data.data.jwtToken);
+        localStorage.setItem("jwtToken", response.data.data.jwtToken); // 왜 발급하고 있지?
         localStorage.setItem("userId", response.data.data.userId);
         localStorage.setItem("nickname", response.data.data.nickname);
 
@@ -147,7 +148,7 @@ const LoginContent = ({ history }) => {
                         className="member-input__box"
                         type="text"
                         autoComplete="off"
-                        name="email"
+                        name="userId"
                         placeholder="이메일 주소"
                         onChange={onChangeForm}
                       />
@@ -163,7 +164,7 @@ const LoginContent = ({ history }) => {
                         className="member-input__box"
                         type="password"
                         autoComplete="off"
-                        name="password"
+                        name="userPw"
                         onChange={onChangeForm}
                         placeholder="비밀번호"
                       />

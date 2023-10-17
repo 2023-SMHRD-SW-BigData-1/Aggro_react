@@ -10,22 +10,23 @@ const config = {
 };
 
 const responseGoogle = async (response, history) => {
-  console.log(1, response);
+  console.log("진행됨");
+  console.log(1.1, response);
   //   let res = {...response, ...{provider : "google"}};
 
   let jwtToken = await axios.post(
-    "http://59.20.79.42:58002/jwt/oauth",
+    "http://localhost:8283/bigdata/oauth",
     JSON.stringify(response),
     config
   );
   if (jwtToken.status === 200) {
-    console.log(2, jwtToken.data.data.userId);
-    console.log(3, jwtToken.data.data.ninckname);
-    console.log(4, jwtToken.data.data.jwtToken);
+    console.log(1.2, jwtToken.data.data.userId);
+    console.log(1.3, jwtToken.data.data.ninckname);
+    console.log(1.4, jwtToken.data.data.jwtToken);
     localStorage.setItem("userId", jwtToken.data.data.userId);
     localStorage.setItem("nickname", jwtToken.data.data.nickname);
     localStorage.setItem("jwtToken", jwtToken.data.data.jwtToken);
-    history.push("/home");
+    // history.push("/home");
   }
 };
 

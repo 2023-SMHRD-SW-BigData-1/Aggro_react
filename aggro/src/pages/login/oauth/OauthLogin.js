@@ -7,13 +7,16 @@ function OauthLogin() {
   const [user, setUser] = useState(null);
 
   const getUser = async () => {
+
+    console.log("진행중");
     const config = {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken'),
       },
     };
 
-    let res = await axios.get('http://59.20.79.42:58002/user', config);
+    console.log("진행중2");
+    let res = await axios.get("http://localhost:8283/bigdata/oauth", config);
     setUser(res.data.data);
   };
 
