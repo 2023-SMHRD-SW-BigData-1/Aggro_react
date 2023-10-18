@@ -197,8 +197,11 @@ const Community = ({ history }) => {
 
   useEffect(() => {
     axios
-      .get("http://59.20.79.42:58002/post/" + postPage)
+      .get("http://localhost:8283/bigdata/community/" + postPage)
       .then((response) => {
+
+        console.log(response.data);
+
         setCommunityDtos(response.data.data);
         setStatusCode(response.data.statusCode);
         console.log(1, communityDtos);
@@ -216,7 +219,7 @@ const Community = ({ history }) => {
     }
     console.log(6, prevPage);
     axios
-      .get("http://59.20.79.42:58002/post/" + prevPage)
+      .get("http://localhost:8283/bigdata/community/" + prevPage)
       .then((response) => {
         console.log(response.data.statusCode);
         setCommunityDtos(response.data.data);
@@ -233,7 +236,7 @@ const Community = ({ history }) => {
     let nextPage = postPage + 1;
 
     axios
-      .get("http://59.20.79.42:58002/post/" + nextPage)
+      .get("http://localhost:8283/bigdata/community/" + nextPage)
       .then((response) => {
         console.log(response.data.statusCode);
         setCommunityDtos(response.data.data);
@@ -248,7 +251,7 @@ const Community = ({ history }) => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     axios
-      .get("http://59.20.79.42:58002/post/find/" + inputValue)
+      .get("http://localhost:8283/bigdata/community/find/" + inputValue)
       .then((response) => {
         console.log(2, inputValue);
         setCommunityDtos(response.data.data);
@@ -264,7 +267,7 @@ const Community = ({ history }) => {
 
     const search = async () => {
       await axios
-        .get("http://59.20.79.42:58002/post/find/" + inputValue)
+        .get("http://localhost:8283/bigdata/community/find/" + inputValue)
         .then((response) => {
           console.log(2, inputValue);
 
@@ -336,7 +339,7 @@ const Community = ({ history }) => {
               {communityDtos.map(
                 (communityDto) =>
                   communityDto.type === 1 && (
-                    <div className="article-box" key={communityDto.post.id}>
+                    <div className="article-box" key={communityDto.post.noticeSeq}> 
                       <div
                         className="article-item"
                         style={{ display: "contents" }}
@@ -345,14 +348,14 @@ const Community = ({ history }) => {
                           className="article-number"
                           style={{ alignSelf: "center", width: "72px" }}
                         >
-                          {communityDto.post.id}
+                          {communityDto.post.noticeSeq}
                         </div>
                         <div
                           className="article-list-item__content"
                           style={{ alignSelf: "center" }}
                         >
                           <Link
-                            to={"/community/" + communityDto.post.id}
+                            to={"/community/" + communityDto.post.noticeSeq} // noticeSeq
                             style={{ cursor: "pointer" }}
                           >
                             <div
@@ -368,19 +371,19 @@ const Community = ({ history }) => {
                                   fontStyle: "normal",
                                 }}
                               >
-                                [{communityDto.post.replies.length}]
+                                [{communityDto.post.replies.length}] 
                               </em>
                             </div>
                           </Link>
                           <div className="article-list-item-meta">
                             <div className="article-list-item-meta__item">
                               <span style={{ color: "#98a0a7" }}>
-                                {moment(communityDto.post.createDate)
+                                {moment(communityDto.post.noticeAt) // noticeAt
                                   .startOf("second")
                                   .fromNow()}
                               </span>
                               <span className="article-list-author">
-                                {communityDto.post.user.nickname}
+                                {communityDto.post.userId.userNick}
                               </span>
                             </div>
                           </div>

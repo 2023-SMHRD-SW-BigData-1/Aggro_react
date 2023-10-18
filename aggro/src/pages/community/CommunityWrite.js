@@ -97,7 +97,7 @@ const WriteBox = styled.div`
 const CommunityWrite = ({ history }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const storageUserId = parseInt(localStorage.getItem("userId"));
+  const storageUserId = localStorage.getItem("userId");
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
@@ -115,12 +115,12 @@ const CommunityWrite = ({ history }) => {
 
     axios
       .post(
-        "http://59.20.79.42:58002/post/writeProc",
+        "http://localhost:8283/bigdata/community/writeProc",
         {
           title: title,
-          content: content,
-          user: {
-            id: storageUserId,
+          details: content,
+          userId: {
+            userId: storageUserId,
           },
         },
         {

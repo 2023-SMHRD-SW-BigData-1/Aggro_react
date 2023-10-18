@@ -227,7 +227,7 @@ const CommunityDetail = ({ match, history }) => {
       ) {
         await axios
           .put(
-            "http://59.20.79.42:58002/post/update/view/" + postId,
+            "http://localhost:8283/bigdata/community/update/view/" + postId,
             {},
             {
               headers: {
@@ -252,7 +252,7 @@ const CommunityDetail = ({ match, history }) => {
       }
 
       await axios
-        .get("http://59.20.79.42:58002/post/detail/" + postId)
+        .get("http://localhost:8283/bigdata/community/detail/" + postId)
         .then((response) => {
           if (response.data.statusCode === 400) {
             alert("해당 글이 없습니다.");
@@ -274,7 +274,7 @@ const CommunityDetail = ({ match, history }) => {
   const deletePost = () => {
     if (window.confirm("게시글을 삭제하시겠습니까?") == true) {
       axios
-        .delete("http://59.20.79.42:58002/post/delete/" + postId, {
+        .delete("http://localhost:8283/bigdata/community/delete/" + postId, {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + localStorage.getItem("jwtToken"),
@@ -304,7 +304,7 @@ const CommunityDetail = ({ match, history }) => {
 
     axios
       .put(
-        "http://59.20.79.42:58002/post/update/like/" + postId,
+        "http://localhost:8283/bigdata/community/update/like/" + postId,
         {},
         {
           headers: {
@@ -356,7 +356,7 @@ const CommunityDetail = ({ match, history }) => {
         console.log("replyresponse2", response.data);
 
         axios
-          .get("http://59.20.79.42:58002/post/detail/" + postId)
+          .get("http://localhost:8283/bigdata/community/detail/" + postId)
           .then((response) => {
             setResp(response.data);
           });
@@ -373,14 +373,14 @@ const CommunityDetail = ({ match, history }) => {
     // }
     console.log(id);
     axios
-      .delete("http://59.20.79.42:58002/reply/delete/" + id, {
+      .delete("http://localhost:8283/bigdata/reply/delete/" + id, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken"),
         },
       })
       .then((response) => {
         axios
-          .get("http://59.20.79.42:58002/post/detail/" + postId)
+          .get("http://localhost:8283/bigdata/community/detail/" + postId)
           .then((response) => {
             console.log(100, response);
             setResp(response.data);
