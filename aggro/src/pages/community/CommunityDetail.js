@@ -215,7 +215,7 @@ const CommunityDetail = ({ match, history }) => {
   const [replies, setReplies] = useState([]);
   const [resp, setResp] = useState({});
   const [postUserId, setPostUserId] = useState(0);
-  const storageUserId = parseInt(localStorage.getItem("userId"));
+  const storageUserId = localStorage.getItem("userId");
 
   useEffect(() => {
     const enterPage = async () => {
@@ -247,6 +247,7 @@ const CommunityDetail = ({ match, history }) => {
                 localStorage.getItem("updateView") + "," + postId
               );
             }
+            
           })
           .catch((error) => {
             console.log("에러", error.response);
@@ -263,6 +264,7 @@ const CommunityDetail = ({ match, history }) => {
 
           setResp(response.data);
           setPostUserId(response.data.data.post.userId.userId);
+
         })
         .catch((error) => {
           console.log("에러", error);
@@ -295,6 +297,7 @@ const CommunityDetail = ({ match, history }) => {
   };
 
   const addLike = () => {
+
     if (localStorage.getItem("updateLike") !== null) {
       const storageUpdateLike = localStorage.getItem("updateLike");
 
