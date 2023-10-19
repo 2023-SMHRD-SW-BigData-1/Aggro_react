@@ -13,7 +13,7 @@ const HomeListItem = () => {
 
   useEffect(() => {
     axios
-      .get("http://59.20.79.42:58002/post/" + 0)
+      .get("http://localhost:8283/bigdata/community/" + 0)
       .then((response) => {
         // if (response.type !== 1) {
         //   for (let index = 0; index < 3; index++) {
@@ -25,19 +25,19 @@ const HomeListItem = () => {
 
         let communityDtos = new Array();
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < (response.data.data.length > 5 ? 5 : response.data.data.length); i++) {
           communityDtos.push(response.data.data[i]);
+          console.log(response.data.data[i]);
         }
 
+
+        console.log(communityDtos);
         // setCommunityDtos(response.data.data);
         setCommunityDtos(communityDtos);
         setStatusCode(response.data.statusCode);
 
-        console.log(1, communityDtos);
-        console.log(2, statusCode);
       })
       .catch((error) => {
-        console.log(error);
       });
   }, []);
 
@@ -53,9 +53,9 @@ const HomeListItem = () => {
               communityDto.type === 1 && (
                 <li
                   className="community-article__list__item"
-                  key={communityDto.post.id}
+                  key={communityDto.post.noticeSeq}
                 >
-                  <Link to={"/community/" + communityDto.post.id}>
+                  <Link to={"/community/" + communityDto.post.noticeSeq}>
                     <div className="community-article__list__item__rank green">
                       {communityDto.post.id}
                     </div>
@@ -68,13 +68,13 @@ const HomeListItem = () => {
                       <div className="community-article__list__item__sub__item">
                         <span>
                           {" "}
-                          {moment(communityDto.post.createDate)
+                          {moment(communityDto.post.noticeAt)
                             .startOf("second")
                             .fromNow()}
                         </span>
                       </div>
                       <div className="community-article__list__item__sub__item">
-                        {communityDto.post.user.nickname}
+                        {communityDto.post.userId.userNick}
                       </div>
                     </div>
                   </Link>

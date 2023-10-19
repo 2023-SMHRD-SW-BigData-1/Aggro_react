@@ -225,6 +225,7 @@ const CommunityDetail = ({ match, history }) => {
         localStorage.getItem("updateView") === null ||
         localStorage.getItem("updateView").indexOf(postId) === -1
       ) {
+
         await axios
           .put(
             "http://localhost:8283/bigdata/community/update/view/" + postId,
@@ -237,6 +238,7 @@ const CommunityDetail = ({ match, history }) => {
             }
           )
           .then((response) => {
+
             if (localStorage.getItem("updateView") == null) {
               localStorage.setItem("updateView", postId);
             } else {
@@ -259,9 +261,8 @@ const CommunityDetail = ({ match, history }) => {
             history.push("/community");
           }
 
-          console.log(11, response.data);
           setResp(response.data);
-          setPostUserId(response.data.data.post.user.id);
+          setPostUserId(response.data.data.post.userId.userId);
         })
         .catch((error) => {
           console.log("에러", error);
@@ -401,7 +402,7 @@ const CommunityDetail = ({ match, history }) => {
           <CommunityContentBox>
             {resp.statusCode === 201
               ? resp.data.type === 1 && (
-                  <div key={resp.data.post.id}>
+                  <div key={resp.data.post.noticeSeq}>
                     <div className="article">
                       <div className="article-header">
                         <div className="article__title">
@@ -411,13 +412,13 @@ const CommunityDetail = ({ match, history }) => {
                           <div className="article-meta-list">
                             <div className="article-meta__item">
                               <span>
-                                {moment(resp.data.post.createDate)
+                                {moment(resp.data.post.noticeAt)
                                   .startOf("second")
                                   .fromNow()}
                               </span>
                             </div>
                             <div className="article-meta__item article-meta__item--name">
-                              {resp.data.post.user.nickname}
+                              {resp.data.post.userId.userNick}
                             </div>
                           </div>
                           <div className="article-meta-list article-meta-list--right">
@@ -434,6 +435,7 @@ const CommunityDetail = ({ match, history }) => {
                         </div>
 
                         {postUserId === storageUserId && (
+                          
                           <div className="article-action">
                             <div className="article-action__item">
                               <button
@@ -448,9 +450,9 @@ const CommunityDetail = ({ match, history }) => {
                                 to={{
                                   pathname: "/edit",
                                   state: {
-                                    postId: resp.data.post.id,
+                                    postId: resp.data.post.noticeSeq,
                                     title: resp.data.post.title,
-                                    content: resp.data.post.content,
+                                    content: resp.data.post.details,
                                   },
                                 }}
                                 className="article-action__button__button"
@@ -463,7 +465,7 @@ const CommunityDetail = ({ match, history }) => {
                       </div>
                       <div className="article-content-wrap">
                         <div className="article-content">
-                          <p>{resp.data.post.content}</p>
+                          <p>{resp.data.post.details}</p>
                         </div>
                       </div>
                       <div className="article-box">
