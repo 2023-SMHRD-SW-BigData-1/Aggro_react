@@ -9,7 +9,7 @@ const CommentWrap = (props) => {
   moment.locale("ko");
 
   const [reply, setReply] = useState([]);
-  const storageUserId = parseInt(localStorage.getItem("userId"));
+  const storageUserId = localStorage.getItem("userId");
 
   // 리플 input 감시
   const replyOnChange = (e) => {
@@ -86,7 +86,7 @@ const CommentWrap = (props) => {
         )}
 
       {props.replies.map((reply) => (
-        <div key={reply.id} className="comment-wrap">
+        <div key={reply.commentSeq} className="comment-wrap">
           <div
             data-v-0e41a35e=""
             className="comment-meta"
@@ -94,25 +94,25 @@ const CommentWrap = (props) => {
           >
             <span className="comment__name" style={{ color: "black" }}>
               {" "}
-              {reply.user.nickname}
+              {reply.userId.userNick}
             </span>
             <span className="comment__date">
-              {moment(reply.createDate).startOf("second").fromNow()}
+              {moment(reply.commentAt).startOf("second").fromNow()}
             </span>
           </div>{" "}
           <div
             className="comment-content"
             style={{ fontSize: "18px", marginBottom: "8px" }}
           >
-            <p>{reply.reply}</p>
+            <p>{reply.details}</p>
           </div>{" "}
-          {reply.user.id === storageUserId && (
+          {reply.userId.userId === storageUserId && (
             <div
               className="deleteReplyBtn"
               style={{ color: "red", cursor: "pointer", fontSize: "14px" }}
               onClick={() => {
                 if (window.confirm("댓글을 삭제하시겠습니까?") === true) {
-                  props.deleteReply(reply.id);
+                  props.deleteReply(reply.commentSeq);
                 } else {
                   return;
                 }

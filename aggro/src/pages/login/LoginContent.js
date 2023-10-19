@@ -26,8 +26,6 @@ const LoginContent = ({ history }) => {
   };
 
   const responseGoogle = async (response) => {
-    console.log(1, response);
-    console.log(5, response.googleId);
 
     const googleData = {
       googleId: response.profileObj.googleId,
@@ -41,10 +39,9 @@ const LoginContent = ({ history }) => {
       config
     );
 
-    console.log(jwtToken);
-
     // 성공적으로 받아왔을 경우
     if (jwtToken.status === 200) {
+
       localStorage.setItem("userId", jwtToken.data.data.userId);
       localStorage.setItem("nickname", jwtToken.data.data.nickname);
       localStorage.setItem("jwtToken", jwtToken.data.data.jwtToken);

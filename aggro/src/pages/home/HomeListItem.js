@@ -27,11 +27,9 @@ const HomeListItem = () => {
 
         for (let i = 0; i < (response.data.data.length > 5 ? 5 : response.data.data.length); i++) {
           communityDtos.push(response.data.data[i]);
-          console.log(response.data.data[i]);
         }
 
 
-        console.log(communityDtos);
         // setCommunityDtos(response.data.data);
         setCommunityDtos(communityDtos);
         setStatusCode(response.data.statusCode);

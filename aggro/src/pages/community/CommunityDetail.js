@@ -309,7 +309,11 @@ const CommunityDetail = ({ match, history }) => {
     axios
       .put(
         "http://localhost:8283/bigdata/community/update/like/" + postId,
-        {},
+        {
+          userId: {
+            userId: storageUserId
+          }
+        },
         {
           headers: {
             "Content-Type": "application/json",
@@ -319,13 +323,13 @@ const CommunityDetail = ({ match, history }) => {
       )
       .then((response) => {
         if (localStorage.getItem("updateLike") === null) {
-          localStorage.setItem("updateLike", response.data.data.post.id);
+          localStorage.setItem("updateLike", response.data.data.post.noticeSeq);
         } else {
           localStorage.setItem(
             "updateLike",
             localStorage.getItem("updateLike") +
               "," +
-              response.data.data.post.id
+              response.data.data.post.noticeSeq
           );
         }
 
@@ -339,14 +343,19 @@ const CommunityDetail = ({ match, history }) => {
   // reply 추가, 삭제 로직 구현
   // reply 추가 로직
   const addReply = (reply) => {
+    console.log(reply)
+    console.log(postId);
     axios
       .post(
-        "http://59.20.79.42:58002/reply/writeProc/",
+        "http://localhost:8283/bigdata/reply/write",
         {
-          reply: reply,
-          post: {
-            id: postId,
+          noticeSeq: {
+            noticeSeq: postId
           },
+          details: reply,
+          userId: {
+            userId: storageUserId
+          }
         },
         {
           headers: {

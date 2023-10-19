@@ -103,7 +103,7 @@ const CommunityEdit = ({ history }) => {
   const paramPostId = history.location.state.postId;
   const [updateTitle, setUpdateTitle] = useState(paramTitle);
   const [updateContent, setUpdateContent] = useState(paramContent);
-  const storageUserId = parseInt(localStorage.getItem("userId"));
+  const storageUserId = localStorage.getItem("userId");
 
   const handleChangeTitle = (e) => {
     setUpdateTitle(e.target.value);
@@ -116,16 +116,17 @@ const CommunityEdit = ({ history }) => {
   // 이거 작성완료 누르면 데이터보내고 본진으로 가는것을 구현할 것이다
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(storageUserId);
     const editPost = async () => {
       await axios
         .put(
-          "http://59.20.79.42:58002/post/update",
+          "http://localhost:8283/bigdata/community/update",
           {
-            id: paramPostId,
+            noticeSeq: paramPostId,
             title: updateTitle,
-            content: updateContent,
-            user: {
-              id: storageUserId,
+            details: updateContent,
+            userId: {
+              userId: storageUserId,
             },
           },
           {

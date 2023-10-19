@@ -200,12 +200,8 @@ const Community = ({ history }) => {
       .get("http://localhost:8283/bigdata/community/" + postPage)
       .then((response) => {
 
-        console.log(response.data);
-
         setCommunityDtos(response.data.data);
         setStatusCode(response.data.statusCode);
-        console.log(1, communityDtos);
-        console.log(2, statusCode);
       })
       .catch((error) => {
         console.log(error);
