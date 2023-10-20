@@ -110,9 +110,6 @@ const CommunityWrite = ({ history }) => {
   // 이거 작성완료 누르면 데이터보내고 본진으로 가는것을 구현할 것이다
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title);
-    console.log(content);
-
     axios
       .post(
         "http://localhost:8283/bigdata/community/writeProc",
@@ -132,7 +129,6 @@ const CommunityWrite = ({ history }) => {
         }
       )
       .then((response) => {
-        console.log(response);
 
         alert("글작성이 완료되었습니다.");
         history.push("/community");

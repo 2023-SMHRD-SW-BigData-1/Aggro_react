@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header1 from "./../../include/Header1";
 import Footer2 from "./../../include/Footer2";
 import styled from "styled-components";
@@ -195,6 +195,9 @@ const Community = ({ history }) => {
   const [statusCode, setStatusCode] = useState(0);
   const [inputValue, setInputValue] = useState("");
 
+  const inputValueRef = useRef();
+  const searchOption = useRef();
+
   useEffect(() => {
     axios
       .get("http://localhost:8283/bigdata/community/" + postPage)
@@ -258,23 +261,23 @@ const Community = ({ history }) => {
   };
 
   const handleOnChange = (e) => {
-    console.log(1, inputValue);
-    setInputValue(e.target.value);
 
-    const search = async () => {
-      await axios
-        .get("http://localhost:8283/bigdata/community/find/" + inputValue)
-        .then((response) => {
-          console.log(2, inputValue);
+    console.log(searchOption.current.value);
 
-          setCommunityDtos(response.data.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    setTimeout(400);
-    search();
+    setInputValue(inputValueRef.current.value);
+      const search = async () => {
+        await axios
+          .get("http://localhost:8283/bigdata/community/find/" + (inputValueRef.current.value.trim() === "" ? "04846" : inputValueRef.current.value) +"?searchOption="+searchOption.current.value)
+          .then((response) => {
+            
+            setCommunityDtos(response.data.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+      setTimeout(400);
+      search();
   };
 
   return (
@@ -308,13 +311,15 @@ const Community = ({ history }) => {
               >
                 <div className="sub-search-wrap">
                   <form className="sub-search" onSubmit={handleOnSubmit}>
-                    <select className="sub-header-search__select">
-                      <option>제목+내용</option>
+                    <select className="sub-header-search__select" ref={searchOption}>
+                      <option value={"title"}>제목</option>
+                      <option value={"titleAndDetails"}>제목+내용</option>
+                      <option value={"writer"}>작성자</option>
                     </select>
                     <input
-                      onChange={handleOnChange}
+                      onKeyUp={handleOnChange}
                       tpye="text"
-                      value={inputValue}
+                      ref={inputValueRef}
                       className="sub-header-search__input"
                       placeholder="검색"
                     />
