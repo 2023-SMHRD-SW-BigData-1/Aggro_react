@@ -115,10 +115,7 @@ const CommunityWrite = ({ history }) => {
         "http://localhost:8283/bigdata/community/writeProc",
         {
           title: title,
-          details: content,
-          userId: {
-            userId: storageUserId,
-          },
+          details: content
         },
         {
           headers: {

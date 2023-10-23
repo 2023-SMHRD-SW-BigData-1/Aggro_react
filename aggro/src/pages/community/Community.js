@@ -250,9 +250,8 @@ const Community = ({ history }) => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     axios
-      .get("http://localhost:8283/bigdata/community/find/" + inputValue)
+      .get("http://localhost:8283/bigdata/community/find/" + (inputValueRef.current.value.trim() === "" ? "04846" : inputValueRef.current.value) +"?searchOption="+searchOption.current.value)
       .then((response) => {
-        console.log(2, inputValue);
         setCommunityDtos(response.data.data);
       })
       .catch((error) => {
@@ -261,8 +260,6 @@ const Community = ({ history }) => {
   };
 
   const handleOnChange = (e) => {
-
-    console.log(searchOption.current.value);
 
     setInputValue(inputValueRef.current.value);
       const search = async () => {

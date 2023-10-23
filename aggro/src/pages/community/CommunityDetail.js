@@ -337,6 +337,7 @@ const CommunityDetail = ({ match, history }) => {
       })
       .catch((error) => {
         console.log("에러", error.response);
+        alert("추천 실패")
       });
   };
 
