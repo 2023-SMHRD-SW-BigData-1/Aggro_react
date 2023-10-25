@@ -5,6 +5,8 @@ import axios from "axios";
 import { Link, Route } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
+
+
 const Join = ({ history }) => {
   //화면 전체
   // 만약에 더 바꾸고 싶으면 styled-compoenet로 hover구현해보자 색깔바뀌는거
@@ -74,11 +76,12 @@ const Join = ({ history }) => {
 
 
           </div>
-          <h2 className="top-text">기본정보 입력</h2>
-          <div className="sign-up__sub">
+          <h2 className="top-text" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>기본정보 입력</h2>
+          {/* <div className="sign-up__sub" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             회원가입을 위해서 이메일 인증이 진행되며, 인증이 완료되기 전까지
             회원가입이 완료가 되지 않습니다.
-          </div>
+          </div> */}
+
           <div>
             <form onSubmit={handleSubmit}>
               <div className="member-input__state">
@@ -102,12 +105,12 @@ const Join = ({ history }) => {
                   placeholder="닉네임"
                 />
               </div>
-              <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              {/* <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 개인정보를 기입하여 발생될 수 있는 피해는 
               </div>
                 <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 Agg.ro에서 일절 책임지지 않습니다.
-              </div>
+              </div> */}
               <div className="member-input__state">
                 <input
                   onChange={hanleOnChange}
@@ -118,7 +121,30 @@ const Join = ({ history }) => {
                   placeholder="비밀번호"
                 />
               </div>
-
+              <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          회원가입을 위해 이메일을 통한 인증이 진행되며, 
+          </div>
+          <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          인증이 완료되기 전까지 회원가입이 완료가 되지 않습니다.
+          </div>
+          <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                또한, 개인정보를 기입하여 발생될 수 있는 피해는 
+          </div>
+          <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                Agg.ro에서 일절 책임지지 않습니다.
+          </div>
+          <div  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          서비스 약관 및 개인정보 처리방침에 동의합니다.
+          <br></br>
+          </div>
+          <div>
+            
+            <br></br>
+          <input
+            type="checkbox"
+          />
+          
+          </div>
               <div className="sign-up__l-btn">
                 <button
                   onClick={cancelHome}
