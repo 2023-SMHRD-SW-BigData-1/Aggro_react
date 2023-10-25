@@ -1,0 +1,24 @@
+.item-box-outline {
+    background-color: darkgray;
+    margin-top: 1%;
+    padding: 0.5%;
+    display: flex;
+    justify-content: center;
+}
+
+.item-box-container {
+    background-color: blueviolet;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.5%;
+    height: 100%;
+    width: -webkit-fill-available;
+}
+
+.item-box-card {
+    border-radius: 5%;
+    background-color: cyan;
+    margin: 5px;
+    width: 50%;
+    height: 300px;
+}
