@@ -24,10 +24,10 @@ const HomeMain = ({ history }) => {
         <div className="index-logo">
           <div id="logo">
             <img
-              src="img/test.jpg"
+              src="img/Aggro_white.png"
               className="Image"
-              title="베이가"
-              alt="베이가"
+              title=" Aggro "
+              alt=" Aggro "
             />
           </div>
         </div>
@@ -41,7 +41,7 @@ const HomeMain = ({ history }) => {
             name="username"
             onChange={handleInput}
             className="summoner-search-form__text__suggest"
-            placeholder="후보자명 ..."
+            placeholder="검색어를 입력해주세요."
             autoComplete="off"
           />
           {/* 검색 버튼 부분 */}

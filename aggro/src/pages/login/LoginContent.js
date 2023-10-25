@@ -104,8 +104,8 @@ const LoginContent = ({ history }) => {
                 <h1 className="member-card-layout__logo">
                   <img
                     className="member-card-layout__logo-image"
-                    src="/img/opggLogo.png"
-                    alt="op.gg"
+                    src="/img/Aggro_blue.png"
+                    alt="agg.ro"
                   />
                 </h1>
               </Link>
@@ -176,7 +176,7 @@ const LoginContent = ({ history }) => {
                     로그인
                   </button>
                   <div className="login__l-sign-up">
-                    OP.GG에 처음이세요?
+                    Aggro에 처음이세요?
                     <span className="login__sign-up-link">
                       <Link className="member-link" to="/join">
                         회원가입하기

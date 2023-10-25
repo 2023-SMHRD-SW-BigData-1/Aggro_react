@@ -66,8 +66,13 @@ const Join = ({ history }) => {
         <div className="join-box-inner">
           <div className="register-header">
             <Link to={"/home"}>
-              <img src="./img/opggJoin.png" alt="opgg" />
+              
+              <img className="member-card-layout__logo-image"
+               src="/img/Aggro_blue.png" alt="opgg" />
+              
             </Link>
+
+
           </div>
           <h2 className="top-text">기본정보 입력</h2>
           <div className="sign-up__sub">
@@ -97,9 +102,11 @@ const Join = ({ history }) => {
                   placeholder="닉네임"
                 />
               </div>
-              <div className="sign-up__input-nickname-message">
-                개인정보를 기입하여 발생될 수 있는 피해는 OP.GG가 일절 책임지지
-                않습니다.
+              <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                개인정보를 기입하여 발생될 수 있는 피해는 
+              </div>
+                <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                Agg.ro에서 일절 책임지지 않습니다.
               </div>
               <div className="member-input__state">
                 <input

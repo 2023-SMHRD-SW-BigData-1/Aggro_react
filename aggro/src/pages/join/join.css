@@ -124,3 +124,10 @@
   border: 0;
   margin-left: 12px;
 }
+
+/* 로고 이미지 크기 */
+.member-card-layout__logo-image {
+  width: 128px;
+  height: 32px;
+}
+

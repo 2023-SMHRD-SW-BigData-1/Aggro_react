@@ -7,7 +7,7 @@ const HomeLIst = () => {
       <div className="community-best__header">
         {/* 커뮤니티 상단 제목 부분 */}
         <Link className="link" to="/community">
-          정치인 관련 최고의 커뮤니티 글!!
+          주간 베스트 / Weekly Best
         </Link>
       </div>
       <HomeListItem />
