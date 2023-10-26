@@ -9,6 +9,8 @@ import jsPDF from 'jspdf';
 import "./Ranking.css";
 import styled from "styled-components";
 import RankingBar from "./RankingBar";
+import WordCloud from "./WordCloud";
+import AgreeViewTab from "./AgreeViewTab";
 
 
 const Ranking = ({ history }) => {
@@ -108,9 +110,8 @@ const Ranking = ({ history }) => {
           <RankingBar className="item-box-item" />
         </div>
         <div className="item-box-card">
-        <p className="item-box-item">워드클라우드</p>
-          
-          <SearchData />
+          <p className="item-box-item">뷰탭</p>
+          <AgreeViewTab />
         </div>
       </div>
       <Footer2 />

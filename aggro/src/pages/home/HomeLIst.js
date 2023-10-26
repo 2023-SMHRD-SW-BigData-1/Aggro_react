@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 import { VictoryPie } from "victory";
-import CustomLabel from "../ranking/CustomLabel";
+
 const HomeLIst = () => {
 
   const [data, setData] = useState([
@@ -82,7 +82,7 @@ const HomeLIst = () => {
               width: '20%',
             }
           }}
-          padding={{top: 5, bottom:0}}
+          padding={{ top: 5, bottom: 0 }}
           innerRadius={2.5}
           padAngle={2}
           animate={{ duration: 1000 }}
