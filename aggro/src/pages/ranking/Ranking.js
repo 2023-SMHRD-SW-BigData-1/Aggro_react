@@ -38,7 +38,10 @@ const Ranking = ({ history }) => {
     const input = pdfRef.current;
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4', true);
+      // 세로
+       const pdf = new jsPDF('p', 'mm', 'a4', true);
+      // 가로
+      // const pdf = new jsPDF( 'landscape' , 'mm', 'a4', true);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       const imgWidth = canvas.width;

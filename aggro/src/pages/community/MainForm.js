@@ -101,7 +101,7 @@ const MainForm = ({ history }) => {
             placeholder="내용"
           />
           <button className="mainBtn" type="submit">
-            <img className="btnImg" src="/img/searchBtn.gif" alt="검색" />
+            <img className="btnImg" src="img/Aggro_blue_mini.png" alt="검색" />
           </button>
         </form>
       </SearchForm>

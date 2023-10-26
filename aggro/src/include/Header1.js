@@ -25,7 +25,7 @@ const Header1 = ({ history }) => {
     <div className="l-menu1">
       <ul className="menu1">
         <li className="menu__item1">
-          <Link to="/home">AGGRO.gg</Link>
+          <Link to="/home">AGG.RO</Link>
           
         </li>
 
