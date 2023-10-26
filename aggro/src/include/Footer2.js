@@ -5,11 +5,8 @@ const Footer2 = () => {
     <div className="l-footer2">
       <div className="footer2">
         <div className="footer__copyright2">
-          © 2012-2020 OP.GG. OP.GG isn’t endorsed by Riot Games and doesn’t
-          reflect the views or opinions of Riot Games or anyone officially
-          involved in producing or managing League of Legends. League of Legends
-          and Riot Games are trademarks or registered trademarks of Riot Games,
-          Inc. League of Legends © Riot Games, Inc.
+        © 2023 Agg.ro. This text serves as a copyright notice for the website Agg.ro, stating that it is not an official endorsement or position regarding Agg.ro-related content. Agg.ro is explicitly declared as independent from official entities.
+          we are best.
         </div>
 
         <ul className="footer__sns2"></ul>

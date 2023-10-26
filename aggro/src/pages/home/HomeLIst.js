@@ -42,22 +42,22 @@ const HomeLIst = () => {
         {
           x: "중립",
           y: a / (a + b + c + d) * 100,
-          color: "#cfd9df"
+          color: "#F0F8FF"
         },
         {
           x: "부정",
           y: b / (a + b + c + d) * 100,
-          color: "#c2e9fb"
+          color: "#BFEFFF"
         },
         {
           x: "긍정",
           y: c / (a + b + c + d) * 100,
-          color: '#a1c4fd'
+          color: '#C6E2FF'
         },
         {
           x: "긍정",
           y: d / (a + b + c + d) * 100,
-          color: '#a1c4fd'
+          color: '#A4D3EE'
         }
 
       ].slice().sort((a, b) => a.y - b.y)
