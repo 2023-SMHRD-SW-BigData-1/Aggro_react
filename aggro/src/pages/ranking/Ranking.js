@@ -12,77 +12,42 @@ import RankingBar from "./RankingBar";
 import WordCloud from "./WordCloud";
 import AgreeViewTab from "./AgreeViewTab";
 
-
 const Ranking = ({ match }) => {
-  // 데이터 상태 설정
   const [data, setData] = useState([
-    {
-      x: "중립",
-      y: 50,
-      color: "#cfd9df"
-    },
-    {
-      x: "부정",
-      y: 40,
-      color: "#c2e9fb"
-    },
-    {
-      x: "긍정",
-      y: 10,
-      color: '#a1c4fd'
-    }
+    { x: "중립", y: 50, color: "#cfd9df" },
+    { x: "부정", y: 40, color: "#c2e9fb" },
+    { x: "긍정", y: 10, color: '#a1c4fd' }
   ]);
 
-  const pdfRef = useRef();
+  const pdfRef = useRef(); // This ref is for capturing the App div for pdf generation
 
-  // PDF 다운로드 함수
   const downloadPDF = () => {
-    const input = pdfRef.current;
+    const input = pdfRef.current; 
+
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
-      // 세로
-      // const pdf = new jsPDF('p', 'mm', 'a4', true);
-      // 가로
       const pdf = new jsPDF('landscape', 'mm', 'a4', true);
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
       const imgWidth = canvas.width;
       const imgHeight = canvas.height;
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 30;
-      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+      const heightRatio = pdfWidth * (imgHeight / imgWidth);
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, heightRatio);
       pdf.save('Report.pdf');
     });
   };
 
   let setStateInterval;
 
-  // 데이터 업데이트 및 정렬을 수행하는 useEffect
   useEffect(() => {
     setStateInterval = setInterval(() => {
-      let a = Math.random(); // 긍정 테스트
-      let b = Math.random(); // 중립 테스트
-      let c = Math.random(); // 부정 테스트
-
-      let max = Math.round((Math.max(a, b + c) == a) ? a : b + c);
+      let a = Math.random(); 
+      let b = Math.random(); 
+      let c = Math.random(); 
 
       let data_legacy = [
-        {
-          x: "중립",
-          y: a / (a + b + c) * 100,
-          color: "#cfd9df"
-        },
-        {
-          x: "부정",
-          y: b / (a + b + c) * 100,
-          color: "#c2e9fb"
-        },
-        {
-          x: "긍정",
-          y: c / (a + b + c) * 100,
-          color: '#a1c4fd'
-        }
+        { x: "중립", y: a / (a + b + c) * 100, color: "#cfd9df" },
+        { x: "부정", y: b / (a + b + c) * 100, color: "#c2e9fb" },
+        { x: "긍정", y: c / (a + b + c) * 100, color: '#a1c4fd' }
       ].slice().sort((a, b) => a.y - b.y);
 
       setData(data_legacy);
@@ -96,21 +61,17 @@ const Ranking = ({ match }) => {
   return (
     <>
       <Header1 />
-
-
-
       <div className="btn-box">
         <button className="PDF-btn" onClick={downloadPDF}>다운로드 PDF</button>
       </div>
 
-      <div className="App">
+      <div className="App" ref={pdfRef}>
         <div className="grid-container">
           <div className="grid-item">
             <div className="item-box-card">
               <p className="item-box-item">월간 검색량</p>
               <SearchData className="item-box-item" />
             </div>
-
           </div>
           <div className="grid-item">
             <div className="item-box-card">
@@ -122,53 +83,23 @@ const Ranking = ({ match }) => {
             <div className="item-box-card">
               <p className="item-box-item">워드클라우드</p>
               <RankingBar className="item-box-item" />
+               {/*<WordCloud className="item-box-item" />  워드클라우드 컴포넌트로 수정 */}
             </div>
           </div>
           <div className="grid-item">
-
             <div className="item-box-card">
               <p className="item-box-item">긍부정</p>
               <CircularProgressBar className="item-box-item" data={data} />
             </div>
-
           </div>
-
           <div className="grid-item merged">
-            <div className="item-box-card">
-              <p className="item-box-item">뷰탭</p>
-              <AgreeViewTab />
+            <div className="item-box-card merged">
+              <p className="item-box-item merged">뷰탭</p>
+              <AgreeViewTab className="item-box-item merged" /> {/* 동의보기 컴포넌트로 수정 */}
             </div>
           </div>
         </div>
       </div>
-
-      <div className="item-box-container" ref={pdfRef}>
-      </div>
-
-
-
-      {/* 
-      <div className="btn-box">
-        <button className="PDF-btn" onClick={downloadPDF}>다운로드 PDF</button>
-      </div>
-      <div className="item-box-container" ref={pdfRef}>
-        <div className="item-box-card">
-          <p className="item-box-item">긍부정</p>
-          <CircularProgressBar className="item-box-item" data={data} />
-        </div>
-        <div className="item-box-card">
-          <p className="item-box-item">월간 검색량</p>
-          <SearchData className="item-box-item" />
-        </div>
-        <div className="item-box-card">
-          <p className="item-box-item">막대그래프</p>
-          <RankingBar className="item-box-item" />
-        </div>
-        <div className="item-box-card">
-          <p className="item-box-item">뷰탭</p>
-          <AgreeViewTab />
-        </div>
-      </div> */}
       <Footer2 />
     </>
   );
