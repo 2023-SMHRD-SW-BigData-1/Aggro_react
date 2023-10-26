@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import Footer2 from "../../include/Footer2";
 import Header1 from "../../include/Header1";
-import "./Ranking.css"
+import CircularProgressBar from "./CircularProgressBar";
+import SearchData from "./SearchData"
+import "./Ranking.css";
+import styled from "styled-components";
 
 
 const Ranking = ({ history }) => {
@@ -65,16 +68,20 @@ const Ranking = ({ history }) => {
   return (
     <>
       <Header1 />
-      <div className="item-box-outline">
-        <div className="item-box-container">
-          <div className="item-box-card">
-          </div>
-          <div className="item-box-card">
-          </div>
-          <div className="item-box-card">
-          </div>
-          <div className="item-box-card">
-          </div>
+      <div className="item-box-container">
+        <div className="item-box-card">
+          <p className="item-box-item">긍부정</p>
+          <CircularProgressBar className="item-box-item" data={data} />
+        </div>
+        <div className="item-box-card">
+          <p className="item-box-item">월간 검색량</p>
+          <SearchData className="item-box-item" />
+        </div>
+        <div className="item-box-card">
+          <CircularProgressBar data={data} />
+        </div>
+        <div className="item-box-card">
+          <SearchData />
         </div>
       </div>
       <Footer2 />
