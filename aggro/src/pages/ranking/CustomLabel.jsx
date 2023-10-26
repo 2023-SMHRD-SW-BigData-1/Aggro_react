@@ -14,8 +14,6 @@ const CustomLabel = (props) => {
                 orientation="top"
                 pointerLength={0}
                 cornerRadius={50}
-                flyoutWidth={100}
-                flyoutHeight={100}
                 flyoutStyle={{ fill: props.datum.color }}
             />
         </g>

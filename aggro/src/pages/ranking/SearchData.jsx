@@ -13,10 +13,50 @@ const SearchData = () => {
 
 
     return (
-        <>
+
+        <div className="item-box-item" style={{ overflow: "hidden", flexDirection: "column"}}>
+            <VictoryChart scale={{ x: "time" }} width={600}
+                padding={{ top: 0, bottom: 40, left: 50, right: 50 }}
+                style={{
+                    parent: {
+                        height: "80%"
+                    }
+                }}
+                containerComponent={
+                    <VictoryZoomContainer
+                        zoomDimension='x'
+                        zoomDomain={state.zoomDomain}
+                        onZoomDomainChange={handleZoom.bind(this)}
+                    />
+                }
+            >
+                <VictoryLine
+                    style={{
+                        data: { stroke: "tomato" },
+
+                    }}
+                    data={[
+                        { a: new Date(1982, 1, 1), b: 125 },
+                        { a: new Date(1987, 1, 1), b: 257 },
+                        { a: new Date(1993, 1, 1), b: 345 },
+                        { a: new Date(1997, 1, 1), b: 515 },
+                        { a: new Date(2001, 1, 1), b: 132 },
+                        { a: new Date(2005, 1, 1), b: 305 },
+                        { a: new Date(2011, 1, 1), b: 270 },
+                        { a: new Date(2015, 1, 1), b: 470 }
+                    ]}
+                    x="a"
+                    y="b"
+                />
+            </VictoryChart>
             <VictoryChart
-                padding={{ top: 5, left: 50, right: 50, bottom: 30 }}
-                width={600} height={100} scale={{ x: "time" }}
+                padding={{ top: 0, left: 50, right: 50, bottom: 40 }}
+                width={800} height={100} scale={{ x: "time" }}
+                style={{
+                    parent: {
+                        height: "20%"
+                    }
+                }}
                 containerComponent={
                     <VictoryBrushContainer
                         brushDimension="x"
@@ -30,7 +70,10 @@ const SearchData = () => {
                 />
                 <VictoryLine
                     style={{
-                        data: { stroke: "tomato" }
+                        data: { stroke: "tomato" },
+                        parent: {
+                            height: "20%"
+                        }
                     }}
                     data={[
                         { key: new Date(1982, 1, 1), b: 125 },
@@ -46,37 +89,7 @@ const SearchData = () => {
                     y="b"
                 />
             </VictoryChart>
-
-            <VictoryChart width={600} scale={{ x: "time" }}
-                containerComponent={
-                    <VictoryZoomContainer
-                        zoomDimension='x'
-                        zoomDomain={state.zoomDomain}
-                        onZoomDomainChange={handleZoom.bind(this)}
-                    />
-                }
-            >
-                <VictoryLine
-                    style={{
-                        data: { stroke: "tomato" }
-                    }}
-
-                    data={[
-                        { a: new Date(1982, 1, 1), b: 125 },
-                        { a: new Date(1987, 1, 1), b: 257 },
-                        { a: new Date(1993, 1, 1), b: 345 },
-                        { a: new Date(1997, 1, 1), b: 515 },
-                        { a: new Date(2001, 1, 1), b: 132 },
-                        { a: new Date(2005, 1, 1), b: 305 },
-                        { a: new Date(2011, 1, 1), b: 270 },
-                        { a: new Date(2015, 1, 1), b: 470 }
-                    ]}
-                    x="a"
-                    y="b"
-                />
-            </VictoryChart>
-
-        </>
+        </div>
     )
 }
 
