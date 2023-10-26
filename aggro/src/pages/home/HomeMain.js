@@ -46,9 +46,8 @@ const HomeMain = ({ history }) => {
           />
           {/* 검색 버튼 부분 */}
           <button type="submit" className="summoner-search-form__button">
-            <img src="img/Aggro_blue_mini.png" alt="검색" className="btnImg" />
+            <img src="img/searchBtn.gif" alt="검색" className="btnImg" />
           </button>
-          
         </form>
         {/* 커뮤니티 글목록 부분    */}
         <HomeLIst />
