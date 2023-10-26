@@ -15,7 +15,7 @@ const HomeMain = ({ history }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target.value);
-    history.push("/summoner/" + username);
+    history.push("/ranking/" + username);
   };
 
   return (

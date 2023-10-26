@@ -13,7 +13,7 @@ import WordCloud from "./WordCloud";
 import AgreeViewTab from "./AgreeViewTab";
 
 
-const Ranking = ({ history }) => {
+const Ranking = ({ match }) => {
   // 데이터 상태 설정
   const [data, setData] = useState([
     {
@@ -41,7 +41,7 @@ const Ranking = ({ history }) => {
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       // 세로
-       const pdf = new jsPDF('p', 'mm', 'a4', true);
+      const pdf = new jsPDF('p', 'mm', 'a4', true);
       // 가로
       // const pdf = new jsPDF( 'landscape' , 'mm', 'a4', true);
       const pdfWidth = pdf.internal.pageSize.getWidth();
