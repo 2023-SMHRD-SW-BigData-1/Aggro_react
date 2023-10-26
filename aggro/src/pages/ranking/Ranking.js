@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { withRouter } from "react-router-dom";
 import Footer2 from "../../include/Footer2";
 import Header1 from "../../include/Header1";
 import CircularProgressBar from "./CircularProgressBar";
-import SearchData from "./SearchData"
+import SearchData from "./SearchData";
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import "./Ranking.css";
-import styled from "styled-components";
-
 
 const Ranking = ({ history }) => {
-
+  // 데이터 상태 설정
   const [data, setData] = useState([
     {
       x: "중립",
@@ -26,49 +26,72 @@ const Ranking = ({ history }) => {
       y: 10,
       color: '#a1c4fd'
     }
+  ]);
 
-  ])
-  let setStateInterval;
+const pdfRef = useRef();
 
-  useEffect(() => {
-    setStateInterval = setInterval(() => {
-      let a = Math.random(); // 긍정 테스트
-      let b = Math.random(); // 중립 테스트
-      let c = Math.random(); // 부정 테스트
+// PDF 다운로드 함수
+const downloadPDF = () => {
+  const input = pdfRef.current;
+  html2canvas(input).then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4', true);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+    const imgWidth = canvas.width;
+    const imgHeight = canvas.height;
+    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+    const imgX = (pdfWidth - imgWidth * ratio) / 2;
+    const imgY = 30;
+    pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+    pdf.save('Report.pdf');
+  });
+};
 
-      let max = Math.round((Math.max(a, b + c) == a) ? a : b + c)
+let setStateInterval;
 
-      let data_legacy = [
-        {
-          x: "중립",
-          y: a / (a + b + c) * 100,
-          color: "#cfd9df"
-        },
-        {
-          x: "부정",
-          y: b / (a + b + c) * 100,
-          color: "#c2e9fb"
-        },
-        {
-          x: "긍정",
-          y: c / (a + b + c) * 100,
-          color: '#a1c4fd'
-        }
+// 데이터 업데이트 및 정렬을 수행하는 useEffect
+useEffect(() => {
+  setStateInterval = setInterval(() => {
+    let a = Math.random(); // 긍정 테스트
+    let b = Math.random(); // 중립 테스트
+    let c = Math.random(); // 부정 테스트
 
-      ].slice().sort((a, b) => a.y - b.y)
+    let max = Math.round((Math.max(a, b + c) == a) ? a : b + c);
 
-      setData(data_legacy);
-    }, 2000)
+    let data_legacy = [
+      {
+        x: "중립",
+        y: a / (a + b + c) * 100,
+        color: "#cfd9df"
+      },
+      {
+        x: "부정",
+        y: b / (a + b + c) * 100,
+        color: "#c2e9fb"
+      },
+      {
+        x: "긍정",
+        y: c / (a + b + c) * 100,
+        color: '#a1c4fd'
+      }
+    ].slice().sort((a, b) => a.y - b.y);
 
-    return () => {
-      clearInterval(setStateInterval)
-    }
-  }, [data])
+    setData(data_legacy);
+  }, 2000);
 
-  return (
+  return () => {
+    clearInterval(setStateInterval);
+  };
+}, [data]);
+
+return (
     <>
       <Header1 />
-      <div className="item-box-container">
+      <div className="btn-box">
+        <button className="btn btn-primary" onClick={downloadPDF}>Download PDF</button>
+      </div>
+      <div className="item-box-container" ref={pdfRef}>
         <div className="item-box-card">
           <p className="item-box-item">긍부정</p>
           <CircularProgressBar className="item-box-item" data={data} />
