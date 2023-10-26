@@ -27,6 +27,12 @@ export const MainFormBox = styled.div`
     color: #fff;
     font-weight: bold;
   }
+  /* 로고 이미지 크기 */
+  .community-icon {
+    width: 256px;
+    height: 64px;
+  }
+  
 `;
 
 export const SearchForm = styled.div`
@@ -54,6 +60,8 @@ export const SearchForm = styled.div`
     position: absolute;
     background: none;
   }
+
+
 `;
 
 const MainForm = ({ history }) => {
@@ -72,12 +80,16 @@ const MainForm = ({ history }) => {
     <MainFormBox>
       <Link to="/community">
         <div className="icon-form">
+        <Link to={"/home"}>
+              
           <img
             className="community-icon"
-            src="/img/communityIcon.png"
+            src="/img/Aggro_white.png"
             alt="아이콘"
           />
-          <div className="icon-text">리그오브레전드</div>
+              
+            </Link>
+          {/* <div className="icon-text">리그오브레전드</div> */}
         </div>
       </Link>
       <SearchForm>
@@ -86,7 +98,7 @@ const MainForm = ({ history }) => {
             onChange={handleOnChange}
             type="text"
             className="main-input"
-            placeholder="소환사명..."
+            placeholder="내용"
           />
           <button className="mainBtn" type="submit">
             <img className="btnImg" src="/img/searchBtn.gif" alt="검색" />
