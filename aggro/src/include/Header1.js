@@ -26,11 +26,7 @@ const Header1 = ({ history }) => {
       <ul className="menu1">
         <li className="menu__item1">
           <Link to="/home">AGG.RO</Link>
-          
-        </li>
 
-        <li className="menu__item1">
-          <Link to="/ranking">분석 통계</Link>
         </li>
 
         <li className="menu__item1">

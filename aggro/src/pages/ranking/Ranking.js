@@ -13,7 +13,7 @@ import WordCloud from "./WordCloud";
 import AgreeViewTab from "./AgreeViewTab";
 
 
-const Ranking = ({ history }) => {
+const Ranking = ({ match }) => {
   // 데이터 상태 설정
   const [data, setData] = useState([
     {

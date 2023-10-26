@@ -26,12 +26,8 @@ const SearchData = () => {
 
         <div className="item-box-item" style={{ overflow: "hidden" }}>
 
-            <VictoryChart scale={{ x: "time" }}
+            <VictoryChart
                 padding={{ top: 0, bottom: 40, left: 50, right: 50 }}
-                style={{
-                    parent: {
-                    }
-                }}
                 containerComponent={
                     <VictoryZoomContainer
                         zoomDimension='x'
@@ -64,7 +60,6 @@ const SearchData = () => {
             <VictoryChart
                 padding={{ top: 0, left: 50, right: 50, bottom: 40 }}
                 height={3500}
-                scale={{ x: "time" }}
                 style={{
                     parent: {
                         width: "10%"
@@ -86,8 +81,6 @@ const SearchData = () => {
                 <VictoryLine horizontal
                     style={{
                         data: { stroke: "tomato" },
-                        parent: {
-                        }
                     }}
                     data={[
                         { key: new Date(1982, 1, 1), b: 125 },
