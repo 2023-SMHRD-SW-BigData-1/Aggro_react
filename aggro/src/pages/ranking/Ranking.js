@@ -6,6 +6,7 @@ import CircularProgressBar from "./CircularProgressBar";
 import SearchData from "./SearchData"
 import "./Ranking.css";
 import styled from "styled-components";
+import RankingBar from "./RankingBar";
 
 
 const Ranking = ({ history }) => {
@@ -78,7 +79,8 @@ const Ranking = ({ history }) => {
           <SearchData className="item-box-item" />
         </div>
         <div className="item-box-card">
-          <CircularProgressBar data={data} />
+          <p className="item-box-item">막대그래프</p>
+          <RankingBar className="item-box-item" />
         </div>
         <div className="item-box-card">
           <SearchData />

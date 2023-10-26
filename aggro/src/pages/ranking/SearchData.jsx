@@ -14,12 +14,12 @@ const SearchData = () => {
 
     return (
 
-        <div className="item-box-item" style={{ overflow: "hidden", flexDirection: "column"}}>
-            <VictoryChart scale={{ x: "time" }} width={600}
+        <div className="item-box-item" style={{ overflow: "hidden" }}>
+
+            <VictoryChart scale={{ x: "time" }}
                 padding={{ top: 0, bottom: 40, left: 50, right: 50 }}
                 style={{
                     parent: {
-                        height: "80%"
                     }
                 }}
                 containerComponent={
@@ -27,6 +27,8 @@ const SearchData = () => {
                         zoomDimension='x'
                         zoomDomain={state.zoomDomain}
                         onZoomDomainChange={handleZoom.bind(this)}
+                        allowResize={false}
+
                     />
                 }
             >
@@ -51,10 +53,11 @@ const SearchData = () => {
             </VictoryChart>
             <VictoryChart
                 padding={{ top: 0, left: 50, right: 50, bottom: 40 }}
-                width={800} height={100} scale={{ x: "time" }}
+                height={3500}
+                scale={{ x: "time" }}
                 style={{
                     parent: {
-                        height: "20%"
+                        width: "10%"
                     }
                 }}
                 containerComponent={
@@ -62,17 +65,18 @@ const SearchData = () => {
                         brushDimension="x"
                         brushDomain={state.zoomDomain}
                         onBrushDomainChange={handleZoom.bind(this)}
+                        allowResize={false}
+                        allowDrag={true}
                     />
                 }
             >
                 <VictoryAxis
                     tickFormat={(x) => new Date(x).getFullYear()}
                 />
-                <VictoryLine
+                <VictoryLine horizontal
                     style={{
                         data: { stroke: "tomato" },
                         parent: {
-                            height: "20%"
                         }
                     }}
                     data={[
@@ -89,6 +93,7 @@ const SearchData = () => {
                     y="b"
                 />
             </VictoryChart>
+
         </div>
     )
 }
