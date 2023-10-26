@@ -41,9 +41,9 @@ const Ranking = ({ history }) => {
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       // 세로
-       const pdf = new jsPDF('p', 'mm', 'a4', true);
+      // const pdf = new jsPDF('p', 'mm', 'a4', true);
       // 가로
-      // const pdf = new jsPDF( 'landscape' , 'mm', 'a4', true);
+      const pdf = new jsPDF('landscape', 'mm', 'a4', true);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       const imgWidth = canvas.width;
@@ -96,6 +96,58 @@ const Ranking = ({ history }) => {
   return (
     <>
       <Header1 />
+
+
+
+      <div className="btn-box">
+        <button className="PDF-btn" onClick={downloadPDF}>다운로드 PDF</button>
+      </div>
+
+      <div className="App">
+        <div className="grid-container">
+          <div className="grid-item">
+            <div className="item-box-card">
+              <p className="item-box-item">월간 검색량</p>
+              <SearchData className="item-box-item" />
+            </div>
+
+          </div>
+          <div className="grid-item">
+            <div className="item-box-card">
+              <p className="item-box-item">막대그래프</p>
+              <RankingBar className="item-box-item" />
+            </div>
+          </div>
+          <div className="grid-item">
+            <div className="item-box-card">
+              <p className="item-box-item">워드클라우드</p>
+              <RankingBar className="item-box-item" />
+            </div>
+          </div>
+          <div className="grid-item">
+
+            <div className="item-box-card">
+              <p className="item-box-item">긍부정</p>
+              <CircularProgressBar className="item-box-item" data={data} />
+            </div>
+
+          </div>
+
+          <div className="grid-item merged">
+            <div className="item-box-card">
+              <p className="item-box-item">뷰탭</p>
+              <AgreeViewTab />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="item-box-container" ref={pdfRef}>
+      </div>
+
+
+
+      {/* 
       <div className="btn-box">
         <button className="PDF-btn" onClick={downloadPDF}>다운로드 PDF</button>
       </div>
@@ -116,7 +168,7 @@ const Ranking = ({ history }) => {
           <p className="item-box-item">뷰탭</p>
           <AgreeViewTab />
         </div>
-      </div>
+      </div> */}
       <Footer2 />
     </>
   );
