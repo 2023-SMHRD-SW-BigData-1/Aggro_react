@@ -50,3 +50,9 @@
     justify-content: center;
 
 }
+
+.PDF-btn{
+    margin-top: 10px;
+    width: 10%;
+    background-color: #1ea1f7;
+}

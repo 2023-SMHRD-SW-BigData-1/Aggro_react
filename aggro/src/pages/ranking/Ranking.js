@@ -92,7 +92,7 @@ const Ranking = ({ history }) => {
     <>
       <Header1 />
       <div className="btn-box">
-        <button className="btn btn-primary" onClick={downloadPDF}>Download PDF</button>
+        <button className="PDF-btn" onClick={downloadPDF}>다운로드 PDF</button>
       </div>
       <div className="item-box-container" ref={pdfRef}>
         <div className="item-box-card">
@@ -108,6 +108,8 @@ const Ranking = ({ history }) => {
           <RankingBar className="item-box-item" />
         </div>
         <div className="item-box-card">
+        <p className="item-box-item">워드클라우드</p>
+          
           <SearchData />
         </div>
       </div>
