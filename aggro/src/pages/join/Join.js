@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Footer2 from "./../../include/Footer2";
 import "./join.css";
 import axios from "axios";
@@ -28,38 +28,45 @@ const Join = ({ history }) => {
     });
   };
 
+  const checkRef = useRef();
+
   const handleSubmit = (e) => {
     // 가입하기 누른 뒤 로직
     e.preventDefault();
-    axios
-      .post(
-        "http://localhost:8283/bigdata/join",
+    if (checkRef.current.checked) {
 
-        form,
-        {
-          headers: {
-            // Accept: 'application/json',
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((response) => {
-        //     alert('아이디가 중복되었습니다.');
-        // } else if (result == 0) { // === 3개는 타입까지 비교 == 값만비교
-        // 	alert('사용하실 수 있는 아이디입니다.');
+      axios
+        .post(
+          "http://localhost:8283/bigdata/join",
 
-        // join할 때는 jwt 토큰 받을 필요 없다.
-        if (!response.data.status) {
-          alert(response.data.message);
-        } else {
-          alert("회원가입이 완료되었습니다.");
-          history.push("/home");
-        }
+          form,
+          {
+            headers: {
+              // Accept: 'application/json',
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          //     alert('아이디가 중복되었습니다.');
+          // } else if (result == 0) { // === 3개는 타입까지 비교 == 값만비교
+          // 	alert('사용하실 수 있는 아이디입니다.');
 
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+          // join할 때는 jwt 토큰 받을 필요 없다.
+          if (!response.data.status) {
+            alert(response.data.message);
+          } else {
+            alert("회원가입이 완료되었습니다.");
+            history.push("/home");
+          }
+
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      alert("필수사항 체크에 동의해 주십시오.")
+    }
   };
 
   return (
@@ -68,10 +75,10 @@ const Join = ({ history }) => {
         <div className="join-box-inner">
           <div className="register-header">
             <Link to={"/home"}>
-              
+
               <img className="member-card-layout__logo-image"
-               src="/img/Aggro_blue.png" alt="opgg" />
-              
+                src="/img/Aggro_blue.png" alt="opgg" />
+
             </Link>
 
 
@@ -122,29 +129,27 @@ const Join = ({ history }) => {
                 />
               </div>
               <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          회원가입을 위해 이메일을 통한 인증이 진행되며, 
-          </div>
-          <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          인증이 완료되기 전까지 회원가입이 완료가 되지 않습니다.
-          </div>
-          <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                또한, 개인정보를 기입하여 발생될 수 있는 피해는 
-          </div>
-          <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                회원가입을 위해 이메일을 통한 인증이 진행되며,
+              </div>
+              <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                인증이 완료되기 전까지 회원가입이 완료가 되지 않습니다.
+              </div>
+              <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                또한, 개인정보를 기입하여 발생될 수 있는 피해는
+              </div>
+              <div className="sign-up__input-nickname-message" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 Agg.ro에서 일절 책임지지 않습니다.
-          </div>
-          <div  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          서비스 약관 및 개인정보 처리방침에 동의합니다.
-          <br></br>
-          </div>
-          <div>
-            
-            <br></br>
-          <input
-            type="checkbox"
-          />
-          
-          </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                서비스 약관 및 개인정보 처리방침에 동의합니다.
+                <br></br>
+              </div>
+              <div>
+
+                <br></br>
+                <input type="checkbox" ref={checkRef} />
+
+              </div>
               <div className="sign-up__l-btn">
                 <button
                   onClick={cancelHome}
