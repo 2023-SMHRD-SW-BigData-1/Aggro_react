@@ -1,6 +1,6 @@
 .item-box-container {
     background-color: darkgray;
-    margin-top: 1%;
+    margin-top: 0%;
     padding: 0.5%;
     display: flex;
     align-items: center;
@@ -37,4 +37,13 @@
     font-size: 25px;
     margin-block-start: 0;
     height: auto;
+}
+
+.btn-box {
+    background-color: blueviolet;
+    margin-top: 0%;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+
 }
