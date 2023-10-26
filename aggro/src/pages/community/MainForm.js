@@ -52,13 +52,13 @@ export const SearchForm = styled.div`
   }
 
   .mainBtn {
-    position: absolute;
     top: 0;
     right: 0;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-right: 15px;
     position: absolute;
     background: none;
+    border-width: 0px;
   }
 
 
