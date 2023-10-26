@@ -75,21 +75,18 @@ const HomeLIst = () => {
       <div style={{
         display: 'flex',
         justifyContent: 'center',
-        overflow: 'visible',
-        height: '100%'
       }}>
         <VictoryPie
           style={{
             parent: {
-              width: '40%',
+              width: '20%',
             }
           }}
-          innerRadius={2}
-          padding={{top:5, left:0, right:0}}
+          padding={{top: 5, bottom:0}}
+          innerRadius={2.5}
           padAngle={2}
           animate={{ duration: 1000 }}
           labelRadius={120}
-          height={300}
           cornerRadius={5}
           labels={({ datum }) => ``}
           colorScale={data.map((color) => color.color)}
