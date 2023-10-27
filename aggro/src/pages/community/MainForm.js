@@ -92,19 +92,19 @@ const MainForm = ({ history }) => {
           {/* <div className="icon-text">리그오브레전드</div> */}
         </div>
       </Link>
-      <SearchForm>
+      {/* <SearchForm>
         <form onSubmit={handleOnSubmit}>
           <input
             onChange={handleOnChange}
             type="text"
             className="main-input"
-            placeholder="내용"
+            placeholder="삭제"
           />
           <button className="mainBtn" type="submit">
             <img className="btnImg" src="img/Aggro_blue_mini.png" alt="검색" />
           </button>
         </form>
-      </SearchForm>
+      </SearchForm> */}
     </MainFormBox>
   );
 };
