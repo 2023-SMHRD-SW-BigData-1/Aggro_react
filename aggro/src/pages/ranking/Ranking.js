@@ -68,36 +68,28 @@ const Ranking = ({ match }) => {
       <div className="App" ref={pdfRef}>
         <div className="grid-container">
           <div className="grid-item">
-            <div className="item-box-card">
               <p className="item-box-item">월간 검색량</p>
               <SearchData className="item-box-item" />
-            </div>
           </div>
           <div className="grid-item">
-            <div className="item-box-card">
               <p className="item-box-item">막대그래프</p>
               <RankingBar className="item-box-item" />
-            </div>
           </div>
           <div className="grid-item">
-            <div className="item-box-card">
               <p className="item-box-item">워드클라우드</p>
               <RankingBar className="item-box-item" />
                {/*<WordCloud className="item-box-item" />  워드클라우드 컴포넌트로 수정 */}
-            </div>
           </div>
           <div className="grid-item">
-            <div className="item-box-card">
               <p className="item-box-item">긍부정</p>
               <CircularProgressBar className="item-box-item" data={data} />
-            </div>
           </div>
           <div className="grid-item merged">
-            <div className="item-box-card merged">
               <p className="item-box-item merged">뷰탭</p>
               <AgreeViewTab className="item-box-item merged" /> {/* 동의보기 컴포넌트로 수정 */}
-            </div>
           </div>
+
+
         </div>
       </div>
       <Footer2 />
