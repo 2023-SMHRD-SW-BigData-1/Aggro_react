@@ -79,8 +79,8 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1%;
-    padding: 1rem;
+    gap: 1.5rem;
+    padding: 1.5rem;
     
   }
   
@@ -96,7 +96,7 @@
     height: 100%;
     flex-direction: column;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 0.2rem 0.3rem 0px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0.5rem 0.5rem 0.3rem 0rem;
     
   }
 .merged {
