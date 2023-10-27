@@ -45,11 +45,11 @@ li {
 
 /* header a태그 꾸미기 */
 
-/* .link {
+.link {
   text-decoration: none;
   outline: none;
-  color: #b3cdff;
-} */
+  color: white;
+}
 
 /* header 탭 간격 띄우기 */
 li {

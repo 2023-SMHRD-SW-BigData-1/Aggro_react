@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import GoogleLogin from "react-google-login";
 import styled from "styled-components";
-
+import Footer2 from "../../include/Footer2";
 const GooleLoginBox = styled.div`
   .googleBtn {
     text-align: center;
@@ -194,5 +194,5 @@ const LoginContent = ({ history }) => {
     </div>
   );
 };
-
+<Footer2 />
 export default withRouter(LoginContent);

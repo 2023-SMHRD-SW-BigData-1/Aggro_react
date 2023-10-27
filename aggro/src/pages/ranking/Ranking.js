@@ -24,17 +24,24 @@ const Ranking = ({ match }) => {
   const downloadPDF = () => {
     const input = pdfRef.current; 
 
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('landscape', 'mm', 'a4', true);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
-      const heightRatio = pdfWidth * (imgHeight / imgWidth);
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, heightRatio);
-      pdf.save('Report.pdf');
+    html2canvas(input, {
+      scale: 1,  // 해상도 향상
+        useCORS: true, // CORS 문제 해결을 위해
+    }).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('landscape', 'mm', 'a4', true);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const imgWidth = canvas.width;
+        const imgHeight = canvas.height;
+        const heightRatio = pdfWidth * (imgHeight / imgWidth);
+        
+        // 페이지 마진 조정
+        const margin = 10; // 10mm 마진
+        pdf.addImage(imgData, 'PNG', margin, margin, pdfWidth - 2 * margin, heightRatio - 2 * margin);
+        
+        pdf.save('Report.pdf');
     });
-  };
+};
 
   let setStateInterval;
 
@@ -72,7 +79,7 @@ const Ranking = ({ match }) => {
               <SearchData className="item-box-item" />
           </div>
           <div className="grid-item">
-              <p className="item-box-item">막대그래프</p>
+              <p className="item-box-item">키워드별 검색량</p>
               <RankingBar className="item-box-item" />
           </div>
           <div className="grid-item">

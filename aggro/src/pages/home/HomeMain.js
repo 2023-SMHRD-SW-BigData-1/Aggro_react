@@ -21,7 +21,7 @@ const HomeMain = ({ history }) => {
   return (
     <div className="homeMain-container">
       <div className="l-container">
-        <div className="index-logo">
+        {/* <div className="index-logo">
           <div id="logo">
             <img
               src="img/Aggro_white.png"
@@ -30,12 +30,16 @@ const HomeMain = ({ history }) => {
               alt=" Aggro "
             />
           </div>
-        </div>
+        </div> */}
+        
+        <HomeLIst />
+        
         <form
           onSubmit={handleSubmit}
           className="summoner-search-form"
           autoComplete="off"
         >
+          
           <input
             type="text"
             name="username"
@@ -50,7 +54,6 @@ const HomeMain = ({ history }) => {
           </button>
         </form>
         {/* 커뮤니티 글목록 부분    */}
-        <HomeLIst />
       </div>
     </div>
   );

@@ -52,7 +52,9 @@ li {
 /* 제일 큰 div 컨테이너 박스 */
 .l-container {
   width: 100%;
-  margin: 0 auto;
+  margin-top: 5%;
+  height: 100%;
+  margin-bottom: 5%;
 }
 
 /* 로고에 패딩넣고 띄우기 */
@@ -107,8 +109,9 @@ li {
 
 /* 커뮤니티 게시글 전체 레이아웃 css 설정*/
 .homeList-container {
-  margin-top: 30px;
+  margin-top: 5%;
   height: 100%;
+  margin-bottom: 5%;
 }
 
 /* 커뮤니티 list태그안의 상단의 div안의 a태그의 css */

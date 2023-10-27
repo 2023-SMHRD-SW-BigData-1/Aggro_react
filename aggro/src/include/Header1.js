@@ -23,14 +23,27 @@ const Header1 = ({ history }) => {
 
   return (
     <div className="l-menu1">
-      <ul className="menu1">
+            <ul className="menu1">
+              <div className="index-logo">
+          <div id="logo">
+            <Link to ="/home"><img
+              src="img/Aggro_white_mini.png"
+              className="Image"
+              title=" Aggro "
+              alt=" Aggro "
+            /></Link>
+          </div>
+        </div>
+
         <li className="menu__item1">
-          <Link to="/home">AGG.RO</Link>
+          <Link to="/home">소개</Link>
+
+
 
         </li>
 
         <li className="menu__item1">
-          <Link to="/community">커뮤니티 페이지</Link>
+          <Link to="/community">커뮤니티</Link>
         </li>
         <li className="menu__item1">{authCheck}</li>
       </ul>

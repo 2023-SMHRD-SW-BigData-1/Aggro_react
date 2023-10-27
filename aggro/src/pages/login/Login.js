@@ -5,6 +5,7 @@ import "./Login.css";
 import LoginContent from "./LoginContent";
 import Join from "./../join/Join";
 import axios from "axios";
+import Footer2 from "../../include/Footer2";
 const Login = () => {
   const [user, setUser] = useState(null);
 
@@ -23,7 +24,9 @@ const Login = () => {
     <div className="login-container">
       <LoginContent />
     </div>
+    
   );
+  
 };
-
+<Footer2 />
 export default Login;

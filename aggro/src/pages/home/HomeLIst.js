@@ -34,36 +34,34 @@ const HomeLIst = () => {
     setStateInterval = setInterval(() => {
       let a = Math.random(); // 긍정 테스트
       let b = Math.random(); // 중립 테스트
-      let c = Math.random(); // 부정 테스트
-      let d = Math.random(); // 부정 테스트
-      let e = Math.random(); // 부정 테스트
+      let c = Math.random(); // 중립 테스트
+      let d = Math.random(); // 중립 테스트
 
       let data_legacy = [
         {
           x: "중립",
-          y: a / (a + b + c + d) * 100,
-          color: "#F0F8FF"
+          y: a / (a + b+c+d) * 100,
+          color: "white"
         },
         {
           x: "부정",
-          y: b / (a + b + c + d) * 100,
-          color: "#BFEFFF"
+          y: b / (a + b+c+d ) * 100,
+          color: "white"
         },
         {
-          x: "긍정",
-          y: c / (a + b + c + d) * 100,
-          color: '#C6E2FF'
+          x: "중립",
+          y: a / (a + b+c+d) * 100,
+          color: "white"
         },
         {
-          x: "긍정",
-          y: d / (a + b + c + d) * 100,
-          color: '#A4D3EE'
-        }
-
+          x: "중립",
+          y: a / (a + b+c+d) * 100,
+          color: "white"
+        },
       ].slice().sort((a, b) => a.y - b.y)
 
       setData(data_legacy);
-    }, 2000)
+    }, 1500)
 
     return () => {
       clearInterval(setStateInterval)
