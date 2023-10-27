@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header1.css";
 import { Link } from "react-router-dom";
+import src from '../include/Aggro_white_mini.png'
 
 const Header1 = ({ history }) => {
   const logout = () => {
@@ -23,11 +24,11 @@ const Header1 = ({ history }) => {
 
   return (
     <div className="l-menu1">
-            <ul className="menu1">
-              <div className="index-logo">
+      <ul className="menu1">
+        <div className="index-logo">
           <div id="logo">
-            <Link to ="/home"><img
-              src="img/Aggro_white_mini.png"
+            <Link to="/home"><img
+              src={src}
               className="Image"
               title=" Aggro "
               alt=" Aggro "
