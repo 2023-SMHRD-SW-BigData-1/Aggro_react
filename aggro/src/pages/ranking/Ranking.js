@@ -16,12 +16,14 @@ import MapWord from "./MapWord";
 
 
 
-const Ranking = ({ history }) => {
+const Ranking = ({ history, match }) => {
   const [data, setData] = useState([
     { x: "중립", y: 50, color: "#cfd9df" },
     { x: "부정", y: 40, color: "#c2e9fb" },
     { x: "긍정", y: 10, color: '#a1c4fd' }
   ]);
+
+  const searchName = match.params.userName
 
   const [username, setUsername] = useState("");
 
@@ -39,37 +41,24 @@ const Ranking = ({ history }) => {
 
   const downloadPDF = () => {
     const input = pdfRef.current;
-  
     html2canvas(input, {
       scale: 1,
       useCORS: true,
+      scrollY: -window.scrollY, // 스크롤 문제를 해결하기 위해 추가
+      windowWidth: input.clientWidth,  // 클라이언트 너비를 사용
+      windowHeight: input.clientHeight  // 클라이언트 높이를 사용
     }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('landscape', 'mm', 'a4');
-      
+      const pdf = new jsPDF('landscape', 'mm', 'a4', true);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
       const imgWidth = canvas.width;
       const imgHeight = canvas.height;
-      
-      // Calculate the ratio of the image to fit within the PDF dimensions.
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      let widthRatio = pdfWidth / imgWidth;
-      let heightRatio = pdfHeight / imgHeight;
-      
-      let ratio = widthRatio < heightRatio ? widthRatio : heightRatio;
-  
-      let finalImgWidth = imgWidth * ratio;
-      let finalImgHeight = imgHeight * ratio;
-  
-      // Center the image within the PDF dimensions.
-      let x = (pdfWidth - finalImgWidth) / 2;
-      let y = (pdfHeight - finalImgHeight) / 2;
-  
-      pdf.addImage(imgData, 'PNG', x, y, finalImgWidth, finalImgHeight);
+      const heightRatio = pdfWidth * (imgHeight / imgWidth);
+      const margin = 10;
+      pdf.addImage(imgData, 'PNG', margin, margin, pdfWidth - 2 * margin, heightRatio - 2 * margin);
       pdf.save('Report.pdf');
     });
   };
-
   useEffect(() => {
     const interval = setInterval(() => {
       let a = Math.random();
@@ -135,7 +124,7 @@ const Ranking = ({ history }) => {
 
           <div className="grid-item">
             <p className="item-box-item">월간 검색량</p>
-            <SearchData className="item-box-item" />
+            <SearchData className="item-box-item" searchName = {searchName}/>
           </div>
           <div className="grid-item">
             <p className="item-box-item">키워드별 검색량</p>
