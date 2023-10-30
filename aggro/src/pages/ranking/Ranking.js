@@ -7,13 +7,11 @@ import SearchData from "./SearchData";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import "./Ranking.css";
-import styled from "styled-components";
 import RankingBar from "./RankingBar";
 import WordCloud from "./WordCloud";
 import AgreeViewTab from "./AgreeViewTab";
 import imgSearch from "./Aggro_blue_mini.png";
 import MapWord from "./MapWord";
-
 
 
 const Ranking = ({ history, match }) => {
@@ -111,7 +109,7 @@ const Ranking = ({ history, match }) => {
         <div className="grid-container">
           <div className="grid-item">
             <p className="item-box-item">가제 1</p>
-            <MapWord className="item-box-item" />
+            <MapWord className="item-box-item mapword-styled" />
           </div>
           <div className="grid-item">
             <p className="item-box-item">가제 2</p>
