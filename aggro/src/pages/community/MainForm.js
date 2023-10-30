@@ -78,20 +78,13 @@ const MainForm = ({ history }) => {
 
   return (
     <MainFormBox>
-      <Link to="/community">
         <div className="icon-form">
         <Link to={"/home"}>
-              
-          <img
-            className="community-icon"
-            src="/img/Aggro_white.png"
-            alt="아이콘"
-          />
               
             </Link>
           {/* <div className="icon-text">리그오브레전드</div> */}
         </div>
-      </Link>
+
       {/* <SearchForm>
         <form onSubmit={handleOnSubmit}>
           <input

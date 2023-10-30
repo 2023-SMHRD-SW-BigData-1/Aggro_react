@@ -11,6 +11,10 @@ import styled from "styled-components";
 import RankingBar from "./RankingBar";
 import WordCloud from "./WordCloud";
 import AgreeViewTab from "./AgreeViewTab";
+import imgSearch from "./Aggro_blue_mini.png";
+import MapWord from "./MapWord";
+
+
 
 const Ranking = ({ history }) => {
   const [data, setData] = useState([
@@ -20,7 +24,7 @@ const Ranking = ({ history }) => {
   ]);
 
   const [username, setUsername] = useState("");
-  
+
   const handleInput = (e) => {
     setUsername(e.target.value);
     console.log(e.target.value);
@@ -31,23 +35,37 @@ const Ranking = ({ history }) => {
     history.push("/ranking/" + username);
   };
 
-  const pdfRef = useRef(); 
+  const pdfRef = useRef();
 
   const downloadPDF = () => {
-    const input = pdfRef.current; 
-
+    const input = pdfRef.current;
+  
     html2canvas(input, {
-      scale: 1,  // 해상도 향상
-      useCORS: true, // CORS 문제 해결
+      scale: 1,
+      useCORS: true,
     }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('landscape', 'mm', 'a4', true);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdf = new jsPDF('landscape', 'mm', 'a4');
+      
       const imgWidth = canvas.width;
       const imgHeight = canvas.height;
-      const heightRatio = pdfWidth * (imgHeight / imgWidth);
-      const margin = 10;
-      pdf.addImage(imgData, 'PNG', margin, margin, pdfWidth - 2 * margin, heightRatio - 2 * margin);
+      
+      // Calculate the ratio of the image to fit within the PDF dimensions.
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      let widthRatio = pdfWidth / imgWidth;
+      let heightRatio = pdfHeight / imgHeight;
+      
+      let ratio = widthRatio < heightRatio ? widthRatio : heightRatio;
+  
+      let finalImgWidth = imgWidth * ratio;
+      let finalImgHeight = imgHeight * ratio;
+  
+      // Center the image within the PDF dimensions.
+      let x = (pdfWidth - finalImgWidth) / 2;
+      let y = (pdfHeight - finalImgHeight) / 2;
+  
+      pdf.addImage(imgData, 'PNG', x, y, finalImgWidth, finalImgHeight);
       pdf.save('Report.pdf');
     });
   };
@@ -73,44 +91,67 @@ const Ranking = ({ history }) => {
   return (
     <>
       <Header1 />
-      
-        <div className="btn-box">
-      <form onSubmit={handleSubmit} className="summoner-search-form">
-        <input
-          type="text"
-          name="username"
-          onChange={handleInput}
-          className="summoner-search-form__text__suggest"
-          placeholder="검색어를 입력해주세요."
-        />
-        <button type="submit" className="summoner-search-form__button">
-          <img src="Aggro_blue_mini.png" alt="검색" className="btnImg" />
-        </button>
-      </form>
-          <div className="searchbar"></div>
+
+      <div className="btn-box">
+        <form onSubmit={handleSubmit} className="summoner-search-form">
+          <input
+            type="text"
+            name="username"
+            onChange={handleInput}
+            className="summoner-search-form__text__suggest"
+            placeholder="검색어를 입력해주세요."
+          />
+          <button type="submit" className="summoner-search-form__button">
+            <img src={imgSearch} alt="검색" className="btnImg" />
+          </button>
+        </form>
+
+
+
+
+
+        <div className="searchbar"></div>
+
+
         <button className="PDF-btn" onClick={downloadPDF}>다운로드 PDF</button>
       </div>
+
+
+
       <div className="App" ref={pdfRef}>
         <div className="grid-container">
           <div className="grid-item">
-              <p className="item-box-item">월간 검색량</p>
-              <SearchData className="item-box-item" />
+            <p className="item-box-item">가제 1</p>
+            <MapWord className="item-box-item" />
           </div>
           <div className="grid-item">
-              <p className="item-box-item">키워드별 검색량</p>
-              <RankingBar className="item-box-item" />
+            <p className="item-box-item">가제 2</p>
+            <RankingBar className="item-box-item" />
           </div>
           <div className="grid-item">
-              <p className="item-box-item">워드클라우드</p>
-              <WordCloud className="item-box-item" />
+            <p className="item-box-item">가제 3</p>
+            <RankingBar className="item-box-item" />
+          </div>
+
+          <div className="grid-item">
+            <p className="item-box-item">월간 검색량</p>
+            <SearchData className="item-box-item" />
           </div>
           <div className="grid-item">
-              <p className="item-box-item">긍부정</p>
-              <CircularProgressBar className="item-box-item" data={data} />
+            <p className="item-box-item">키워드별 검색량</p>
+            <RankingBar className="item-box-item" />
+          </div>
+          <div className="grid-item">
+            <p className="item-box-item">워드클라우드</p>
+            <WordCloud className="item-box-item" />
+          </div>
+          <div className="grid-item">
+            <p className="item-box-item">긍부정</p>
+            <CircularProgressBar className="item-box-item" data={data} />
           </div>
           <div className="grid-item merged">
-              <p className="item-box-item merged">뷰탭</p>
-              <AgreeViewTab className="item-box-item merged" />
+            <p className="item-box-item merged">뷰탭</p>
+            <AgreeViewTab className="item-box-item merged" />
           </div>
         </div>
       </div>

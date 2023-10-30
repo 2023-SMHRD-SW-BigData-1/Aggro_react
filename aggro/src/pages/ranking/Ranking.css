@@ -22,19 +22,35 @@
 }
 
 .btn-box {
+
     background-color: #5383e8;
-    padding: 1%;
+    padding-bottom: 2%;
     display: flex;
     justify-content: center;
-
+    align-items: center; /* 추가된 줄 */
+    flex-direction: column; /* 이 줄도 추가되었습니다. */
 }
 
 .PDF-btn {
-    margin-top: 10px;
+    margin-top: 2%;
     width: 10%;
     background-color: #1ea1f7;
+    align-self: center; 
+    border-radius: 20px;             /* 둥근 모서리 추가 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 약간의 그림자 추가 */
+    border: none;                   /* 경계선 제거 */
+    color: white;                   /* 글씨 색상 변경 */
+    font-weight: 500;               /* 글씨 두께 조절 */
+    padding: 10px 15px;             /* 패딩 조절로 버튼 크기를 적절하게 맞추기 */
+    cursor: pointer;                /* 마우스 호버 시 포인터 아이콘으로 변경 */
+    transition: all 0.3s;          /* 부드러운 효과를 위한 전환 추가 */
 }
 
+.PDF-btn:hover {
+    background-color: #1ea1f7;     /* 마우스 호버 시 배경색 변경 */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* 마우스 호버 시 그림자 크기 변경 */
+    transform: translateY(5px);
+}
 
 /* 뷰탭 */
 .item-box-table {
@@ -79,8 +95,8 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: 1rem;
+    padding: 1rem;
     
   }
   
@@ -97,11 +113,12 @@
     flex-direction: column;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.12) 0.5rem 0.5rem 0.3rem 0rem;
-    
+    border-radius: 1%;
   }
 .merged {
     grid-column: span 2;
     width: 100%;
+    border-radius: 1%;
 }
 
 

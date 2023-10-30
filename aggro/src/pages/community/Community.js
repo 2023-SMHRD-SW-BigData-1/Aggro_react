@@ -282,7 +282,6 @@ const Community = ({ history }) => {
       <CommunityWrap>
         <Header1 />
         <div className="community-container">
-          <MainForm />
 
           <ContentBox>
             <div className="content-header">
