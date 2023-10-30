@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { VictoryAxis, VictoryBrushContainer, VictoryChart, VictoryLine, VictoryZoomContainer } from 'victory'
 
 
-const SearchData = () => {
+const SearchData = ({searchName}) => {
     const [state, setState] = useState({
         zoomDomain: { x: [new Date(1990, 1, 1), new Date(2009, 1, 1)] }
     })
@@ -26,7 +26,7 @@ const SearchData = () => {
     useEffect(()=>{
 
         axios
-        .get("http://localhost:8283/bigdata/ranking/"+"test")
+        .get("http://localhost:8283/bigdata/ranking/detail/"+searchName)
         .then((response)=>{
             console.log(response);
         })
