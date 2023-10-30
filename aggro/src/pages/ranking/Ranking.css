@@ -103,3 +103,42 @@
     grid-column: span 2;
     width: 100%;
 }
+
+
+/* 서치바 css 양식임 */
+.summoner-search-form__text__suggest {
+    display: block;
+    width: 100%;
+    padding: 15px 150px 18px 17px;
+    background: none;
+    border: none;
+    line-height: 17px;
+    font-size: 14px;
+    color: #9b9b9b;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  /* 서치바 검색버튼 크기조절 */
+  /* 서치바 검색버튼 안에 넣기 */
+  .summoner-search-form__button {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    margin: 15px 10px 0 0;
+    /* height: 30px; */
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* form으로 서치바 크기 css 조절함 */
+  .summoner-search-form {
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 2px;
+    background-color: #fff;
+  }
