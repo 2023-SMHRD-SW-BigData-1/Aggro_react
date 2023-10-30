@@ -12,9 +12,7 @@ const words = [
 
 function MapWord() {
   return (
-    <div style={{ width: '600px', height: '400px' }}>
       <ReactWordcloud words={words} />
-    </div>
   );
 }
 
