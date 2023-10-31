@@ -21,8 +21,6 @@ const Ranking = ({ history, match }) => {
     { x: "긍정", y: 10, color: '#a1c4fd' }
   ]);
 
-  const searchName = match.params.userName
-
   const [username, setUsername] = useState("");
 
   const handleInput = (e) => {
@@ -73,7 +71,7 @@ const Ranking = ({ history, match }) => {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [data]);
 
   return (
     <>
@@ -122,7 +120,7 @@ const Ranking = ({ history, match }) => {
 
           <div className="grid-item">
             <p className="item-box-item">월간 검색량</p>
-            <SearchData className="item-box-item" searchName = {searchName}/>
+            <SearchData className="item-box-item" searchName={match.params.searchName} />
           </div>
           <div className="grid-item">
             <p className="item-box-item">키워드별 검색량</p>
