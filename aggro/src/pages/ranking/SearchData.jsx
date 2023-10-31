@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { VictoryAxis, VictoryBar, VictoryBrushContainer, VictoryChart, VictoryLine, VictoryScatter, VictoryTooltip, VictoryZoomContainer } from 'victory'
 import SearchLabel from './SearchLabel'
+import moment from 'moment'
 
 
 const SearchData = ({ searchData }) => {
@@ -82,7 +83,7 @@ const SearchData = ({ searchData }) => {
                         zoomDomain={state.zoomDomain}
                         onZoomDomainChange={handleZoom.bind(this)}
                         allowZoom={false}
- 
+
                     />
                 }
             >
@@ -105,7 +106,7 @@ const SearchData = ({ searchData }) => {
                     data={data}
                     x="a"
                     y="b"
-                    labels={({ datum }) => `일시: ${datum.a.toLocaleDateString()}\n검색량:${datum.b}`}
+                    labels={({ datum }) => `일시: ${moment(datum.a).format("YY년 MM월")}\n검색량:${datum.b}`}
                     labelComponent={
                         <VictoryTooltip
                             constrainToVisibleArea
