@@ -73,7 +73,13 @@ const SearchData = ({ searchName }) => {
         <div className="item-box-item" style={{ overflow: "hidden" }}>
 
             <VictoryChart
-                padding={{ top: 0, bottom: 40, left: 50, right: 50 }}
+                width="100%"
+                padding={{ top: 0, left: 50, right: 50, bottom: 40 }}
+                style={{
+                  parent: {
+                    width: '100%'
+                  }
+                }}
             >
 
                 <VictoryLine
