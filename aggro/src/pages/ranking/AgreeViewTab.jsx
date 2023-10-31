@@ -15,9 +15,10 @@ const AgreeViewTab = ({ searchData }) => {
     ])
 
     useEffect(() => {
-        const sortedSearchData = searchData.sort((a, b) => b.crawlViewCount - a.crawlViewCount).slice(0, 7);
-        console.log(sortedSearchData);
-        setData(sortedSearchData)
+        if (searchData.length > 0) {
+            const sortedSearchData = searchData.sort((a, b) => b.crawlViewCount - a.crawlViewCount).slice(0, 7);
+            setData(sortedSearchData)
+        }
     }, [searchData])
 
     return (
@@ -46,7 +47,7 @@ const AgreeViewTab = ({ searchData }) => {
                                     {view.crawlTitle}
                                 </a>
                             </td>
-                            <td className='item-box-tabledata' title={view.crawlContent}>
+                            <td className='item-box-tabledata'>
                                 <a
                                     href={view.crawlUrl}
                                     target='_blank'

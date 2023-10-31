@@ -21,10 +21,7 @@ const SearchData = ({ searchData }) => {
 
     const [data, setData] = useState([])
 
-
     useEffect(() => {
-        console.log(searchData && searchData.length > 0);
-
         if (searchData.length > 0) {
             // 응답 데이터를 처리
             const processedData = [];

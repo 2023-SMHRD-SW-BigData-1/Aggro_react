@@ -1,19 +1,18 @@
+import Axios from "axios";
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import React, { useEffect, useRef, useState } from "react";
 import { withRouter } from "react-router-dom";
 import Footer2 from "../../include/Footer2";
 import Header1 from "../../include/Header1";
+import imgSearch from "./Aggro_blue_mini.png";
+import AgreeViewTab from "./AgreeViewTab";
 import CircularProgressBar from "./CircularProgressBar";
-import SearchData from "./SearchData";
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+import MapWord from "./MapWord";
 import "./Ranking.css";
 import RankingBar from "./RankingBar";
+import SearchData from "./SearchData";
 import WordCloud from "./WordCloud";
-import AgreeViewTab from "./AgreeViewTab";
-import imgSearch from "./Aggro_blue_mini.png";
-import MapWord from "./MapWord";
-import BarChartComponent from './BarChartComponent';
-import Axios from "axios";
 
 const Ranking = ({ history, match }) => {
 
@@ -21,7 +20,6 @@ const Ranking = ({ history, match }) => {
 
   const handleInput = (e) => {
     setUsername(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -117,6 +115,29 @@ const Ranking = ({ history, match }) => {
     }
   }, [searchName])
   // 서치데이터 가공 처리 끝
+
+  // api 테스트
+  useEffect(() => {
+    Axios
+      .post(`https://naveropenapi.apigw.ntruss.com/sentiment-analysis/v1/analyze`,
+        {
+          content: searchName,
+        },
+        {
+          headers: {
+            "X-NCP-APIGW-API-KEY-ID": "a9g7bsubdp", // Client ID
+            "X-NCP-APIGW-API-KEY": "i8qb8YxLzYVJw1ImVBp5O6yS0IEr11VvCvShU0OR", // Client Secret
+            "Content-Type": "application/json"
+          }
+        })
+      .then((response) => {
+        console.log(response);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [])
 
 
   return (
