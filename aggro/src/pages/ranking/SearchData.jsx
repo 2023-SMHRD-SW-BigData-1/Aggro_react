@@ -82,7 +82,7 @@ const SearchData = ({ searchData }) => {
                         zoomDomain={state.zoomDomain}
                         onZoomDomainChange={handleZoom.bind(this)}
                         allowZoom={false}
-
+ 
                     />
                 }
             >
