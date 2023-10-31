@@ -82,22 +82,7 @@ const MainForm = ({ history }) => {
         <Link to={"/home"}>
               
             </Link>
-          {/* <div className="icon-text">리그오브레전드</div> */}
         </div>
-
-      {/* <SearchForm>
-        <form onSubmit={handleOnSubmit}>
-          <input
-            onChange={handleOnChange}
-            type="text"
-            className="main-input"
-            placeholder="삭제"
-          />
-          <button className="mainBtn" type="submit">
-            <img className="btnImg" src="img/Aggro_blue_mini.png" alt="검색" />
-          </button>
-        </form>
-      </SearchForm> */}
     </MainFormBox>
   );
 };

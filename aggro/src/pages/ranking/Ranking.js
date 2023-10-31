@@ -12,7 +12,7 @@ import WordCloud from "./WordCloud";
 import AgreeViewTab from "./AgreeViewTab";
 import imgSearch from "./Aggro_blue_mini.png";
 import MapWord from "./MapWord";
-
+import BarChartComponent from './BarChartComponent';
 
 const Ranking = ({ history, match }) => {
   const [data, setData] = useState([
@@ -38,7 +38,7 @@ const Ranking = ({ history, match }) => {
   const downloadPDF = () => {
     const input = pdfRef.current;
     html2canvas(input, {
-      scale: 1,
+      scale: 2,
       useCORS: true,
       scrollY: -window.scrollY, // 스크롤 문제를 해결하기 위해 추가
       windowWidth: input.clientWidth,  // 클라이언트 너비를 사용
@@ -106,13 +106,13 @@ const Ranking = ({ history, match }) => {
       <div className="App" ref={pdfRef}>
         <div className="grid-container">
           <div className="grid-item">
-            <p className="item-box-item">가제 1</p>
+            <p className="item-box-item">map 1</p>
             <MapWord className="item-box-item mapword-styled" />
           </div>
           <div className="grid-item">
-            <p className="item-box-item">가제 2</p>
-            <RankingBar className="item-box-item" />
-          </div>
+          <p className="item-box-item">가제 2</p>
+          <RankingBar className="item-box-item" /> {/* 이 부분을 수정했습니다. */}
+        </div>
           <div className="grid-item">
             <p className="item-box-item">가제 3</p>
             <RankingBar className="item-box-item" />

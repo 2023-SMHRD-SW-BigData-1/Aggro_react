@@ -1,28 +1,68 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import ReactWordcloud from 'react-wordcloud';
-import styled from 'styled-components';
+import "./Ranking.css";
 
 const words = [
-  { text: 'React', value: 100 },
-  { text: 'JavaScript', value: 80 },
-  { text: 'Node', value: 50 },
-  { text: 'Express', value: 40 },
-  { text: 'HTML', value: 30 },
+  { text: 'React', value: 1 },
+  { text: 'JavaScript', value: 1 },
+  { text: 'Node', value: 1 },
+  { text: 'Express', value: 1 },
+  { text: 'HTML', value: 1 },
+  { text: 'React', value: 1 },
+  { text: 'JavaScript', value: 1 },
+  { text: 'Node', value: 1 },
+  { text: 'Express', value: 1 },
+  { text: 'HTML', value: 1 },
+  { text: 'React', value: 1 },
+  { text: 'JavaScript', value: 1 },
+  { text: 'Node', value: 1 },
+  { text: 'Express', value: 1 },
+  { text: 'HTML', value: 1 },
+  { text: 'React', value: 1 },
+  { text: 'JavaScript', value: 1 },
+  { text: 'Node', value: 1 },
+  { text: 'Express', value: 1 },
+  { text: 'HTML', value: 1 },
+  { text: 'React', value: 1 },
+  { text: 'JavaScript', value: 1 },
+  { text: 'Node', value: 1 },
+  { text: 'Express', value: 1 },
+  { text: 'HTML', value: 1 },
+  { text: 'React', value: 1 },
+  { text: 'JavaScript', value: 1 },
+  { text: 'Node', value: 1 },
+  { text: 'Express', value: 1 },
+  { text: 'HTML', value: 1 },
   // ... 기타 단어 및 빈도수를 추가할 수 있습니다.
 ];
-const StyledMapWord = styled(MapWord)`
-  width: 100%;  // 전체 그리드 항목의 너비에 맞게
-  height: 100%; // 전체 그리드 항목의 높이에 맞게
-  border: 1px solid #e0e0e0;  // 경계선 추가
-  border-radius: 10px;  // 모서리 둥글게
-  overflow: hidden;  // 넘치는 내용 숨기기
-
-  // 추가적인 스타일링은 이곳에
-`;
 
 function MapWord() {
+  // 현재 호버된 단어
+  const [hoveredWord, setHoveredWord] = useState(null);
+
+  const options = {
+    enableTooltip: false,
+    deterministic: true,
+    rotations: 1,
+    rotationAngles: [0],
+    transitionDuration: 1,
+    fontFamily: 'sans-serif',
+    fontWeight: '700',
+    padding: 3,
+    // 각 단어의 색상을 동적으로 결정
+    colors: (word) => word.text === hoveredWord ? 'black' : 'white',
+  };
+
+  // 단어 위에 마우스가 올라갔을 때와 나갈 때의 콜백 함수
+  const callbacks = {
+    onWordMouseOver: useCallback((event) => setHoveredWord(event.text), []),
+    onWordMouseOut: useCallback(() => setHoveredWord(null), []),
+  };
+
   return (
-      <ReactWordcloud words={words} />
+    <div className="mapword-styled" style={{background: 'url(background_image_URL_here) center/cover'}}>
+      <ReactWordcloud words={words} options={options} callbacks={callbacks} />
+    </div>
   );
 }
 

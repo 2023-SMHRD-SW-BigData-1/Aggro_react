@@ -37,15 +37,13 @@ const Header1 = ({ history }) => {
         </div>
 
         <li className="menu__item1">
-          <Link to="/home">소개</Link>
-
-
-
+          <Link to="/Intro">소개</Link>
         </li>
 
         <li className="menu__item1">
           <Link to="/community">커뮤니티</Link>
         </li>
+
         <li className="menu__item1">{authCheck}</li>
       </ul>
     </div>

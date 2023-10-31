@@ -8,13 +8,12 @@ import Home from "./pages/home/Home";
 import Ranking from "./pages/ranking/Ranking";
 import Join from "./pages/join/Join";
 import Login from "./pages/login/Login";
-
 import Community from "./pages/community/Community";
-
 import CommunityDetail from "./pages/community/CommunityDetail";
 import CommunityWrite from "./pages/community/CommunityWrite";
 import Summoner from "./pages/summoner/Summoner";
 import CommunityEdit from "./pages/community/CommunityEdit";
+import Intro from "./pages/info/Intro";
 
 function App() {
   return (
@@ -26,10 +25,12 @@ function App() {
       <Route path="/community" component={Community} />
       <Route path="/login" component={Login} />
       <Route path="/join" component={Join} />
+      <Route path="/intro" component={Intro}/>
       <Route path="/write" component={CommunityWrite} />
       <Route path="/summoner/:username" component={Summoner} />
       <Route path="/summoner" component={Summoner} />
       <Route path="/edit" component={CommunityEdit} exact={true} />
+
     </Switch>
   );
 }
