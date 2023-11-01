@@ -166,18 +166,7 @@ const Ranking = ({ history, match }) => {
 
       <div className="App" ref={pdfRef}>
         <div className="grid-container">
-          <div className="grid-item">
-            <p className="item-box-item">map 1</p>
-            <MapWord className="item-box-item mapword-styled" />
-          </div>
-          <div className="grid-item">
-            <p className="item-box-item">가제 2</p>
-            <RankingBar className="item-box-item" />
-          </div>
-          <div className="grid-item">
-            <p className="item-box-item">키워드별 검색량</p>
-            <RankingBar className="item-box-item" />
-          </div>
+
 
 
           <div className="grid-item merged">
@@ -187,30 +176,21 @@ const Ranking = ({ history, match }) => {
 
 
           <div className="grid-item">
-            <p className="item-box-item">워드클라우드</p>
-            <WordCloud className="item-box-item" />
-          </div>
-          <div className="grid-item">
             <p className="item-box-item">긍부정</p>
             <CircularProgressBar className="item-box-item" data={pieData} />
           </div>
-          <div className="grid-item">
-            <p className="item-box-item">워드클라우드</p>
-            <MapWord className="item-box-item mapword-styled" />
-          </div>
-          <div className="grid-item">
-          <p className="item-box-item">가제 2</p>
-          <RankingBar className="item-box-item" /> 
-        </div>
-          <div className="grid-item">
-            <p className="item-box-item">키워드별 검색량</p>
-            <RankingBar className="item-box-item" />
-          </div>
-
 
           <div className="grid-item merged">
-            <p className="item-box-item merged">뷰탭</p>
-            <AgreeViewTab className="item-box-item merged" searchData={searchData} />
+            <p className="item-box-item merged">워드클라우드</p>
+            <MapWord className="item-box-item mapword-styled merged" />
+          </div>
+          <div className="grid-item merged">
+            <p className="item-box-item merged">키워드별 검색량</p>
+            <RankingBar className="item-box-item merged" />
+          </div>
+          <div className="grid-item mergedtwo">
+            <p className="item-box-item mergedtwo">뷰탭</p>
+            <AgreeViewTab className="item-box-item mergedtwo" searchData={searchData} />
           </div>
         </div>
       </div>
