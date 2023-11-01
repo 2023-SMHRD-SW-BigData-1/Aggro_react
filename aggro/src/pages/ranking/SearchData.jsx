@@ -74,7 +74,8 @@ const SearchData = ({ searchData }) => {
         <div className="item-box-item" style={{ overflow: "hidden" }}>
 
             <VictoryChart
-                padding={{ top: 0, bottom: 40, left: 50, right: 50 }}
+            height={200}
+                padding={{ top: 40, bottom: 40, left: 50, right: 50 }}
                 containerComponent={
                     <VictoryZoomContainer
                         zoomDomain={state.zoomDomain}
