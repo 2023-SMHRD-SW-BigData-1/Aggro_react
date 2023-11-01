@@ -1,9 +1,9 @@
-import React, {useState, useCallback} from 'react';
+import React, { useState, useCallback } from 'react';
 import ReactWordcloud from 'react-wordcloud';
 import "./Ranking.css";
 
 const words = [
-  { text: 'React', value: 1, colors: "blue"},
+  { text: 'React', value: 1, colors: "blue" },
   { text: 'JavaScript', value: 1 },
   { text: 'Node', value: 1 },
   { text: 'Express', value: 1 },
@@ -57,12 +57,14 @@ function MapWord() {
   const callbacks = {
     onWordMouseOver: useCallback((event) => setHoveredWord(event.text), []),
     onWordMouseOut: useCallback(() => setHoveredWord(null), []),
-    
+
   };
 
   return (
-    <div className="mapword-styled" style={{background: 'url(background_image_URL_here) center/cover'}}>
-      <ReactWordcloud words={words} options={options} callbacks={callbacks} />
+    <div className='item-box-item'>
+      <div className="mapword-styled" >
+        <ReactWordcloud words={words} options={options} callbacks={callbacks} />
+      </div>
     </div>
   );
 }

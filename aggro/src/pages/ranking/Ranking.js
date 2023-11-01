@@ -165,35 +165,42 @@ const Ranking = ({ history, match }) => {
 
 
       <div className="App" ref={pdfRef}>
-        <div className="grid-container">
-
-
+        <div className="grid-containertwo">
 
           <div className="grid-item merged">
-            <p className="item-box-item merged">월간 검색량</p>
+            <p className="item-box-item_title">월간 검색량</p>
             <SearchData className="item-box-item merged" searchData={searchData} />
           </div>
 
 
           <div className="grid-item">
-            <p className="item-box-item">긍부정</p>
+            <p className="item-box-item_title">긍부정</p>
             <CircularProgressBar className="item-box-item" data={pieData} />
           </div>
+        </div>
 
-          <div className="grid-item merged">
-            <p className="item-box-item merged">워드클라우드</p>
-            <MapWord className="item-box-item mapword-styled merged" />
+        <div className="grid-container">
+          <div className="grid-item ">
+            <p className="item-box-item_title ">키워드별 검색량</p>
+            <RankingBar className="item-box-item " />
+          </div>
+          <div className="grid-item ">
+            <p className="item-box-item_title ">키워드별 검색량</p>
+            <RankingBar className="item-box-item " />
           </div>
           <div className="grid-item merged">
-            <p className="item-box-item merged">키워드별 검색량</p>
-            <RankingBar className="item-box-item merged" />
+            <p className="item-box-item_title">워드클라우드</p>
+            <MapWord className="item-box-item mapword merged" />
           </div>
+        </div>
+        <div className="grid-containertwo">
+
           <div className="grid-item mergedtwo">
-            <p className="item-box-item mergedtwo">뷰탭</p>
+            <p className="item-box-item_title">뷰탭</p>
             <AgreeViewTab className="item-box-item mergedtwo" searchData={searchData} />
           </div>
         </div>
-      </div>
+      </div >
       <Footer2 />
     </>
   );
