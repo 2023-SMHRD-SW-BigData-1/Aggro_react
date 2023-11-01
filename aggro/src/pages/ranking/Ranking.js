@@ -76,23 +76,6 @@ const Ranking = ({ history, match }) => {
     { x: "긍정", y: 10, color: '#a1c4fd' }
   ]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      let a = Math.random();
-      let b = Math.random();
-      let c = Math.random();
-
-      const newData = [
-        { x: "중립", y: a / (a + b + c) * 100, color: "#cfd9df" },
-        { x: "부정", y: b / (a + b + c) * 100, color: "#c2e9fb" },
-        { x: "긍정", y: c / (a + b + c) * 100, color: '#a1c4fd' }
-      ].sort((a, b) => a.y - b.y);
-
-      setPieData(newData);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [pieData]);
   // 긍부정 데이터 가공 끝
 
   // 서치데이터 처리
@@ -119,25 +102,37 @@ const Ranking = ({ history, match }) => {
   // api 테스트
   useEffect(() => {
     Axios
-      .post(`https://naveropenapi.apigw.ntruss.com/sentiment-analysis/v1/analyze`,
-        {
-          content: searchName,
-        },
-        {
-          headers: {
-            "X-NCP-APIGW-API-KEY-ID": "a9g7bsubdp", // Client ID
-            "X-NCP-APIGW-API-KEY": "i8qb8YxLzYVJw1ImVBp5O6yS0IEr11VvCvShU0OR", // Client Secret
-            "Content-Type": "application/json"
-          }
-        })
+      .post(
+        `http://localhost:8283/bigdata/api/analyzeSentiment`, { content: searchName })
       .then((response) => {
-        console.log(response);
-        console.log(response.data);
+        const jsonObject = JSON.parse(response.data.sentDetails)
+
+        pieData.map((data) => {
+          switch (data.x) {
+            case "부정":
+              data.y = jsonObject["negative"]
+              break;
+
+            case "긍정":
+              data.y = jsonObject["positive"]
+
+              break;
+
+            case "중립":
+              data.y = jsonObject["neutral"]
+              break;
+
+          }
+
+        })
+        setPieData(pieData.slice().sort((a, b) => a.y - b.y))
       })
       .catch((error) => {
         console.log(error);
       })
-  }, [])
+
+
+  }, [searchName])
 
 
   return (
