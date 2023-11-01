@@ -27,8 +27,8 @@
     padding-bottom: 2%;
     display: flex;
     justify-content: center;
-    align-items: center; /* 추가된 줄 */
-    flex-direction: column; /* 이 줄도 추가되었습니다. */
+    align-items: center; 
+    flex-direction: column; 
 }
 
 .PDF-btn {
@@ -94,7 +94,7 @@
 /* 그리드 */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     padding: 1rem;
     
@@ -112,14 +112,14 @@
     height: 100%;
     flex-direction: column;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.12) 0.5rem 0.5rem 0.3rem 0rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0.3rem 0.3rem 0.3rem 0.1rem;
     border-radius: 1%;
   }
 .merged {
     grid-column: span 2;
     width: 100%;
-    border-radius: 1%;
 }
+
 
 
 /* 서치바 css 양식임 */
@@ -163,12 +163,12 @@
 /* 워드클라우드 텍스트 스타일 */
 .mapword-styled text {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* 폰트 지정 */
-    transition: transform 0.2s ease; /* 애니메이션 효과 지정 */
+    transition: all transform 2; /* 애니메이션 효과 지정 */
 }
 
 /* 마우스 오버시 텍스트 확대 효과 */
 .mapword-styled text:hover {
-    transform: scale(5);
+    transform: scale(3);
 }
 
 .mapword-styled {
