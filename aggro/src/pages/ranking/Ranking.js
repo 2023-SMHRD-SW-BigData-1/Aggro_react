@@ -19,13 +19,21 @@ const Ranking = ({ history, match }) => {
 
   const [username, setUsername] = useState("");
 
-  const handleInput = (e) => {
-    setUsername(e.target.value);
-  };
+  const userNameRef = useRef()
+
+  useEffect(() => {
+    setUsername(userNameRef.current.value)
+  }, [userNameRef])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/ranking/" + username);
+    
+
+    const searchName = userNameRef.current.value
+
+    history.push("/ranking/" + searchName);
+
+    userNameRef.current.value = ""
   };
 
   const pdfRef = useRef();
@@ -143,7 +151,7 @@ const Ranking = ({ history, match }) => {
           <input
             type="text"
             name="username"
-            onChange={handleInput}
+            ref={userNameRef}
             className="summoner-search-form__text__suggest"
             placeholder="검색어를 입력해주세요."
           />
