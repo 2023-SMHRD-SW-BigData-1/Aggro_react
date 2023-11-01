@@ -1,20 +1,25 @@
 import moment from 'moment'
-import React from 'react'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import React, { useEffect, useState } from 'react'
+import { a } from 'react-router-dom/cjs/react-router-dom.min'
 
-const AgreeViewTab = () => {
+const AgreeViewTab = ({ searchData }) => {
 
-    const data = [
-        { rank: 1, userNick: "더 나은 나 더 나은 세상", title: '홍준표 "국회의원 80명이면 돼... 합의하면 지도부 퇴진운동" VS "이재명 외 대안 없다" 발언에...', content: "홍준표 대구 시장은 여야가 선거제도 개편안을 전원위원회 논의 안건으로 정한 것과 관련해", noticeAt: "2023.03.14" },
-        { rank: 2, userNick: "✔류리식스✔", title: "이재명", content: "", noticeAt: "2023.03.13" },
-        { rank: 3, userNick: "여행의 사고", title: "윤영찬", content: "", noticeAt: "2023.04.28" },
-        { rank: 4, userNick: "녹강천연물농법", title: "홍준표?", content: "", noticeAt: "2033.01.01" },
-        { rank: 5, userNick: "대구는 요즘 어때?", title: "홍준표..", content: "", noticeAt: "1900.01.01" },
-        { rank: 6, userNick: "세상몽!", title: "죄다 홍준표", content: "", noticeAt: "0000.01.01" },
-        { rank: 7, userNick: "유무둥둥인", title: "이재명", content: "", noticeAt: "9999.12.31" },
-    ]
+    const [data, setData] = useState([
+        { rank: 1, crawlTitle: '홍준표 "국회의원 80명이면 돼... 합의하면 지도부 퇴진운동" VS "이재명 외 대안 없다" 발언에...', crawlContent: "홍준표 대구 시장은 여야가 선거제도 개편안을 전원위원회 논의 안건으로 정한 것과 관련해", crawlAt: "2023.03.14" },
+        { rank: 2, crawlTitle: "이재명", crawlContent: "", crawlAt: "2023.03.13" },
+        { rank: 3, crawlTitle: "윤영찬", crawlContent: "", crawlAt: "2023.04.28" },
+        { rank: 4, crawlTitle: "홍준표?", crawlContent: "", crawlAt: "2033.01.01" },
+        { rank: 5, crawlTitle: "홍준표..", crawlContent: "", crawlAt: "1900.01.01" },
+        { rank: 6, crawlTitle: "죄다 홍준표", crawlContent: "", crawlAt: "0000.01.01" },
+        { rank: 7, crawlTitle: "이재명", crawlContent: "", crawlAt: "9999.12.31" },
+    ])
 
-
+    useEffect(() => {
+        if (searchData.length > 0) {
+            const sortedSearchData = searchData.sort((a, b) => b.crawlViewCount - a.crawlViewCount).slice(0, 7);
+            setData(sortedSearchData)
+        }
+    }, [searchData])
 
     return (
         <div className="item-box-item">
@@ -28,15 +33,35 @@ const AgreeViewTab = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((view) => (
-                        <tr className='item-box-tablerow' key={view.rank}>
-                            <td style={{backgroundColor:"#5e729e"}}>{view.rank}</td>
-                            <td className='item-box-tabledata' title={view.title}>{view.title}</td>
-                            <td className='item-box-tabledata' title={view.content}>{view.content}</td>
+                    {data.map((view, index) => (
+                        <tr className='item-box-tablerow' key={index + 1}>
+                            <td style={{ backgroundColor: "#5e729e" }}>{index + 1}</td>
+                            <td className='item-box-tabledata' title={view.crawlTitle}>
+                                <a
+                                    href={view.crawlUrl}
+                                    target='_blank'
+                                    style={{
+                                        color: "black"
+                                    }}
+                                >
+                                    {view.crawlTitle}
+                                </a>
+                            </td>
+                            <td className='item-box-tabledata'>
+                                <a
+                                    href={view.crawlUrl}
+                                    target='_blank'
+                                    style={{
+                                        color: "black"
+                                    }}
+                                >
+                                    {view.crawlContent}
+                                </a>
+                            </td>
                             <td className='item-box-tabledata'>{
-                                moment().diff(moment(view.noticeAt, "YYYY.MM.DD"), 'days') > 7 ?
-                                    view.noticeAt
-                                    : moment(view.noticeAt, "YYYY.MM.DD").startOf("second").fromNow()
+                                moment().diff(moment(view.crawlAt, moment.ISO_8601), 'days') > 7 ?
+                                    moment(view.crawlAt, moment.ISO_8601).format("YY.MM.DD")
+                                    : moment(view.crawlAt, moment.ISO_8601).startOf("second").fromNow()
                             }</td>
                         </tr>
                     ))}
