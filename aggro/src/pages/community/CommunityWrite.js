@@ -142,7 +142,6 @@ const CommunityWrite = ({ history }) => {
       <CommunityWrap>
         <Header1 />
         <div className="communityWrite-conatiner">
-          <MainForm />
           <div>
             <WriteBox>
               <div className="content">
