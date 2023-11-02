@@ -411,8 +411,7 @@ const CommunityDetail = ({ match, history }) => {
         <Header1 />
 
         <div className="community-container">
-          <MainForm />
-          <CommunityContentBox>
+          <CommunityContentBox style={{marginTop: "1%"}}>
             {resp.statusCode === 201
               ? resp.data.type === 1 && (
                   <div key={resp.data.post.noticeSeq}>
