@@ -170,15 +170,15 @@ const Ranking = ({ history, match }) => {
 
 
       <div className="App" ref={pdfRef}>
-        <div className="grid-containertext mt mb">
+        <div className="grid-containertext mt mb brone">
           `{searchName}` 에 대한 검색 결과입니다.
         </div>
 
 
 
         <div className="top-container">
-          <div className="grid-item merged">월간 검색량</div>
-          <div className="grid-item"> 호감도 </div>
+          <div className="grid-item merged br1">월간 검색량</div>
+          <div className="grid-item br1"> 호감도 </div>
         </div>
         
         <div className="grid-containertwo">
@@ -194,9 +194,9 @@ const Ranking = ({ history, match }) => {
           </div>
         </div>
         <div className="middle-container">
-          <div className="grid-item text" > 키워드별 검색량 </div>
-          <div className="grid-item text"> 키워드별 검색량 </div>
-          <div className="grid-item merged text"> 워드 클라우드 </div>
+          <div className="grid-item text br1" > 키워드별 검색량 </div>
+          <div className="grid-item text br1"> 키워드별 검색량 </div>
+          <div className="grid-item merged text br1"> 워드 클라우드 </div>
         </div>
         <div className="grid-container">
           <div className="grid-item ">
@@ -209,7 +209,7 @@ const Ranking = ({ history, match }) => {
             <MapWord className="item-box-item mapword merged" />
           </div>
         </div>
-        <div className="grid-containertext">
+        <div className="grid-containertext br1">
           View Tab
         </div>
         <div className="grid-containertwo">
