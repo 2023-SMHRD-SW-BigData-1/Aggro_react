@@ -225,12 +225,14 @@ const Ranking = ({ history, match }) => {
 
           <div className="grid-item merged">
             {/* <p className="item-box-item_title title bline">뷰탭 </p> */}
-            <AgreeViewTab className="item-box-item merged" searchData={searchData} />
+            {/* 최신순 */}
+            <AgreeViewTab className="item-box-item merged" type={"new"} searchData={searchData} />
           </div>
 
           <div className="grid-item merged">
             {/* <p className="item-box-item_title title bline">뷰탭 </p> */}
-            <AgreeViewTab className="item-box-item merged" searchData={searchData} />
+            {/* TOP 10 */}
+            <AgreeViewTab className="item-box-item merged" type={"top"} searchData={searchData} />
           </div>
         </div>
       </div >
