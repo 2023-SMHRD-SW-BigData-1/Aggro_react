@@ -20,49 +20,7 @@
     line-height: 1.5;
   }
 
-  element.style {
-  }
-  .different-col .inner-col {
-      max-width: 98rem;
-  }
-  .landing .inner-col {
-      width: 118rem;
-      margin: 0 auto;
-      padding: unset;
-  }
-  .inner-col {
-      background-color: transparent;
-  }
-  .inner-col {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 3rem;
-      background-color: #fff;
-  }
-  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-  }
-  user agent stylesheet
-  div {
-      display: block;
-  }
-  .landing {
-      width: 100%;
-      font-size: 12px;
-      line-height: 1;
-      overflow: hidden;
-      letter-spacing: -0.02em;
-  }
-  html, body {
-      margin: 0;
-      padding: 0;
-      font: normal normal 10px/1.2 "Inter", "NotoSansCJKkr", sans-serif;
-      overflow: hidden auto;
-  }
+  
   /* style attribute {
       --bg-vh: 9.41px;
   } */
