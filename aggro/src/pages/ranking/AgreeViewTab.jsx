@@ -35,7 +35,13 @@ const AgreeViewTab = ({ searchData, type }) => {
                         <th className='item-box-rank'>순번</th>
                         <th className='item-box-title'>제목</th>
                         {/* <th className='item-box-content'>본문</th> */}
-                        <th className='item-box-at'>작성일</th>
+                        <th className='item-box-at'>
+                            {
+                                type === "new" ?
+                                    "작성일"
+                                    : "조회수"
+                            }
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,12 +59,18 @@ const AgreeViewTab = ({ searchData, type }) => {
                                     {view.crawlTitle}
                                 </a>
                             </td>
+                            <td className='item-box-tabledata'>
 
-                            <td className='item-box-tabledata'>{
-                                moment().diff(moment(view.crawlAt, moment.ISO_8601), 'days') > 30 ?
-                                    moment(view.crawlAt, moment.ISO_8601).format("YY.MM.DD")
-                                    : moment(view.crawlAt, moment.ISO_8601).startOf("second").fromNow()
-                            }</td>
+                                {
+                                    type === "new" ?
+
+                                        moment().diff(moment(view.crawlAt, moment.ISO_8601), 'days') > 30 ?
+                                            moment(view.crawlAt, moment.ISO_8601).format("YY.MM.DD")
+                                            : moment(view.crawlAt, moment.ISO_8601).startOf("second").fromNow()
+                                        : (view.crawlViewCount).toLocaleString()
+
+                                }
+                            </td>
                         </tr>
                     ))}
                 </tbody>
