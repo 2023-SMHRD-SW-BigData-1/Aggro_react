@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import Header1 from "./../../include/Header1";
-import Footer2 from "./../../include/Footer2";
-import styled from "styled-components";
-import { Link, withRouter } from "react-router-dom";
-import MainForm from "./MainForm";
-import moment from "moment";
 import axios from "axios";
+import moment from "moment";
 import "moment/locale/ko";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, withRouter } from "react-router-dom";
+import styled from "styled-components";
+import Footer2 from "./../../include/Footer2";
+import Header1 from "./../../include/Header1";
 import "./Community.css";
 
 export const CommunityWrap = styled.div`

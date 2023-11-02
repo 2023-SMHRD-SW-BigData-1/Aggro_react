@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { CommunityWrap } from "./Community";
-import Header1 from "../../include/Header1";
-import MainForm from "./MainForm";
-import Footer2 from "../../include/Footer2";
-import { withRouter } from "react-router-dom";
 import axios from "axios";
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
+import styled from "styled-components";
+import Footer2 from "../../include/Footer2";
+import Header1 from "../../include/Header1";
+import { CommunityWrap } from "./Community";
 
 const WriteBox = styled.div`
   text-align: center;
@@ -99,7 +98,6 @@ const WriteBox = styled.div`
 const CommunityWrite = ({ history }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const storageUserId = localStorage.getItem("userId");
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);

@@ -1,6 +1,5 @@
 import moment from 'moment'
 import React, { useEffect, useState } from 'react'
-import { a } from 'react-router-dom/cjs/react-router-dom.min'
 
 const AgreeViewTab = ({ searchData, type }) => {
 
