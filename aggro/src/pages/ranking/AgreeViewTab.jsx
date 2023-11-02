@@ -4,15 +4,7 @@ import { a } from 'react-router-dom/cjs/react-router-dom.min'
 
 const AgreeViewTab = ({ searchData, type }) => {
 
-    const [popData, setPopData] = useState([
-        { rank: 1, crawlTitle: '홍준표 "국회의원 80명이면 돼... 합의하면 지도부 퇴진운동" VS "이재명 외 대안 없다" 발언에...', crawlContent: "홍준표 대구 시장은 여야가 선거제도 개편안을 전원위원회 논의 안건으로 정한 것과 관련해", crawlAt: "2023.03.14" },
-        { rank: 2, crawlTitle: "이재명", crawlContent: "", crawlAt: "2023.03.13" },
-        { rank: 3, crawlTitle: "윤영찬", crawlContent: "", crawlAt: "2023.04.28" },
-        { rank: 4, crawlTitle: "홍준표?", crawlContent: "", crawlAt: "2033.01.01" },
-        { rank: 5, crawlTitle: "홍준표..", crawlContent: "", crawlAt: "1900.01.01" },
-        { rank: 6, crawlTitle: "죄다 홍준표", crawlContent: "", crawlAt: "0000.01.01" },
-        { rank: 7, crawlTitle: "이재명", crawlContent: "", crawlAt: "9999.12.31" },
-    ])
+    const [popData, setPopData] = useState([])
 
     useEffect(() => {
 
@@ -21,14 +13,14 @@ const AgreeViewTab = ({ searchData, type }) => {
         switch (type) {
             case "top":
                 if (searchData.length > 0) {
-                    const sortedSearchData = searchData.sort((a, b) => b.crawlViewCount - a.crawlViewCount).slice(0, 7);
+                    const sortedSearchData = searchData.sort((a, b) => b.crawlViewCount - a.crawlViewCount).slice(0, 10);
                     setPopData(sortedSearchData)
                 }
                 break;
 
             case "new":
                 if (searchData.length > 0) {
-                    const sortedSearchData = searchData.sort((a, b) => new Date(b.crawlAt) - new Date(a.crawlAt)).slice(0, 7);
+                    const sortedSearchData = searchData.sort((a, b) => new Date(b.crawlAt) - new Date(a.crawlAt)).slice(0, 10);
                     setPopData(sortedSearchData)
                 }
                 break;
