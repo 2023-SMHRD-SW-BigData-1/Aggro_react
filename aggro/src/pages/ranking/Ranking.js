@@ -202,19 +202,19 @@ const Ranking = ({ history, match }) => {
             <MapWord className="item-box-item mapword merged" />
           </div>
         </div>
-        <div className="grid-containertext mb">
+        <div className="grid-containertext mb rd">
           View Tab
         </div>
 
         <div className="middle-container ">
-          <div className="grid-item text merged">
+          <div className="grid-item text merged blg">
             최신순
           </div>
-          <div className="grid-item text merged">
+          <div className="grid-item text merged blg">
             TOP 10
           </div>
         </div>
-        <div className="grid-container">
+        <div className="view-grid-container">
 
           <div className="grid-item merged">
             {/* <p className="item-box-item_title title bline">뷰탭 </p> */}

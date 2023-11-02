@@ -53,17 +53,7 @@ const AgreeViewTab = ({ searchData, type }) => {
                                     {view.crawlTitle}
                                 </a>
                             </td>
-                            {/* <td className='item-box-tabledata'>
-                                <a
-                                    href={view.crawlUrl}
-                                    target='_blank'
-                                    style={{
-                                        color: "black"
-                                    }}
-                                >
-                                    {view.crawlContent}
-                                </a>
-                            </td> */}
+
                             <td className='item-box-tabledata'>{
                                 moment().diff(moment(view.crawlAt, moment.ISO_8601), 'days') > 30 ?
                                     moment(view.crawlAt, moment.ISO_8601).format("YY.MM.DD")

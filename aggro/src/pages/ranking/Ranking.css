@@ -65,11 +65,11 @@
 
 /* 뷰탭 */
 .item-box-table {
-    width: 95%;
-    height: 95%;
+    width: 96%;
+    height: 96%;
     text-align: center;
     table-layout: fixed;
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 .item-box-tableheader {
@@ -120,8 +120,21 @@
     padding-right: 15rem;
     
 }
-.bline{
-border-bottom: 0.1rem solid rgb(218, 218, 220);
+.view-grid-container {
+    display: grid; /* 그리드 디스플레이 타입 설정 */
+    grid-template-columns: repeat(4, 1fr); /* 4개의 칸을 동일한 크기로 설정 */
+    gap: 1rem; /* 그리드 항목들 사이의 간격 */
+    padding-top: 0.2rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    
+}
+
+.rd{
+    border-radius: 1%;
+}
+.blg{
+border-bottom: 1rem solid rgb(218, 218, 220);
 }
 /* 그리드 설정 */
 .grid-containertwo {
