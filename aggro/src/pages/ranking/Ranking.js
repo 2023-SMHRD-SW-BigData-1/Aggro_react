@@ -175,38 +175,54 @@ const Ranking = ({ history, match }) => {
 
 
       <div className="App" ref={pdfRef}>
-        <div className="grid-containertwo">
+        <div className="grid-containertext mt">
+          `검색어` 에 대한 검색 결과입니다.
+        </div>
 
+
+
+        <div className="grid-containertwo">
+          <div className="grid-item merged">월간 검색량</div>
+          <div className="grid-item"> 호감도 </div>
+        </div>
+        <div className="grid-containertwo">
           <div className="grid-item merged">
-            <p className="item-box-item_title">월간 검색량</p>
+            {/* <p className="item-box-item_title title">월간 검색량</p> */}
             <SearchData className="item-box-item merged" searchData={searchData} />
           </div>
 
 
           <div className="grid-item">
-            <p className="item-box-item_title">긍부정</p>
+            {/* <p className="item-box-item_title title bline">긍부정</p> */}
             <CircularProgressBar className="item-box-item" data={pieData} />
           </div>
         </div>
-
+        <div className="grid-container">
+        <div className="grid-item"> 호감도 </div>
+        <div className="grid-item"> 호감도 </div>
+        <div className="grid-item merged"> 호감도 </div>
+           </div>
         <div className="grid-container">
           <div className="grid-item ">
-            <p className="item-box-item_title ">키워드별 검색량</p>
+            <p className="item-box-item_title title bline ">키워드별 검색량</p>
             <RankingBar className="item-box-item " />
           </div>
           <div className="grid-item ">
-            <p className="item-box-item_title ">키워드별 검색량</p>
+            <p className="item-box-item_title title bline ">키워드별 검색량</p>
             <RankingBar className="item-box-item " />
           </div>
           <div className="grid-item merged">
-            <p className="item-box-item_title">워드클라우드</p>
+            <p className="item-box-item_title title bline">워드클라우드</p>
             <MapWord className="item-box-item mapword merged" />
           </div>
+        </div>
+        <div className="grid-containertext">
+          View Tab
         </div>
         <div className="grid-containertwo">
 
           <div className="grid-item mergedtwo">
-            <p className="item-box-item_title">뷰탭</p>
+            {/* <p className="item-box-item_title title bline">뷰탭 </p> */}
             <AgreeViewTab className="item-box-item mergedtwo" searchData={searchData} />
           </div>
         </div>

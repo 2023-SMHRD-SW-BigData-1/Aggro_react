@@ -53,7 +53,7 @@ const SearchData = ({ searchData }) => {
                         new Date()
                     ]
                 }
-            })
+            });
 
         } else {
             setData([

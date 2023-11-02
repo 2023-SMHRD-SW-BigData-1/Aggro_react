@@ -7,10 +7,10 @@ import MainForm from "./MainForm";
 import moment from "moment";
 import axios from "axios";
 import "moment/locale/ko";
+import "./Community.css";
 
 export const CommunityWrap = styled.div`
   margin: 0 auto;
-  background-color: #5383e8;
   vertical-align: middle;
   justify-content: center;
   max-width: 1044px;
@@ -279,8 +279,8 @@ const Community = ({ history }) => {
 
   return (
     <div>
-      <CommunityWrap>
         <Header1 />
+      <CommunityWrap>
         <div className="community-container">
 
           <ContentBox>
@@ -442,10 +442,10 @@ const Community = ({ history }) => {
                 </div>
               </div>
             </div>
-            <Footer2 />
           </ContentBox>
         </div>
       </CommunityWrap>
+            <Footer2 />
     </div>
   );
 };
