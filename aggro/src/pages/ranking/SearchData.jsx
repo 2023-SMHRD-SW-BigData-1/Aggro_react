@@ -70,7 +70,6 @@ const SearchData = ({ searchData }) => {
         }
         setMaxRange(Math.max(...data.map(item => item.b)) < 10 ? 10 : Math.max(...data.map(item => item.b)))
 
-        console.log(maxRange);
     }, [searchData])
 
     return (
