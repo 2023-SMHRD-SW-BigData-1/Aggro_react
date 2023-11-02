@@ -112,18 +112,14 @@ const Ranking = ({ history, match }) => {
         `http://localhost:8283/bigdata/api/analyzeSentiment`, { content: searchName })
       .then((response) => {
 
-
         const jsonObject = JSON.parse(response.data.sentDetails)
-        console.log(jsonObject);
 
-        const total = jsonObject.negative + jsonObject.positive
+        const total = Number(jsonObject.nagative) + Number(jsonObject.positive)
 
         pieData.map((data) => {
           switch (data.x) {
             case "부정":
-
-              console.log(jsonObject.nagative);
-              data.y = jsonObject.negative / total * 100
+              data.y = jsonObject.nagative / total * 100
               break;
 
             case "긍정":
@@ -139,7 +135,6 @@ const Ranking = ({ history, match }) => {
       .catch((error) => {
         console.log(error);
       })
-
 
   }, [searchName])
 
@@ -176,7 +171,7 @@ const Ranking = ({ history, match }) => {
 
       <div className="App" ref={pdfRef}>
         <div className="grid-containertext mt">
-          `검색어` 에 대한 검색 결과입니다.
+          `{searchName}` 에 대한 검색 결과입니다.
         </div>
 
 
@@ -198,10 +193,10 @@ const Ranking = ({ history, match }) => {
           </div>
         </div>
         <div className="grid-container">
-        <div className="grid-item"> 호감도 </div>
-        <div className="grid-item"> 호감도 </div>
-        <div className="grid-item merged"> 호감도 </div>
-           </div>
+          <div className="grid-item"> 호감도 </div>
+          <div className="grid-item"> 호감도 </div>
+          <div className="grid-item merged"> 호감도 </div>
+        </div>
         <div className="grid-container">
           <div className="grid-item ">
             <p className="item-box-item_title title bline ">키워드별 검색량</p>
