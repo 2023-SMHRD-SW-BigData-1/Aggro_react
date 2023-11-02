@@ -20,6 +20,7 @@ const SearchData = ({ searchData }) => {
     }
 
     const [data, setData] = useState([])
+    const [maxRange, setMaxRange] = useState(500)
 
     useEffect(() => {
         if (searchData.length > 0) {
@@ -67,6 +68,9 @@ const SearchData = ({ searchData }) => {
                 { a: new Date(2015, 1, 1), b: 470 }
             ])
         }
+        setMaxRange(Math.max(...data.map(item => item.b)) < 10 ? 10 : Math.max(...data.map(item => item.b)))
+
+        console.log(maxRange);
     }, [searchData])
 
     return (
@@ -74,7 +78,7 @@ const SearchData = ({ searchData }) => {
         <div className="item-box-item" style={{ overflow: "hidden" }}>
 
             <VictoryChart
-            height={200}
+                height={200}
                 padding={{ top: 40, bottom: 40, left: 50, right: 50 }}
                 containerComponent={
                     <VictoryZoomContainer
@@ -85,15 +89,14 @@ const SearchData = ({ searchData }) => {
                     />
                 }
             >
-
                 <VictoryLine
                     style={{
                         data: { stroke: "tomato" },
-
                     }}
                     data={data}
                     x="a"
                     y="b"
+                    domain={[0, maxRange]}
 
                 />
                 <VictoryScatter
