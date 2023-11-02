@@ -80,6 +80,10 @@
     background-color: white;
 }
 
+.ibtc{
+    background-color : #5383e8;
+}
+
 .item-box-tabledata {
     text-overflow: ellipsis;
     overflow: hidden;
@@ -87,22 +91,22 @@
 }
 /* 탭뷰 */
 .item-box-rank {
-    width: 8%;
+    width: 10;
     background-color : #5383e8;
 }
 
 .item-box-title {
-    width: 35%;
+    width: 80%;
     background-color : #5383e8;
 }
-
+/* 
 .item-box-content {
     width: 45%;
     background-color : #5383e8;
-}
+} */
 
 .item-box-at {
-    width: 12%;
+    width: 10%;
     background-color : #5383e8;
 }
 

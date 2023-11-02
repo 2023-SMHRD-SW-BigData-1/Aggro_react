@@ -34,14 +34,14 @@ const AgreeViewTab = ({ searchData, type }) => {
                     <tr>
                         <th className='item-box-rank'>순번</th>
                         <th className='item-box-title'>제목</th>
-                        <th className='item-box-content'>본문</th>
+                        {/* <th className='item-box-content'>본문</th> */}
                         <th className='item-box-at'>작성일</th>
                     </tr>
                 </thead>
                 <tbody>
                     {popData.map((view, index) => (
                         <tr className='item-box-tablerow' key={index + 1}>
-                            <td style={{ backgroundColor: "#5e729e" }}>{index + 1}</td>
+                            <td style={{ backgroundColor: "#5383e8" }}>{index + 1}</td>
                             <td className='item-box-tabledata' title={view.crawlTitle}>
                                 <a
                                     href={view.crawlUrl}
@@ -53,7 +53,7 @@ const AgreeViewTab = ({ searchData, type }) => {
                                     {view.crawlTitle}
                                 </a>
                             </td>
-                            <td className='item-box-tabledata'>
+                            {/* <td className='item-box-tabledata'>
                                 <a
                                     href={view.crawlUrl}
                                     target='_blank'
@@ -63,7 +63,7 @@ const AgreeViewTab = ({ searchData, type }) => {
                                 >
                                     {view.crawlContent}
                                 </a>
-                            </td>
+                            </td> */}
                             <td className='item-box-tabledata'>{
                                 moment().diff(moment(view.crawlAt, moment.ISO_8601), 'days') > 30 ?
                                     moment(view.crawlAt, moment.ISO_8601).format("YY.MM.DD")
