@@ -115,7 +115,7 @@
     display: grid; /* 그리드 디스플레이 타입 설정 */
     grid-template-columns: repeat(4, 1fr); /* 4개의 칸을 동일한 크기로 설정 */
     gap: 1rem; /* 그리드 항목들 사이의 간격 */
-    padding: 1rem; /* 그리드 컨테이너 패딩 */
+    padding-bottom: 1rem; /* 그리드 컨테이너 패딩 */
     padding-left: 15rem;
     padding-right: 15rem;
     
@@ -133,15 +133,12 @@
 .rd{
     border-radius: 1%;
 }
-.blg{
-border-bottom: 1rem solid rgb(218, 218, 220);
-}
 /* 그리드 설정 */
 .grid-containertwo {
     display: grid; /* 그리드 디스플레이 타입 설정 */
     grid-template-columns: repeat(3, 1fr); /* 4개의 칸을 동일한 크기로 설정 */
     gap: 1rem; /* 그리드 항목들 사이의 간격 */
-    padding: 1rem; /* 그리드 컨테이너 패딩 */
+    padding-bottom: 1rem; /* 그리드 컨테이너 패딩 */
     padding-left: 15rem;
     padding-right: 15rem;
 }
@@ -187,7 +184,10 @@ border-bottom: 1rem solid rgb(218, 218, 220);
     font-weight: bold;
 
 }
-
+.padding{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
 .mt{
     margin-top: 0.5%;
 }

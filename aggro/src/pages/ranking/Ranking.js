@@ -61,7 +61,7 @@ const Ranking = ({ history, match }) => {
       const margin = 30;
 
       // 이미지를 PDF에 추가
-      pdf.addImage(imgData, 'PDF', margin, margin, pdfWidth - 2 * margin, heightRatio - 2 * margin);
+      pdf.addImage(imgData, 'PNG', margin, margin, pdfWidth - 2 * margin, heightRatio - 2 * margin);
 
       // 'Report.pdf' 이름으로 PDF 저장
       pdf.save('Report.pdf');
@@ -163,14 +163,14 @@ const Ranking = ({ history, match }) => {
 
 
       <div className="App" ref={pdfRef}>
-        <div className="grid-containertext mt mb brone">
+        <div className="grid-containertext mt mb brone padding">
           `{searchName}` 에 대한 검색 결과입니다.
         </div>
 
 
 
         <div className="top-container">
-          <div className="grid-item merged br1">월간 검색량</div>
+          <div className="grid-item merged br1 blg">월간 검색량</div>
           <div className="grid-item br1"> 호감도 </div>
         </div>
 
@@ -186,11 +186,13 @@ const Ranking = ({ history, match }) => {
             <CircularProgressBar className="item-box-item" data={pieData} />
           </div>
         </div>
+        
         <div className="middle-container">
-          <div className="grid-item text br1" > 키워드별 검색량 </div>
-          <div className="grid-item text br1"> 키워드별 검색량 </div>
-          <div className="grid-item merged text br1"> 워드 클라우드 </div>
+          <div className="grid-item text blg" > 키워드별 검색량 </div>
+          <div className="grid-item text blg"> 키워드별 검색량 </div>
+          <div className="grid-item text merged blg"> 워드 클라우드 </div>
         </div>
+
         <div className="grid-container">
           <div className="grid-item ">
             <RankingBar className="item-box-item " />
@@ -199,10 +201,10 @@ const Ranking = ({ history, match }) => {
             <RankingBar className="item-box-item " />
           </div>
           <div className="grid-item merged">
-            <MapWord className="item-box-item mapword merged" />
+            <MapWord className="item-box-item merged" />
           </div>
         </div>
-        <div className="grid-containertext mb rd">
+        <div className="grid-containertext mb rd padding">
           View Tab
         </div>
 
