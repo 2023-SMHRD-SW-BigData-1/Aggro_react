@@ -207,7 +207,9 @@ border-bottom: 0.1rem solid rgb(218, 218, 220);
     grid-column: span 3; /* 세 개의 칸을 차지 */
     width: 100%;
 }
-
+.bgw{
+    background-color: white;
+}
 
 /* 서치바 css 양식임 */
 .summoner-search-form__text__suggest {

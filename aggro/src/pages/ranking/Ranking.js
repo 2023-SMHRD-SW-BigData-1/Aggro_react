@@ -180,7 +180,7 @@ const Ranking = ({ history, match }) => {
           <div className="grid-item merged br1">월간 검색량</div>
           <div className="grid-item br1"> 호감도 </div>
         </div>
-        
+
         <div className="grid-containertwo">
           <div className="grid-item merged">
             {/* <p className="item-box-item_title title">월간 검색량</p> */}
@@ -209,14 +209,28 @@ const Ranking = ({ history, match }) => {
             <MapWord className="item-box-item mapword merged" />
           </div>
         </div>
-        <div className="grid-containertext br1">
+        <div className="grid-containertext mb">
           View Tab
         </div>
-        <div className="grid-containertwo">
 
-          <div className="grid-item mergedtwo">
+        <div className="middle-container ">
+          <div className="grid-item text merged">
+            최신순
+          </div>
+          <div className="grid-item text merged">
+            TOP 10
+          </div>
+        </div>
+        <div className="grid-container">
+
+          <div className="grid-item merged">
             {/* <p className="item-box-item_title title bline">뷰탭 </p> */}
-            <AgreeViewTab className="item-box-item mergedtwo" searchData={searchData} />
+            <AgreeViewTab className="item-box-item merged" searchData={searchData} />
+          </div>
+
+          <div className="grid-item merged">
+            {/* <p className="item-box-item_title title bline">뷰탭 </p> */}
+            <AgreeViewTab className="item-box-item merged" searchData={searchData} />
           </div>
         </div>
       </div >
