@@ -1,5 +1,5 @@
-import React from 'react'
-import { VictoryBar, VictoryChart, VictoryTheme } from 'victory'
+import React from 'react';
+import { VictoryBar, VictoryChart } from 'victory';
 
 const RankingBar = () => {
     const BLACK_COLOR = '#000000';

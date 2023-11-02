@@ -1,15 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
-import { CommunityWrap } from "./Community";
-import Header1 from "../../include/Header1";
-import Footer2 from "../../include/Footer2";
-import MainForm from "./MainForm";
-import CommentWrap from "./CommentWrap";
+import axios from "axios";
 import moment from "moment";
 import "moment/locale/ko";
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router-dom";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, withRouter } from "react-router-dom";
+import styled from "styled-components";
+import Footer2 from "../../include/Footer2";
+import Header1 from "../../include/Header1";
+import CommentWrap from "./CommentWrap";
+import { CommunityWrap } from "./Community";
 
 const CommunityContentBox = styled.div`
   max-width: 1044px;
@@ -212,7 +210,6 @@ const CommunityContentBox = styled.div`
 const CommunityDetail = ({ match, history }) => {
   let postId = match.params.id;
 
-  const [replies, setReplies] = useState([]);
   const [resp, setResp] = useState({});
   const [postUserId, setPostUserId] = useState(0);
   const storageUserId = localStorage.getItem("userId");
@@ -275,7 +272,7 @@ const CommunityDetail = ({ match, history }) => {
   }, []);
 
   const deletePost = () => {
-    if (window.confirm("게시글을 삭제하시겠습니까?") == true) {
+    if (window.confirm("게시글을 삭제하시겠습니까?") === true) {
       axios
         .delete("http://localhost:8283/bigdata/community/delete/" + postId, {
           headers: {

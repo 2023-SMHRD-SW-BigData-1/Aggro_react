@@ -1,8 +1,6 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { VictoryAxis, VictoryBar, VictoryBrushContainer, VictoryChart, VictoryLine, VictoryScatter, VictoryTooltip, VictoryZoomContainer } from 'victory'
-import SearchLabel from './SearchLabel'
 import moment from 'moment'
+import React, { useEffect, useState } from 'react'
+import { VictoryChart, VictoryLine, VictoryScatter, VictoryTooltip, VictoryZoomContainer } from 'victory'
 
 
 const SearchData = ({ searchData }) => {

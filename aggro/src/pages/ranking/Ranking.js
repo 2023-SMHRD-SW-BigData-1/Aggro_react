@@ -12,18 +12,11 @@ import MapWord from "./MapWord";
 import "./Ranking.css";
 import RankingBar from "./RankingBar";
 import SearchData from "./SearchData";
-import WordCloud from "./WordCloud";
 
 const Ranking = ({ history, match }) => {
 
-
-  const [username, setUsername] = useState("");
-
   const userNameRef = useRef()
 
-  useEffect(() => {
-    setUsername(userNameRef.current.value)
-  }, [userNameRef])
 
   const handleSubmit = (e) => {
     e.preventDefault();
