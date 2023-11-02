@@ -27,7 +27,7 @@ const Ranking = ({ history, match }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
 
     const searchName = userNameRef.current.value
 
@@ -78,7 +78,6 @@ const Ranking = ({ history, match }) => {
   // 긍부정 데이터
 
   const [pieData, setPieData] = useState([
-    { x: "중립", y: 50, color: "#cfd9df" },
     { x: "부정", y: 40, color: "#c2e9fb" },
     { x: "긍정", y: 10, color: '#a1c4fd' }
   ]);
@@ -112,21 +111,24 @@ const Ranking = ({ history, match }) => {
       .post(
         `http://localhost:8283/bigdata/api/analyzeSentiment`, { content: searchName })
       .then((response) => {
+
+
         const jsonObject = JSON.parse(response.data.sentDetails)
+        console.log(jsonObject);
+
+        const total = jsonObject.negative + jsonObject.positive
 
         pieData.map((data) => {
           switch (data.x) {
             case "부정":
-              data.y = jsonObject["negative"]
+
+              console.log(jsonObject.nagative);
+              data.y = jsonObject.negative / total * 100
               break;
 
             case "긍정":
-              data.y = jsonObject["positive"]
+              data.y = jsonObject.positive / total * 100
 
-              break;
-
-            case "중립":
-              data.y = jsonObject["neutral"]
               break;
 
           }
