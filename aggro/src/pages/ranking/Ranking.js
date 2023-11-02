@@ -68,7 +68,7 @@ const Ranking = ({ history, match }) => {
       const margin = 30;
 
       // 이미지를 PDF에 추가
-      pdf.addImage(imgData, 'PNG', margin, margin, pdfWidth - 2 * margin, heightRatio - 2 * margin);
+      pdf.addImage(imgData, 'PDF', margin, margin, pdfWidth - 2 * margin, heightRatio - 2 * margin);
 
       // 'Report.pdf' 이름으로 PDF 저장
       pdf.save('Report.pdf');
@@ -170,16 +170,17 @@ const Ranking = ({ history, match }) => {
 
 
       <div className="App" ref={pdfRef}>
-        <div className="grid-containertext mt">
+        <div className="grid-containertext mt mb">
           `{searchName}` 에 대한 검색 결과입니다.
         </div>
 
 
 
-        <div className="grid-containertwo">
+        <div className="top-container">
           <div className="grid-item merged">월간 검색량</div>
           <div className="grid-item"> 호감도 </div>
         </div>
+        
         <div className="grid-containertwo">
           <div className="grid-item merged">
             {/* <p className="item-box-item_title title">월간 검색량</p> */}
@@ -192,22 +193,19 @@ const Ranking = ({ history, match }) => {
             <CircularProgressBar className="item-box-item" data={pieData} />
           </div>
         </div>
-        <div className="grid-container">
-          <div className="grid-item"> 호감도 </div>
-          <div className="grid-item"> 호감도 </div>
-          <div className="grid-item merged"> 호감도 </div>
+        <div className="middle-container">
+          <div className="grid-item text" > 키워드별 검색량 </div>
+          <div className="grid-item text"> 키워드별 검색량 </div>
+          <div className="grid-item merged text"> 워드 클라우드 </div>
         </div>
         <div className="grid-container">
           <div className="grid-item ">
-            <p className="item-box-item_title title bline ">키워드별 검색량</p>
             <RankingBar className="item-box-item " />
           </div>
           <div className="grid-item ">
-            <p className="item-box-item_title title bline ">키워드별 검색량</p>
             <RankingBar className="item-box-item " />
           </div>
           <div className="grid-item merged">
-            <p className="item-box-item_title title bline">워드클라우드</p>
             <MapWord className="item-box-item mapword merged" />
           </div>
         </div>

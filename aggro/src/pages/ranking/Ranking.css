@@ -124,7 +124,30 @@ border-bottom: 0.1rem solid rgb(218, 218, 220);
     padding-left: 15rem;
     padding-right: 15rem;
 }
-
+.top-container{
+    display: grid; /* 그리드 디스플레이 타입 설정 */
+    grid-template-columns: repeat(3, 1fr); /* 3개의 칸을 동일한 크기로 설정 */
+    gap: 1rem; /* 그리드 항목들 사이의 간격 */
+    font-weight: bold;
+    font-size: x-large;
+    box-shadow: rgba(0, 0, 0, 0.12) 0.3rem 0.3rem 0.3rem 0.1rem; /* 그림자 효과 */
+    border-radius: 1%; /* 모서리 둥글게 처리 */
+    margin-left: 15rem;
+    margin-right: 15rem;
+    
+}
+.middle-container{
+    display: grid; /* 그리드 디스플레이 타입 설정 */
+    grid-template-columns: repeat(4, 1fr); /* 4개의 칸을 동일한 크기로 설정 */
+    gap: 1rem; /* 그리드 항목들 사이의 간격 */
+    font-weight: bold;
+    font-size: x-large;
+    box-shadow: rgba(0, 0, 0, 0.12) 0.3rem 0.3rem 0.3rem 0.1rem; /* 그림자 효과 */
+    border-radius: 1%; /* 모서리 둥글게 처리 */
+    margin-left: 15rem;
+    margin-right: 15rem;
+    
+}
 /* 대분류 */
 .grid-containertext{
     display: grid;
@@ -137,7 +160,9 @@ border-bottom: 0.1rem solid rgb(218, 218, 220);
     margin-right: 15rem;
     
 }
+.grid-item-text{
 
+}
 /* 소분류 */
 .title{
     font-weight: bold;
@@ -146,6 +171,9 @@ border-bottom: 0.1rem solid rgb(218, 218, 220);
 
 .mt{
     margin-top: 0.5%;
+}
+.mb{
+    margin-bottom: 1%;
 }
 /* 기본 그리드 항목 스타일 */
 .grid-item {
