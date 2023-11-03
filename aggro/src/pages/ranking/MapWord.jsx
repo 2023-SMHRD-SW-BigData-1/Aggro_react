@@ -16,7 +16,6 @@ const MapWord = ({ wordMap }) => {
     fontWeight: "700",         // 글꼴의 굵기. 
     padding: 0.5,                // 단어 간의 여백
     // 각 단어의 색상을 동적으로 결정. 현재 마우스 오버된 단어는 'black', 그렇지 않으면 'white'로 설정
-    svgAttribute: {"":""}
   };
 
   // 단어 위에 마우스가 올라갔을 때와 나갈 때의 콜백 함수
