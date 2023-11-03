@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Footer2 from "./../../include/Footer2";
-import Header2 from "./../../include/Header2";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import "../../include/Summoner.css";
-import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import Footer2 from "./../../include/Footer2";
+import Header2 from "./../../include/Header2";
 
 const SummonerHeader = styled.div`
   position: relative;

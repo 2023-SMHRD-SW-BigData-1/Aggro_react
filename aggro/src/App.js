@@ -4,16 +4,16 @@ import "./App.css";
 
 import { Route, Switch } from "react-router-dom";
 
-import Home from "./pages/home/Home";
-import Ranking from "./pages/ranking/Ranking";
-import Join from "./pages/join/Join";
-import Login from "./pages/login/Login";
 import Community from "./pages/community/Community";
 import CommunityDetail from "./pages/community/CommunityDetail";
-import CommunityWrite from "./pages/community/CommunityWrite";
-import Summoner from "./pages/summoner/Summoner";
 import CommunityEdit from "./pages/community/CommunityEdit";
+import CommunityWrite from "./pages/community/CommunityWrite";
+import Home from "./pages/home/Home";
 import Intro from "./pages/info/Intro";
+import Join from "./pages/join/Join";
+import Login from "./pages/login/Login";
+import Ranking from "./pages/ranking/Ranking";
+import Summoner from "./pages/summoner/Summoner";
 
 function App() {
   return (
