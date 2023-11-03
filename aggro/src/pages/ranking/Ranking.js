@@ -215,17 +215,13 @@ const Ranking = ({ history, match }) => {
         </div>
 
         <div className="middle-container">
-          <div className="grid-item text blg" > 키워드별 검색량 </div>
-          <div className="grid-item text blg"> 키워드별 검색량 </div>
+          <div className="grid-item text merged blg" > 키워드별 검색량 </div>
           <div className="grid-item text merged blg"> 워드 클라우드 </div>
         </div>
 
         <div className="grid-container">
-          <div className="grid-item ">
-            {/* <RankingBar className="item-box-item " wordMap={wordMap} /> */}
-          </div>
-          <div className="grid-item ">
-            <RankingBar className="item-box-item " wordMap={wordMap} />
+          <div className="grid-item merged ">
+            <RankingBar className="item-box-item merged " wordMap={wordMap} />
           </div>
           <div className="grid-item merged">
             <MapWord className="item-box-item merged" wordMap={wordMap} />
