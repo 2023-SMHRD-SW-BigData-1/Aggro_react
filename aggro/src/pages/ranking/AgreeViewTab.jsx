@@ -7,8 +7,6 @@ const AgreeViewTab = ({ searchData, type }) => {
 
     useEffect(() => {
 
-        console.log(type);
-
         switch (type) {
             case "top":
                 if (searchData.length > 0) {

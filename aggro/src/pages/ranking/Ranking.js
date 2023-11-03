@@ -131,6 +131,44 @@ const Ranking = ({ history, match }) => {
 
   }, [searchName])
 
+  const [wordMap, setWordMap] = useState([])
+  const [barData, setBarData] = useState([])
+
+  // 워드클라우드 처리
+  useEffect(() => {
+    Axios
+      .get("http://localhost:8283/bigdata/ranking/analyOpinion/" + searchName)
+      .then((response) => {
+
+        wordMap.splice(0) // 기존 데이터 삭제
+        barData.splice(0)
+
+        const keys = Object.keys(response.data) // 키 값을 text 에 넣기 위한 key 분리
+
+        setWordMap((preWordMap) => {
+          const newWordMap = keys.map((key) => ({
+            text: key,
+            value: Number(response.data[key])
+          }))
+
+          return [...preWordMap, ...newWordMap];
+        })
+
+        setBarData((preBarData) => {
+
+          const newBarData = keys.map((key) => ({
+            "x": key,
+            "y": Number(response.data[key])
+          }))
+
+          return [...preBarData, ...newBarData]
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [searchName])
+
 
   return (
     <>
@@ -186,7 +224,7 @@ const Ranking = ({ history, match }) => {
             <CircularProgressBar className="item-box-item" data={pieData} />
           </div>
         </div>
-        
+
         <div className="middle-container">
           <div className="grid-item text blg" > 키워드별 검색량 </div>
           <div className="grid-item text blg"> 키워드별 검색량 </div>
@@ -195,13 +233,13 @@ const Ranking = ({ history, match }) => {
 
         <div className="grid-container">
           <div className="grid-item ">
-            <RankingBar className="item-box-item " />
+            {/* <RankingBar className="item-box-item " barData={barData} /> */}
           </div>
           <div className="grid-item ">
-            <RankingBar className="item-box-item " />
+            <RankingBar className="item-box-item " barData={barData} />
           </div>
           <div className="grid-item merged">
-            <MapWord className="item-box-item merged" />
+            <MapWord className="item-box-item merged" wordMap={wordMap} />
           </div>
         </div>
         <div className="grid-containertext mb rd padding">
