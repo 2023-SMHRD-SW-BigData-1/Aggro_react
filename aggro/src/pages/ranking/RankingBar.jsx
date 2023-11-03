@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { VictoryBar, VictoryChart } from 'victory';
 
-const RankingBar = ({ barData }) => {
+const RankingBar = ({ wordMap }) => {
 
     const BLACK_COLOR = '#000000';
 
@@ -22,9 +22,9 @@ const RankingBar = ({ barData }) => {
                 <VictoryBar
                     padding={{ top: 0 }}
                     style={{ data: { fill: BLACK_COLOR } }}  // 바의 색상을 검정색으로 설정합니다.
-                    data={barData.slice(0,10)}
-                    x="x"
-                    y="y"
+                    data={wordMap.slice(0, 10)}
+                    x="text"
+                    y="value"
                 />
             </VictoryChart>
         </div>

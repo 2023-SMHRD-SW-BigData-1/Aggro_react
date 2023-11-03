@@ -132,7 +132,6 @@ const Ranking = ({ history, match }) => {
   }, [searchName])
 
   const [wordMap, setWordMap] = useState([])
-  const [barData, setBarData] = useState([])
 
   // 워드클라우드 처리
   useEffect(() => {
@@ -141,7 +140,6 @@ const Ranking = ({ history, match }) => {
       .then((response) => {
 
         wordMap.splice(0) // 기존 데이터 삭제
-        barData.splice(0)
 
         const keys = Object.keys(response.data) // 키 값을 text 에 넣기 위한 key 분리
 
@@ -154,15 +152,6 @@ const Ranking = ({ history, match }) => {
           return [...preWordMap, ...newWordMap];
         })
 
-        setBarData((preBarData) => {
-
-          const newBarData = keys.map((key) => ({
-            "x": key,
-            "y": Number(response.data[key])
-          }))
-
-          return [...preBarData, ...newBarData]
-        })
       })
       .catch((error) => {
         console.log(error);
@@ -233,10 +222,10 @@ const Ranking = ({ history, match }) => {
 
         <div className="grid-container">
           <div className="grid-item ">
-            {/* <RankingBar className="item-box-item " barData={barData} /> */}
+            {/* <RankingBar className="item-box-item " wordMap={wordMap} /> */}
           </div>
           <div className="grid-item ">
-            <RankingBar className="item-box-item " barData={barData} />
+            <RankingBar className="item-box-item " wordMap={wordMap} />
           </div>
           <div className="grid-item merged">
             <MapWord className="item-box-item merged" wordMap={wordMap} />
