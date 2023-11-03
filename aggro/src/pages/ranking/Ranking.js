@@ -71,7 +71,7 @@ const Ranking = ({ history, match }) => {
   // 긍부정 데이터
 
   const [pieData, setPieData] = useState([
-    { x: "부정", y: 40, color: "#c2e9fb" },
+    { x: "부정", y: 40, color: "#f76d6d" },
     { x: "긍정", y: 10, color: '#a1c4fd' }
   ]);
 

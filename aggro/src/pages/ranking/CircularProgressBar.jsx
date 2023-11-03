@@ -17,6 +17,7 @@ const CircularProgressBar = ({ data }) => {
                 animate={{ duration: 1000 }}
                 labelRadius={120}
                 cornerRadius={5}
+                padAngle={1.5}
                 labels={({ datum }) => `${datum.x}`}
                 colorScale={data.map((color) => color.color)}
                 labelComponent={<CustomLabel />}

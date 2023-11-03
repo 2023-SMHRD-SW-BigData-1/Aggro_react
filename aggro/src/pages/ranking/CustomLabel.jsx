@@ -2,19 +2,30 @@ import React from 'react'
 import { VictoryLabel, VictoryTooltip } from 'victory'
 
 const CustomLabel = (props) => {
-
     return (
         <g>
-            <VictoryLabel {...props} />
+            <VictoryLabel {...props}
+                style={{
+                    fill: "white",
+                    fontWeight: "bold",
+                    fontSize: "24",
+                    fontFamily: "SB 어그로 Light"
+                }}
+            />
             <VictoryTooltip
                 {...props}
                 text={`${props.datum.x}: ${Math.round(props.datum.y)}%`}
                 x={200}
                 y={250}
+                style={{
+                    fill: "white",
+                    fontWeight: "bold",
+                    fontSize: "18"
+                }}
                 orientation="top"
                 pointerLength={0}
                 cornerRadius={50}
-                flyoutStyle={{ fill: props.datum.color }}
+                flyoutStyle={{ fill: props.datum.color, stroke: "white" }}
             />
         </g>
     )
