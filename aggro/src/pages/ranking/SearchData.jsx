@@ -4,21 +4,8 @@ import { VictoryChart, VictoryLine, VictoryScatter, VictoryTooltip, VictoryZoomC
 
 
 const SearchData = ({ searchData }) => {
-    const [state, setState] = useState({
-        zoomDomain: {
-            x: [
-                new Date().setFullYear(new Date().getFullYear() - 3),
-                new Date()
-            ]
-        }
-    })
-
-    const handleZoom = (domain) => {
-        setState({ zoomDomain: domain })
-    }
 
     const [data, setData] = useState([])
-    const [maxRange, setMaxRange] = useState(500)
 
     useEffect(() => {
         if (searchData.length > 0) {
@@ -27,12 +14,17 @@ const SearchData = ({ searchData }) => {
             const dataMap = new Map();
 
             searchData.forEach((item) => {
-                const crawlAt = new Date(item.crawlAt).toISOString().slice(0, 7); // YYYY-MM-DD 형식으로 날짜 포맷 변환
+                const crawlAtDate = new Date(item.crawlAt);
 
-                if (dataMap.has(crawlAt)) {
-                    dataMap.set(crawlAt, dataMap.get(crawlAt) + 1); // 날짜가 이미 있으면 b 값을 증가
-                } else {
-                    dataMap.set(crawlAt, 1); // 날짜가 없으면 새로운 날짜로 초기화
+                // 2021년 1월 1일 이후의 데이터만 처리
+                if (crawlAtDate >= new Date(new Date().getFullYear() - 2, 1, 1)) {
+                    const crawlAt = crawlAtDate.toISOString().slice(0, 7); // YYYY-MM 형식으로 날짜 포맷 변환
+
+                    if (dataMap.has(crawlAt)) {
+                        dataMap.set(crawlAt, dataMap.get(crawlAt) + 1); // 날짜가 이미 있으면 b 값을 증가
+                    } else {
+                        dataMap.set(crawlAt, 1); // 날짜가 없으면 새로운 날짜로 초기화
+                    }
                 }
             });
 
@@ -45,30 +37,8 @@ const SearchData = ({ searchData }) => {
 
             // 데이터를 상태로 설정
             setData(processedData);
-            setState({
-                zoomDomain: {
-                    x: [
-                        new Date().setFullYear(new Date().getFullYear() - 3),
-                        new Date()
-                    ]
-                }
-            });
-
-        } else {
-            setData([
-                { a: new Date(1982, 1, 1), b: 125 },
-                { a: new Date(1987, 1, 1), b: 257 },
-                { a: new Date(1993, 1, 1), b: 345 },
-                { a: new Date(1997, 1, 1), b: 515 },
-                { a: new Date(2001, 1, 1), b: 132 },
-                { a: new Date(2005, 1, 1), b: 305 },
-                { a: new Date(2011, 1, 1), b: 270 },
-                { a: new Date(2015, 1, 1), b: 470 }
-            ])
         }
-        setMaxRange(Math.max(...data.map(item => item.b)) < 10 ? 10 : Math.max(...data.map(item => item.b)))
-
-    }, [searchData])
+    }, [searchData]);
 
     return (
 
@@ -77,23 +47,19 @@ const SearchData = ({ searchData }) => {
             <VictoryChart
                 height={200}
                 padding={{ top: 40, bottom: 40, left: 50, right: 50 }}
-                containerComponent={
-                    <VictoryZoomContainer
-                        zoomDomain={state.zoomDomain}
-                        onZoomDomainChange={handleZoom.bind(this)}
-                        allowZoom={false}
-
-                    />
-                }
+                animate={{
+                    duration: 3000,
+                    onLoad: { duration: 4000 }
+                }}
             >
                 <VictoryLine
                     style={{
                         data: { stroke: "tomato" },
                     }}
+
                     data={data}
                     x="a"
                     y="b"
-                    domain={[0, maxRange]}
 
                 />
                 <VictoryScatter
@@ -110,7 +76,6 @@ const SearchData = ({ searchData }) => {
                             constrainToVisibleArea
                         />
                     }
-
                 />
             </VictoryChart>
 
