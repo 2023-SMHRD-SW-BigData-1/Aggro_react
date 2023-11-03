@@ -1060,6 +1060,10 @@ select {
   font-family: "AggroLight";
 }
 
+text,tspan {
+  font-family: "AggroLight" !important;
+}
+
 .GameDetailTableWrap>.Summary>.Team:first-child {
   padding-right: 0;
   padding-left: 10px;
