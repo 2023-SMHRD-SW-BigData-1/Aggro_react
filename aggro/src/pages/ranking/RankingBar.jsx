@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryBar, VictoryChart } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart } from 'victory';
 
 
 const RankingBar = ({ wordMap }) => {
@@ -20,6 +20,13 @@ const RankingBar = ({ wordMap }) => {
                     duration: 1000
                 }}
             >
+                <VictoryAxis
+                    style={{
+                        axis: {
+                            stroke: "none"
+                        }
+                    }}
+                />
                 {/* VictoryBar 컴포넌트의 스타일과 데이터를 설정합니다. */}
                 <VictoryBar
                     // 상단 패딩을 0으로 설정하여 차트의 여백을 없앱니다.
