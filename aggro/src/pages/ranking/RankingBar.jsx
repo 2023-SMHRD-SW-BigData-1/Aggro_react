@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryAxis, VictoryBar, VictoryChart } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryTooltip } from 'victory';
 
 
 const RankingBar = ({ wordMap }) => {
@@ -10,11 +10,6 @@ const RankingBar = ({ wordMap }) => {
             {/* 부모 요소에 대한 스타일을 설정합니다. 
                 차트의 가로 크기를 부모 요소의 100%로 설정합니다. */}
             <VictoryChart
-                style={{
-                    parent: {
-                        width: '95%'
-                    }
-                }}
                 // 차트 애니메이션 효과를 설정합니다. 애니메이션 지속 시간은 2000ms입니다.
                 animate={{
                     duration: 1000
@@ -38,6 +33,12 @@ const RankingBar = ({ wordMap }) => {
                     // x축은 'text' 프로퍼티를, y축은 'value' 프로퍼티를 사용합니다.
                     x="text"
                     y="value"
+                    labels={({ datum }) => `${datum.value}`}
+                    labelComponent={
+                        <VictoryTooltip
+                            constrainToVisibleArea
+                        />
+                    }
                 />
             </VictoryChart>
         </div>

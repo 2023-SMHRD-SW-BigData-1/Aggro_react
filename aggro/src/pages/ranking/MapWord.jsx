@@ -11,9 +11,8 @@ const MapWord = ({ wordMap }) => {
     rotations: 0,              // 회전 횟수. 
     rotationAngles: [0],       // 회전 각도. 현재는 0도만 사용
     transitionDuration: 2000,     // 전환 지속 시간. 1로 설정하여 전환 효과의 지속 시간을 짧게 설정
-    fontStyle: 'AggroLight',  // 사용할 글꼴
     fontFamily: 'AggroLight',  // 사용할 글꼴
-    fontWeight: "700",         // 글꼴의 굵기. 
+    fontWeight: '700',         // 글꼴의 굵기. 
     padding: 0.5,                // 단어 간의 여백
     // 각 단어의 색상을 동적으로 결정. 현재 마우스 오버된 단어는 'black', 그렇지 않으면 'white'로 설정
   };
@@ -28,7 +27,7 @@ const MapWord = ({ wordMap }) => {
     <div className='item-box-item'>
       <div className="mapword-styled" >
         <ReactWordcloud
-          words={wordMap.slice(0, 20)}
+          words={wordMap}
           options={options}
           callbacks={callbacks}
         />
