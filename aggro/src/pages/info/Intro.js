@@ -15,7 +15,7 @@ function Intro() {
     <>
       <Header1 />
       <div className="intro-container">
-        <h1 className='introtext merged fw'>세상의 모든 관심</h1>
+        <h1 className='introtext merged fw'>세상의 모든 관심💬</h1>
         
         <div className="pic merged"><img src={logo} alt="Aggor_blue" /></div>
         {/* <h1 className='text merged fw'>' Aggro '</h1> */}
@@ -24,14 +24,14 @@ function Intro() {
         </div>
 
         <div>
-          <div className='introtext fw'>혼자서도 <br></br>
+          <div className='introtext fw'>혼자서도🤔 <br></br>
           Even when alone</div>
 
 
         </div>
 
         <div>
-          <div className='introtext fw'>전문적으로 <br></br>Professionally</div>
+          <div className='introtext fw'>전문적으로😎 <br></br>Professionally</div>
         </div>
 
         <div>
