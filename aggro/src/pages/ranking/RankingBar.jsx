@@ -32,9 +32,9 @@ const RankingBar = ({ wordMap }) => {
                     // 상단 패딩을 0으로 설정하여 차트의 여백을 없앱니다.
                     // 바의 스타일을 설정합니다. 여기서는 바의 색상을 검정색으로 설정하고 있습니다.
                     // 또한, 부모 요소에 대해 'AggroLight' 폰트를 적용합니다.
-                    style={{ data: { fill: BLACK_COLOR, width: 27, padding: 0 }, parent: { fontFamily: "AggroLight" } }}
+                    style={{ data: { fill: BLACK_COLOR, width: 27, padding: 5 }, parent: { fontFamily: "AggroLight" } }}
                     // wordMap의 처음 10개 데이터를 사용합니다.
-                    data={wordMap.slice(0, 5)}
+                    data={wordMap.slice(0, 10)}
                     // x축은 'text' 프로퍼티를, y축은 'value' 프로퍼티를 사용합니다.
                     x="text"
                     y="value"
