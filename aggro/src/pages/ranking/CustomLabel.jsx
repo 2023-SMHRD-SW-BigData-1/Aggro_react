@@ -7,9 +7,8 @@ const CustomLabel = (props) => {
             <VictoryLabel {...props}
                 style={{
                     fill: "white",
-                    fontWeight: "bold",
                     fontSize: "24",
-                    fontFamily: "SB 어그로 Light"
+                    fontFamily: "AggroMedium"
                 }}
             />
             <VictoryTooltip
@@ -19,8 +18,8 @@ const CustomLabel = (props) => {
                 y={250}
                 style={{
                     fill: "white",
-                    fontWeight: "bold",
-                    fontSize: "18"
+                    fontSize: "18",
+                    fontFamily: "AggroBold"
                 }}
                 orientation="top"
                 pointerLength={0}

@@ -1,4 +1,18 @@
 
+@font-face {
+    font-family: AggroLight;
+    src: url("../../include/SB\ 어그로\ L.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: AggroBold;
+    src: url("../../include/SB\ 어그로\ B.ttf") format("truetype");
+}
+@font-face {
+    font-family: AggroMedium;
+    src: url("../../include/SB\ 어그로\ M.ttf") format("truetype");
+}
+
 .item-box-item {
     border-radius: 2%;
     padding: 10px 0;
