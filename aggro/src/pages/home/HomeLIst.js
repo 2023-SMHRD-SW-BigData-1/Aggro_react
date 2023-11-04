@@ -30,6 +30,7 @@ const HomeLIst = () => {
   ])
   let setStateInterval;
 
+
   useEffect(() => {
     setStateInterval = setInterval(() => {
       let a = Math.random(); // 긍정 테스트
@@ -40,22 +41,22 @@ const HomeLIst = () => {
       let data_legacy = [
         {
           x: "중립",
-          y: a / (a + b+c+d) * 100,
+          y: a / (a + b + c + d) * 100,
           color: "white"
         },
         {
           x: "부정",
-          y: b / (a + b+c+d ) * 100,
+          y: b / (a + b + c + d) * 100,
           color: "white"
         },
         {
           x: "중립",
-          y: a / (a + b+c+d) * 100,
+          y: c / (a + b + c + d) * 100,
           color: "white"
         },
         {
           x: "중립",
-          y: a / (a + b+c+d) * 100,
+          y: d / (a + b + c + d) * 100,
           color: "white"
         },
       ].slice().sort((a, b) => a.y - b.y)
