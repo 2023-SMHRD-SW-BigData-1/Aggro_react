@@ -196,15 +196,15 @@ const Ranking = ({ history, match }) => {
 
 
 
-        <div className="top-container">
-          <div className="grid-item merged br1 blg">월간 검색량</div>
-          <div className="grid-item br1"> 호감도 </div>
+        <div className="top-container mb">
+          <div className="grid-item merged mpt3">월간 검색량</div>
+          <div className="grid-item mpt"> 호감도 </div>
         </div>
 
-        <div className="grid-containertwo">
-          <div className="grid-item merged">
-            {/* <p className="item-box-item_title title">월간 검색량</p> */}
-            <SearchData className="item-box-item merged" searchData={searchData} />
+        <div className="grid-containertwo mt">
+          <div className="grid-item merged ps">
+            
+            <SearchData className="item-box-item merged pl" searchData={searchData} />
           </div>
 
 
@@ -214,9 +214,9 @@ const Ranking = ({ history, match }) => {
           </div>
         </div>
 
-        <div className="middle-container">
-          <div className="grid-item text merged blg" > 키워드별 검색량 </div>
-          <div className="grid-item text merged blg"> 워드 클라우드 </div>
+        <div className="middle-container mb">
+          <div className="grid-item text merged mpt" > 키워드별 검색량 </div>
+          <div className="grid-item text merged mpt"> 워드 클라우드 </div>
         </div>
 
         <div className="grid-container">
@@ -231,11 +231,11 @@ const Ranking = ({ history, match }) => {
           View Tab
         </div>
 
-        <div className="middle-container ">
-          <div className="grid-item text merged blg">
+        <div className="middle-container mb">
+          <div className="grid-item text merged mpt">
             최신순
           </div>
-          <div className="grid-item text merged blg">
+          <div className="grid-item text merged mpt">
             TOP 10
           </div>
         </div>

@@ -10,7 +10,7 @@ const MapWord = ({ wordMap }) => {
     deterministic: true,       // 레이아웃의 결정론적 생성 여부. true로 설정하면 항상 동일한 레이아웃을 생성
     rotations: 0,              // 회전 횟수. 
     rotationAngles: [0],       // 회전 각도. 현재는 0도만 사용
-    transitionDuration: 2000,     // 전환 지속 시간. 1로 설정하여 전환 효과의 지속 시간을 짧게 설정
+    transitionDuration: 1000,     // 전환 지속 시간. 1로 설정하여 전환 효과의 지속 시간을 짧게 설정
     fontFamily: 'AggroLight',  // 사용할 글꼴
     fontWeight: '700',         // 글꼴의 굵기. 
     padding: 0.5,                // 단어 간의 여백

@@ -46,7 +46,7 @@ const SearchData = ({ searchData }) => {
 
             <VictoryChart
                 height={200}
-                padding={{ top: 40, bottom: 40, left: 50, right: 50 }}
+                padding={{ top: 10, bottom: 30, left:70, right:20 }}
                 animate={{
                     duration: 3000,
                     onLoad: { duration: 4000 }

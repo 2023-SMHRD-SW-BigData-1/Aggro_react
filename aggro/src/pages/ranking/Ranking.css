@@ -143,7 +143,6 @@
     /* 4개의 칸을 동일한 크기로 설정 */
     gap: 1rem;
     /* 그리드 항목들 사이의 간격 */
-    padding-top: 0.2rem;
     padding-left: 15rem;
     padding-right: 15rem;
 
@@ -233,11 +232,26 @@
 .mt {
     margin-top: 0.5%;
 }
-
-.mb {
-    margin-bottom: 1%;
+.tmt{
+    margin-top:0.25%
 }
 
+.mb {
+    margin-bottom: 0.6%;
+}
+.pl{
+    padding-left : 1%;
+}
+
+.pt{
+    padding-top: 2%;
+}
+.mpt{
+    padding-top: 1%;
+}
+.mpt3{
+    padding-top: 0.7%;
+}
 .brone {
     border-radius: 1%;
 }
