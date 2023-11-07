@@ -24,9 +24,14 @@ const Ranking = ({ history, match }) => {
 
     const searchName = userNameRef.current.value
 
-    history.push("/ranking/" + searchName);
+    if(searchName!=undefined && searchName!==""){
+      history.push("/ranking/" + searchName);
+      userNameRef.current.value = ""
+    }else{
+      alert("검색어를 입력해주세요.")
+    }
 
-    userNameRef.current.value = ""
+
   };
 
   const pdfRef = useRef();
