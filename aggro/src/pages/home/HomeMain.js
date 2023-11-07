@@ -13,7 +13,11 @@ const HomeMain = ({ history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/ranking/" + username);
+    if (username != undefined && username !== "") {
+      history.push("/ranking/" + username);
+    }else{
+      alert("검색어를 입력해주세요.")
+    }
   };
 
   return (
@@ -29,15 +33,15 @@ const HomeMain = ({ history }) => {
             />
           </div>
         </div> */}
-        
+
         <HomeLIst />
-        
+
         <form
           onSubmit={handleSubmit}
           className="summoner-search-form"
           autoComplete="off"
         >
-          
+
           <input
             type="text"
             name="username"
