@@ -7,18 +7,13 @@ const HomeLIst = () => {
   const [data, setData] = useState([
     {
       x: "중립",
-      y: 50,
-      color: "#cfd9df"
-    },
-    {
-      x: "부정",
-      y: 30,
-      color: "#c2e9fb"
+      y: 10,
+      color:"#a1c4fd"
     },
     {
       x: "긍정",
-      y: 20,
-      color: '#a1c4fd'
+      y: 10,
+      color:  "#e1effe"
     },
     {
       x: "긍정",
@@ -36,28 +31,23 @@ const HomeLIst = () => {
       let a = Math.random(); // 긍정 테스트
       let b = Math.random(); // 중립 테스트
       let c = Math.random(); // 중립 테스트
-      let d = Math.random(); // 중립 테스트
+      // let d = Math.random(); // 중립 테스트
 
       let data_legacy = [
         {
           x: "중립",
-          y: a / (a + b + c + d) * 100,
-          color: "white"
+          y: a / (a + b + c) * 100,
+          color: "#a1c4fd"
         },
         {
           x: "부정",
-          y: b / (a + b + c + d) * 100,
-          color: "white"
+          y: b / (a + b + c) * 100,
+          color: "#e1effe"
         },
         {
           x: "중립",
-          y: c / (a + b + c + d) * 100,
-          color: "white"
-        },
-        {
-          x: "중립",
-          y: d / (a + b + c + d) * 100,
-          color: "white"
+          y: c / (a + b + c) * 100,
+          color: '#a1c4fd'
         },
       ].slice().sort((a, b) => a.y - b.y)
 

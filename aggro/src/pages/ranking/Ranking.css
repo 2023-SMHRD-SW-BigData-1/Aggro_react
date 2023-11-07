@@ -131,8 +131,8 @@
     /* 그리드 항목들 사이의 간격 */
     padding-bottom: 1rem;
     /* 그리드 컨테이너 패딩 */
-    padding-left: 15rem;
-    padding-right: 15rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
 
 }
 
@@ -143,8 +143,8 @@
     /* 4개의 칸을 동일한 크기로 설정 */
     gap: 1rem;
     /* 그리드 항목들 사이의 간격 */
-    padding-left: 15rem;
-    padding-right: 15rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
 
 }
 
@@ -162,8 +162,8 @@
     /* 그리드 항목들 사이의 간격 */
     padding-bottom: 1rem;
     /* 그리드 컨테이너 패딩 */
-    padding-left: 15rem;
-    padding-right: 15rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
 }
 
 .top-container {
@@ -177,8 +177,8 @@
     font-size: x-large;
     border-radius: 1%;
     /* 모서리 둥글게 처리 */
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 
 }
 
@@ -193,8 +193,8 @@
     font-size: x-large;
     border-radius: 1%;
     /* 모서리 둥글게 처리 */
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 
 }
 
@@ -208,8 +208,8 @@
     /* 그림자 효과 */
     border-radius: 1%;
     /* 모서리 둥글게 처리 */
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 
 }
 

@@ -44,6 +44,14 @@ const Header1 = ({ history }) => {
           <Link to="/community">커뮤니티</Link>
         </li>
 
+        <li className="menu__item1">
+          <Link to="/community">마이페이지</Link>
+        </li>
+
+        <li className="menu__item1">
+          <Link to="/community">정기구독</Link>
+        </li>
+
         <li className="menu__item1">{authCheck}</li>
       </ul>
     </div>

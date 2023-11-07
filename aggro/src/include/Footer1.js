@@ -11,7 +11,7 @@ const Footer1 = () => {
           and Riot Games are trademarks or registered trademarks of Riot Games,
           Inc. League of Legends © Riot Games, Inc. */}
           © 2023 Agg.ro. This text serves as a copyright notice for the website Agg.ro, stating that it is not an official endorsement or position regarding Agg.ro-related content. Agg.ro is explicitly declared as independent from official entities.
-          we are the best.
+          We are the Best.
         </div>
         <ul className="footer__sns"></ul>
       </div>
