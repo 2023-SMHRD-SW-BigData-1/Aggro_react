@@ -14,6 +14,7 @@ import Join from "./pages/join/Join";
 import Login from "./pages/login/Login";
 import Ranking from "./pages/ranking/Ranking";
 import Summoner from "./pages/summoner/Summoner";
+import My from "./pages/my/My";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path="/join" component={Join} />
       <Route path="/intro" component={Intro}/>
       <Route path="/write" component={CommunityWrite} />
+      <Route path="/mypage" component={My} />
       <Route path="/summoner/:username" component={Summoner} />
       <Route path="/summoner" component={Summoner} />
       <Route path="/edit" component={CommunityEdit} exact={true} />

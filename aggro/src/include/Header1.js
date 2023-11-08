@@ -24,7 +24,7 @@ const Header1 = ({ history }) => {
 
   const myPage = localStorage.getItem("jwtToken") && (
     <li className="menu__item1">
-      <Link to="/community">마이페이지</Link>
+      <Link to="/mypage">마이페이지</Link>
     </li>
   );
 
