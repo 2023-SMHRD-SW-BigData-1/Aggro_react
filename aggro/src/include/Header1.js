@@ -28,11 +28,7 @@ const Header1 = ({ history }) => {
     </li>
   );
 
-  const loginCheck = localStorage.getItem("jwtToken") ? (
-    <Link to="/community">정기구독</Link> // 로그인 한 곳
-  ) : (
-    <Link to="/login">정기구독</Link> // 로그인 안된 곳
-  )
+
 
   return (
     <div className="l-menu1">
@@ -58,7 +54,7 @@ const Header1 = ({ history }) => {
 
         {myPage}
 
-        <li className="menu__item1">{loginCheck}</li>
+
 
         <li className="menu__item1">{authCheck}</li>
       </ul>
