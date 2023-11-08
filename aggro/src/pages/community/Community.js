@@ -217,11 +217,9 @@ const Community = ({ history }) => {
     if (postPage < 0) {
       return;
     }
-    console.log(6, prevPage);
     axios
       .get("http://localhost:8283/bigdata/community/" + prevPage)
       .then((response) => {
-        console.log(response.data.statusCode);
         setCommunityDtos(response.data.data);
         setStatusCode(response.data.statusCode);
 
@@ -238,7 +236,6 @@ const Community = ({ history }) => {
     axios
       .get("http://localhost:8283/bigdata/community/" + nextPage)
       .then((response) => {
-        console.log(response.data.statusCode);
         setCommunityDtos(response.data.data);
         setStatusCode(response.data.statusCode);
         setPostPage(postPage + 1);
@@ -251,7 +248,7 @@ const Community = ({ history }) => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     axios
-      .get("http://localhost:8283/bigdata/community/find/" + (inputValueRef.current.value.trim() === "" ? "04846" : inputValueRef.current.value) +"?searchOption="+searchOption.current.value)
+      .get("http://localhost:8283/bigdata/community/find/" + (inputValueRef.current.value.trim() === "" ? "04846" : inputValueRef.current.value) + "?searchOption=" + searchOption.current.value)
       .then((response) => {
         setCommunityDtos(response.data.data);
       })
@@ -263,24 +260,24 @@ const Community = ({ history }) => {
   const handleOnChange = (e) => {
 
     setInputValue(inputValueRef.current.value);
-      const search = async () => {
-        await axios
-          .get("http://localhost:8283/bigdata/community/find/" + (inputValueRef.current.value.trim() === "" ? "04846" : inputValueRef.current.value) +"?searchOption="+searchOption.current.value)
-          .then((response) => {
-            
-            setCommunityDtos(response.data.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
-      setTimeout(400);
-      search();
+    const search = async () => {
+      await axios
+        .get("http://localhost:8283/bigdata/community/find/" + (inputValueRef.current.value.trim() === "" ? "04846" : inputValueRef.current.value) + "?searchOption=" + searchOption.current.value)
+        .then((response) => {
+
+          setCommunityDtos(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    setTimeout(400);
+    search();
   };
 
   return (
     <div>
-        <Header1 />
+      <Header1 />
       <CommunityWrap>
         <div className="community-container">
 
@@ -337,7 +334,7 @@ const Community = ({ history }) => {
               {communityDtos.map(
                 (communityDto) =>
                   communityDto.type === 1 && (
-                    <div className="article-box" key={communityDto.post.noticeSeq}> 
+                    <div className="article-box" key={communityDto.post.noticeSeq}>
                       <div
                         className="article-item"
                         style={{ display: "contents" }}
@@ -369,7 +366,7 @@ const Community = ({ history }) => {
                                   fontStyle: "normal",
                                 }}
                               >
-                                [{communityDto.post.replies.length}] 
+                                [{communityDto.post.replies.length}]
                               </em>
                             </div>
                           </Link>
@@ -446,7 +443,7 @@ const Community = ({ history }) => {
           </ContentBox>
         </div>
       </CommunityWrap>
-            <Footer2 />
+      <Footer2 />
     </div>
   );
 };

@@ -54,7 +54,6 @@ const SearchData = ({ searchData }) => {
                     duration: 3000,
                     onLoad: { duration: 4000 }
                 }}
-                scale={{ x: "time" }}
             >
                 <VictoryAxis
                     tickValues={[

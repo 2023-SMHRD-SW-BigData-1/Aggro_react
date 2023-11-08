@@ -341,8 +341,6 @@ const CommunityDetail = ({ match, history }) => {
   // reply 추가, 삭제 로직 구현
   // reply 추가 로직
   const addReply = (reply) => {
-    console.log(reply)
-    console.log(postId);
     axios
       .post(
         "http://localhost:8283/bigdata/reply/write",
@@ -363,8 +361,6 @@ const CommunityDetail = ({ match, history }) => {
         }
       )
       .then((response) => {
-        console.log("replyresponse1", response);
-        console.log("replyresponse2", response.data);
 
         axios
           .get("http://localhost:8283/bigdata/community/detail/" + postId)
@@ -382,7 +378,6 @@ const CommunityDetail = ({ match, history }) => {
     //   alert('삭제 못함');
     //   return;
     // }
-    console.log(id);
     axios
       .delete("http://localhost:8283/bigdata/reply/delete/" + id, {
         headers: {
@@ -393,7 +388,6 @@ const CommunityDetail = ({ match, history }) => {
         axios
           .get("http://localhost:8283/bigdata/community/detail/" + postId)
           .then((response) => {
-            console.log(100, response);
             setResp(response.data);
           });
       })

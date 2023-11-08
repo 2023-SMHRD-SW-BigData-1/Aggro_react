@@ -7,7 +7,6 @@ const Header1 = ({ history }) => {
   const logout = () => {
     if (window.confirm("로그아웃 하시겠습니까?") == true) {
       localStorage.clear();
-      console.log(localStorage.getItem("jwtToken"));
     } else {
       return;
     }

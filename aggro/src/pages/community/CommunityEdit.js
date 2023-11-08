@@ -95,8 +95,6 @@ const WriteBox = styled.div`
 `;
 
 const CommunityEdit = ({ history }) => {
-  // console.log(1, history.location.state.title);
-  // console.log(2, history.location.state.content);
 
   const paramTitle = history.location.state.title;
   const paramContent = history.location.state.content;
@@ -116,7 +114,6 @@ const CommunityEdit = ({ history }) => {
   // 이거 작성완료 누르면 데이터보내고 본진으로 가는것을 구현할 것이다
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(storageUserId);
     const editPost = async () => {
       await axios
         .put(
@@ -139,7 +136,6 @@ const CommunityEdit = ({ history }) => {
         )
         .then((response) => {
           // 이거 먹히나?
-          console.log(response.data);
           // setPostId(response.data.data.post.id);
 
           alert("글 수정이 완료되었습니다");

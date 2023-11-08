@@ -68,7 +68,6 @@ const LoginContent = ({ history }) => {
   // 로그인 버튼 누름
   const onSubmit = (e) => {
     e.preventDefault();
-    // console.log(form);
 
     axios
       .post(
@@ -77,7 +76,6 @@ const LoginContent = ({ history }) => {
         form,
       )
       .then((response) => {
-        console.log(response);
         alert(response.data.message);
 
         localStorage.setItem("jwtToken", response.data.data.jwtToken); // 왜 발급하고 있지?

@@ -18,7 +18,6 @@ const CommentWrap = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("add", props);
     props.addReply(reply);
     setReply("");
   };
