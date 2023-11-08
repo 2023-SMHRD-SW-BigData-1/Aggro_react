@@ -1,6 +1,6 @@
-import moment from 'moment'
-import React, { useEffect, useState } from 'react'
-import { VictoryChart, VictoryLine, VictoryScatter, VictoryTooltip, VictoryZoomContainer } from 'victory'
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
+import { VictoryAxis, VictoryChart, VictoryLine, VictoryScatter, VictoryTooltip } from 'victory';
 
 
 const SearchData = ({ searchData }) => {
@@ -8,6 +8,7 @@ const SearchData = ({ searchData }) => {
     const [data, setData] = useState([])
 
     useEffect(() => {
+
         if (searchData.length > 0) {
             // 응답 데이터를 처리
             const processedData = [];
@@ -40,18 +41,39 @@ const SearchData = ({ searchData }) => {
         }
     }, [searchData]);
 
+
+
     return (
 
         <div className="item-box-item" style={{ overflow: "hidden" }}>
 
             <VictoryChart
                 height={200}
-                padding={{ top: 10, bottom: 30, left:70, right:20 }}
+                padding={{ top: 10, bottom: 30, left: 70, right: 20 }}
                 animate={{
                     duration: 3000,
                     onLoad: { duration: 4000 }
                 }}
+                scale={{ x: "time" }}
             >
+                <VictoryAxis
+                    tickValues={[
+                        new Date(new Date().getFullYear() - 2, 0, 1),
+                        new Date(new Date().getFullYear() - 1, 0, 1),
+                        new Date(new Date().getFullYear(), 0, 1)]
+                    }
+                    tickFormat={(x) => moment(x).format("YYYY")}
+                    style={{
+                        axis: { stroke: "black" }, // X축 레이블 위치에 선을 추가
+                        grid: {
+                            stroke: "#eaeaea",
+                        }
+                    }}
+                />
+                <VictoryAxis // Y축
+                    dependentAxis // Y축을 종속 축으로 설정
+                    tickFormat={(y) => y} // Y축 레이블 포맷
+                />
                 <VictoryLine
                     style={{
                         data: { stroke: "tomato" },
@@ -60,6 +82,7 @@ const SearchData = ({ searchData }) => {
                     data={data}
                     x="a"
                     y="b"
+
 
                 />
                 <VictoryScatter
