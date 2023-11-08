@@ -346,10 +346,6 @@
     /* 애니메이션 효과 지정 */
 }
 
-/* 마우스 오버시 텍스트 확대 효과 */
-.mapword-styled text:hover {
-    transform: scale(3);
-}
 
 .mapword-styled {
     height: 100%;
