@@ -58,11 +58,8 @@ const Header1 = ({ history }) => {
 
         {myPage}
 
-<<<<<<< HEAD
-=======
         <li className="menu__item1">{loginCheck}</li>
 
->>>>>>> 03731c3ea7d019cb8a352393624aea2d7dd9e701
         <li className="menu__item1">{authCheck}</li>
       </ul>
     </div>
