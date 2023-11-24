@@ -10,21 +10,17 @@ const SearchData = ({ searchData }) => {
     useEffect(() => {
 
         if (searchData.length > 0) {
-            // 응답 데이터를 처리
             const processedData = [];
             const dataMap = new Map();
-
             searchData.forEach((item) => {
                 const crawlAtDate = new Date(item.crawlAt);
-
-                // 2021년 1월 1일 이후의 데이터만 처리
+                // 기간지정
                 if (crawlAtDate >= new Date(new Date().getFullYear() - 2, 1, 1)) {
-                    const crawlAt = crawlAtDate.toISOString().slice(0, 7); // YYYY-MM 형식으로 날짜 포맷 변환
-
+                    const crawlAt = crawlAtDate.toISOString().slice(0, 7); 
                     if (dataMap.has(crawlAt)) {
-                        dataMap.set(crawlAt, dataMap.get(crawlAt) + 1); // 날짜가 이미 있으면 b 값을 증가
+                        dataMap.set(crawlAt, dataMap.get(crawlAt) + 1);
                     } else {
-                        dataMap.set(crawlAt, 1); // 날짜가 없으면 새로운 날짜로 초기화
+                        dataMap.set(crawlAt, 1);
                     }
                 }
             });
@@ -35,18 +31,12 @@ const SearchData = ({ searchData }) => {
                     b: value,
                 });
             });
-
-            // 데이터를 상태로 설정
             setData(processedData);
         }
     }, [searchData]);
 
-
-
     return (
-
         <div className="item-box-item" style={{ overflow: "hidden" }}>
-
             <VictoryChart
                 height={200}
                 padding={{ top: 10, bottom: 30, left: 70, right: 20 }}
@@ -63,31 +53,27 @@ const SearchData = ({ searchData }) => {
                     }
                     tickFormat={(x) => moment(x).format("YYYY")}
                     style={{
-                        axis: { stroke: "black" }, // X축 레이블 위치에 선을 추가
+                        axis: { stroke: "black" },
                         grid: {
                             stroke: "#eaeaea",
                         }
                     }}
                 />
-                <VictoryAxis // Y축
-                    dependentAxis // Y축을 종속 축으로 설정
-                    tickFormat={(y) => y} // Y축 레이블 포맷
+                <VictoryAxis
+                    dependentAxis 
+                    tickFormat={(y) => y} 
                 />
                 <VictoryLine
                     style={{
                         data: { stroke: "tomato" },
                     }}
-
                     data={data}
                     x="a"
                     y="b"
-
-
                 />
                 <VictoryScatter
                     style={{
                         data: { fill: "tomato" },
-
                     }}
                     data={data}
                     x="a"
@@ -100,8 +86,6 @@ const SearchData = ({ searchData }) => {
                     }
                 />
             </VictoryChart>
-
-
         </div>
     )
 }

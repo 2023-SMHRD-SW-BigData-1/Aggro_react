@@ -39,37 +39,25 @@ const Ranking = ({ history, match }) => {
   const downloadPDF = () => {
     const input = pdfRef.current;
 
-    // html2canvas 라이브러리를 사용하여 HTML 요소를 캔버스로 변환
     html2canvas(input, {
       scale: 1,
       useCORS: true,
-      scrollY: -window.scrollY, // 스크롤 문제를 해결하기 위해 추가
-      windowWidth: input.clientWidth,  // 클라이언트 너비를 사용
-      windowHeight: input.clientHeight  // 클라이언트 높이를 사용
+      scrollY: -window.scrollY,
+      windowWidth: input.clientWidth,
+      windowHeight: input.clientHeight
     }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
 
-      // jsPDF 인스턴스 생성 (가로 방향, 단위는 'mm', A4 크기, 높은 해상도로 설정)
       const pdf = new jsPDF('portrait', 'mm', 'a4', true);
-
-      // PDF 페이지의 너비 계산
       const pdfWidth = pdf.internal.pageSize.getWidth();
-
-      // 캔버스의 너비와 높이 계산
       const imgWidth = canvas.width;
       const imgHeight = canvas.height;
-
-      // 이미지의 높이와 너비 비율을 계산
       const heightRatio = pdfWidth * (imgHeight / imgWidth);
-
-      // PDF 내 이미지의 위치와 크기를 설정하기 위한 여백 값
       const sideMargin = 1;
-      const topMargin = 10; // 상단 여백을 10mm로 설정
+      const topMargin = 10;
 
-      // 이미지를 PDF에 추가
-      pdf.addImage(imgData, 'PNG', sideMargin, topMargin, pdfWidth - 2 * sideMargin, heightRatio - topMargin);
-
-      // 'Report.pdf' 이름으로 PDF 저장
+      pdf.addImage(imgData, 'PNG', sideMargin, topMargin, pdfWidth - 2 *
+       sideMargin, heightRatio - topMargin);
       pdf.save('Report.pdf');
     });
   };

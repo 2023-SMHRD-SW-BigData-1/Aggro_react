@@ -23,25 +23,12 @@ const HomeMain = ({ history }) => {
   return (
     <div className="homeMain-container">
       <div className="l-container">
-        {/* <div className="index-logo">
-          <div id="logo">
-            <img
-              src="img/Aggro_white.png"
-              className="Image"
-              title=" Aggro "
-              alt=" Aggro "
-            />
-          </div>
-        </div> */}
-
         <HomeLIst />
-
         <form
           onSubmit={handleSubmit}
           className="summoner-search-form"
           autoComplete="off"
         >
-
           <input
             type="text"
             name="username"

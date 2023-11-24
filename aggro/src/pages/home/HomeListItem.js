@@ -15,13 +15,7 @@ const HomeListItem = () => {
     axios
       .get("http://localhost:8283/bigdata/community/" + 0)
       .then((response) => {
-        // if (response.type !== 1) {
-        //   for (let index = 0; index < 3; index++) {
-        //     setCommunityDtos(response.data.data.post[index]);
-        //     console.log(response.data.data);
-        //     console.log(response.data.data.post);
-        //   }
-        // }
+
 
         let communityDtos = new Array();
 
@@ -29,8 +23,6 @@ const HomeListItem = () => {
           communityDtos.push(response.data.data[i]);
         }
 
-
-        // setCommunityDtos(response.data.data);
         setCommunityDtos(communityDtos);
         setStatusCode(response.data.statusCode);
 
@@ -79,40 +71,6 @@ const HomeListItem = () => {
                 </li>
               )
           )}
-
-          {/* {communityDtos.map(
-            (communityDto) =>
-              communityDto.type === 1 && (
-                <li
-                  className="community-article__list__item"
-                  key={communityDto.post.id}
-                >
-                  <Link to="/community">
-                    <div className="community-article__list__item__rank green">
-                      {communityDto.post.id}
-                    </div>
-
-                    <div className="community-article__list__item__title">
-                      <span>{communityDto.post.title}</span>
-                      <em>[{communityDto.post.replies.length}]</em>
-                    </div>
-                    <div className="community-article__list__item__sub">
-                      <div className="community-article__list__item__sub__item">
-                        <span>
-                          {" "}
-                          {moment(communityDto.post.createDate)
-                            .startOf("second")
-                            .fromNow()}
-                        </span>
-                      </div>
-                      <div className="community-article__list__item__sub__item">
-                        {communityDto.post.user.nickname}
-                      </div>
-                    </div>
-                  </Link>
-                </li>
-              )
-          )} */}
         </ul>
       </div>
     </>

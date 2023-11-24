@@ -28,10 +28,9 @@ const HomeLIst = () => {
 
   useEffect(() => {
     setStateInterval = setInterval(() => {
-      let a = Math.random(); // 긍정 테스트
-      let b = Math.random(); // 중립 테스트
-      let c = Math.random(); // 중립 테스트
-      // let d = Math.random(); // 중립 테스트
+      let a = Math.random(); 
+      let b = Math.random(); 
+      let c = Math.random(); 
 
       let data_legacy = [
         {
